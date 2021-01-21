@@ -1,9 +1,8 @@
-<?php
-​
-session_start(); // start the session 
-​
+<?php 
+session_start();
+
 ?>
-​
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,30 +29,24 @@ session_start(); // start the session
 </body>
 </html>
 ​
-<?php
-​
-//empty session
+<?php //empty session
 if (isset($_GET["destroy"])){
-    session_destroy();
+  session_destroy();
 }
-​
-​
 ?>
-​
-<!--Check to see if one of the items was sent via post-->
-<?php 
-if(isset($_POST['item1']))
-{
-    $_SESSION["item1"] = $_POST['item1'];
+
+<!-- Check if one of the items was sent by post -->
+<?php
+
+if(isset($_POST['item1'])){
+  $_SESSION["item1"] = $_POST['item1'];
 }
-​
-if(isset($_POST['item2']))
-{
-    $_SESSION["item2"] = $_POST['item2'];
+
+if(isset($_POST['item2'])){
+  $_SESSION["item2"] = $_POST['item2'];
 }
-​
-//echo variable info
+
+// echo variable info
 echo "Session";
 var_dump($_SESSION);
-​
 ?>

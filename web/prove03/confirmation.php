@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION)) { session_start(); }
-
-echo '<!doctype html>
+?>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -17,11 +17,8 @@ echo '<!doctype html>
   <title>Purchase received!</title>
 </head>
 <body>
-  <a href="index.php"><- Back to store</a>
-</body>
-</html>';
-
-  echo 'Items purchased:<br>';
+Items purchased:<br>
+<?php
   if(isset($_SESSION['Anduril'])){
     echo $_SESSION["Anduril"] . '<br>';
     unset($_SESSION['Anduril']);
@@ -42,11 +39,15 @@ echo '<!doctype html>
     echo $_SESSION['LegoGandalf'] . '<br>';
     unset($_SESSION['LegoGandalf']);
   }
-
-  echo '<p>Items will be shipped to:</p>';
+?>
+  <p>Items will be shipped to:</p>
+<?php
   echo htmlspecialchars($_GET['address']) . ' ' .
     htmlspecialchars($_GET['city']) . ', ' .
     htmlspecialchars($_GET['state']) . ', ' .
     htmlspecialchars($_GET['zip']) . '<br>';
 ?>
 
+  <a href="index.php"><- Back to store</a>
+</body>
+</html>

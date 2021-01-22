@@ -20,7 +20,7 @@
 <body>
   <div class="container">
     <h3 class='text-center'>Address</h3>
-    <form action="/confirmation.php" method='get'>
+    <form action="confirmation.php" method='get'>
       <div class="row">
         <div class="col">
           <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>

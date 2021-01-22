@@ -58,7 +58,7 @@ if (!isset($_SESSION)) { session_start(); }
         <img src="imgs/orc-armor.png" class="img-responsive">
         <p>Orc armor set</p>
         <form action='' method='post' id='OrcForm'>
-          <input type='hidden' value='OrcArmor' name='OrcArmor'>
+          <input type='hidden' value='Orc Armor' name='OrcArmor'>
           <button class='btn' type='submit' form='OrcForm'>Add to cart</button>
         </form>
       </div>
@@ -66,7 +66,7 @@ if (!isset($_SESSION)) { session_start(); }
         <img src="imgs/lego-gandalf.png" class="img-responsive">
         <p>Lego Gandalf</p>
         <form action='' method='post' id='GandalfForm'>
-          <input type='hidden' value='LegoGandalf' name='LegoGandalf'>
+          <input type='hidden' value='Lego Gandalf' name='LegoGandalf'>
           <button class='btn' type='submit' form='GandalfForm'>Add to cart</button>
         </form>
       </div>

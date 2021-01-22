@@ -57,7 +57,7 @@ if(isset($_SESSION['Sting'])){
 if(isset($_SESSION['OrcArmor'])){
   echo $_SESSION['OrcArmor'];
   echo "<form action='' method='post' id='OrcForm'>
-  <input type='hidden' value='OrcArmor' name='OrcArmor'>
+  <input type='hidden' value='Orc Armor' name='OrcArmor'>
   <button class='btn' type='submit' form='OrcForm' value='OrcArmor'>Remove from cart</button>
   </form>";
   if(isset($_POST['OrcArmor'])){
@@ -68,7 +68,7 @@ if(isset($_SESSION['OrcArmor'])){
 if(isset($_SESSION['LegoGandalf'])){
   echo $_SESSION['LegoGandalf'];
   echo "<form action='' method='post' id='GandalfForm'>
-  <input type='hidden' value='LegoGandalf' name='LegoGandalf'>
+  <input type='hidden' value='Lego Gandalf' name='LegoGandalf'>
   <button class='btn' type='submit' form='GandalfForm'>Remove from cart</button>
   </form>";
   if(isset($_POST['LegoGandalf'])){

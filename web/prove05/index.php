@@ -41,7 +41,9 @@ if (!isset($_SESSION)) { session_start(); }
     // $arr[] = array($row => $row['item_name']);
     echo "$row";
   }
-
+  echo "var dump <br>";
+  var_dump($row);
+  echo "<br><br>";
   $iter_count = 0;
   // Go through each result
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -57,7 +59,6 @@ if (!isset($_SESSION)) { session_start(); }
     $iter_count++;
     //echo "$iter_count";
   }
-
 
 ?>
 

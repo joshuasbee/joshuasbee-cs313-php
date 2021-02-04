@@ -85,7 +85,7 @@ if (!isset($_SESSION)) { session_start(); }
   </form> -->
   <?php
   echo "TESTING";
-  $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name=\'Anduril\';");
+  $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name='Anduril'");
   $statement->execute();
 
   // Go through each result

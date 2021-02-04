@@ -37,7 +37,7 @@ if (!isset($_SESSION)) { session_start(); }
   $stmt2->execute();
   $arr = array();
   while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
-    $arr[$row] = $row['item_name'];
+    $arr[] = array($row => $row['item_name']);
     echo "$arr[$row]";
   }
 

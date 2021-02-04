@@ -40,22 +40,14 @@ if (!isset($_SESSION)) { session_start(); }
   // Go through each result
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
-    if($iter_count == 3){
-      echo "<div class='row'>";
-    }
-    if($iter_count < 3){//add on other appropriate ones to be columns
-      echo "<div class='col'>";
-    }
+    if($iter_count == 1){ echo "<div class='row'>"; }
+    if($iter_count == 3){ echo "<div class='row'>"; }
+    if($iter_count < 3) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     echo "<img src='$pic'>";
     
-    if($iter_count < 3){//make conditional same as above for col
-      echo "</div><!--For col-->";
-    }
-    
-    if($iter_count == 4){
-      echo "</div><!--For row-->";
-    }
+    if($iter_count < 3){ echo "</div><!--For col-->"; }
+    if($iter_count == 4){ echo "</div><!--For row-->"; }
     $iter_count++;
     //echo "$iter_count";
   }

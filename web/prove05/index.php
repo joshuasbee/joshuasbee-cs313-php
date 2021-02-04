@@ -46,13 +46,13 @@ if (!isset($_SESSION)) { session_start(); }
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     if($iter_count == 0){ echo "<div class='row'>"; }
-    if($iter_count == 3){ echo "</div><!--close 1st row--><div class='row'>"; }
+    if($iter_count == 3){ echo "</div><div class='row'>"; }//closes first row and opens next
     if($iter_count <= 3) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     echo "<img src='$pic'><p>$arr[$iter_count]</p>";
     
-    if($iter_count <= 3){ echo "</div><!--For col-->"; }
-    if($iter_count == 4){ echo "</div><!--For row-->"; }
+    if($iter_count <= 4){ echo "</div><!--For col-->"; }//closes each col
+    if($iter_count == 4){ echo "</div><!--For row-->"; }//closes first row
     $iter_count++;
     //echo "$iter_count";
   }

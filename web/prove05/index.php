@@ -28,6 +28,7 @@ if (!isset($_SESSION)) { session_start(); }
     </form>
   </span>
   <h1 class="text-center">LOTR item shop</h1>
+  <div class="container">
 <?php
   // $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
   $stmt = $db->prepare("SELECT image_dir FROM items");// WHERE item_name= :item"); //Getting rid of the other part allows it to loop through all images
@@ -39,15 +40,21 @@ if (!isset($_SESSION)) { session_start(); }
   // Go through each result
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
+    if($iter_count == 4){
+      echo "<div class=row>";
+    }
     $pic = $row['image_dir'];
 
     echo "<img src='$pic'>";
+    if($iter_count == 4){
+      echo "</div>";
+    }
     $iter_count++;
-    echo "$iter_count";
+    //echo "$iter_count";
   }
 ?>
 
-
+</div><!-- container closing tag -->
 </body>
 </html>
 

@@ -29,20 +29,21 @@ if (!isset($_SESSION)) { session_start(); }
   </span>
   <h1 class="text-center">LOTR item shop</h1>
 <?php
-  $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
-  $statement = $db->prepare("SELECT image_dir FROM items");// WHERE item_name= :item");
-  // $stmt = $db->prepare('SELECT * FROM scout WHERE first_nsme = :name');
-  //$name= '$name';
-  // $statement->bindValue(':item', $item, PDO::PARAM_STR);
-  $statement->execute();
+  // $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
+  $stmt = $db->prepare("SELECT image_dir FROM items");// WHERE item_name= :item"); //Getting rid of the other part allows it to loop through all images
+  $stmt->execute();
+  $stmt2 = $db->prepare("SELECT item_name FROM items");
+  $stmt2->execute();
+
+  $iter_count = 0;
   // Go through each result
-  while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
-    // The variable "row" now holds the complete record for that
-    // row, and we can access the different values based on their
-    // name
     $pic = $row['image_dir'];
+
     echo "<img src='$pic'>";
+    $iter_count++;
+    echo "$iter_count";
   }
 ?>
 

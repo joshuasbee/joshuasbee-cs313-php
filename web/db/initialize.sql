@@ -32,4 +32,8 @@
 INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('900 125th St', 'Puyallup', 'WA', 'US', 98373, 't', 't');
 INSERT INTO users (username, email, password_) VALUES ('admin', 'admin99@gmail.com', 'pass');
 INSERT INTO user_to_address(user_id, address_id) VALUES (1, 1);
-INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('Anduril', 50, '../imgs/Anduril.jpeg', 500);
+INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('anduril', 50, '../imgs/Anduril.jpeg', 499);
+INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('glamdring', 50, '../imgs/Glamdring.png', 399);
+INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('lego_gandalf', 50, '../imgs/lego-gandalf.png', 5);
+INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('orc_armor', 50, '../imgs/orc-armor.png', 5);
+INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('sting', 50, '../imgs/Sting.png', 5);

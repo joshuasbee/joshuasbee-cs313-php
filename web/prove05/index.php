@@ -41,7 +41,7 @@ if (!isset($_SESSION)) { session_start(); }
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     if($iter_count == 0){ echo "<div class='row'>"; }
-    if($iter_count == 3){ echo "<div class='row'>"; }
+    if($iter_count == 3){ echo "</div><!--close 1st row--><div class='row'>"; }
     if($iter_count < 3) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     echo "<img src='$pic'>";

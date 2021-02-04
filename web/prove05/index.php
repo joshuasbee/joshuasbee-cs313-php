@@ -47,7 +47,7 @@ if (!isset($_SESSION)) { session_start(); }
   {
     if($iter_count == 0){ echo "<div class='row'>"; }
     if($iter_count == 3){ echo "</div><div class='row'>"; }//closes first row and opens next
-    if($iter_count <= 3) { echo "<div class='col'>"; }
+    if($iter_count <= 4) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     echo "<img src='$pic'><p>$arr[$iter_count]</p>";
     

@@ -1,6 +1,6 @@
 <?php 
 
-require "../../db/dbConnect.php";
+require "../db/dbConnect.php";
 $db = get_db();
 
 if (!isset($_SESSION)) { session_start(); }

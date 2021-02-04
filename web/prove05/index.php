@@ -83,6 +83,26 @@ if (!isset($_SESSION)) { session_start(); }
     <!- - This is for testing only - ->
     <button type="submit" name="destroy" value="true">Destroy Session</button>
   </form> -->
+  <?php
+  $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name=\'Anduril\';");
+  $statement->execute();
+
+  // Go through each result
+  while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+  {
+    // The variable "row" now holds the complete record for that
+    // row, and we can access the different values based on their
+    // name
+    $pic = $row['image_dir'];
+    // $chapter = $row['chapter'];
+    // $verse = $row['verse'];
+    // $content = $row['content'];
+
+    echo "<p><strong>$pic </strong> - \"$content\"<p>";
+    echo "<img src='$pic'>";
+}
+?>
+
 </body>
 
 </html>
@@ -94,26 +114,6 @@ if (!isset($_SESSION)) { session_start(); }
 ?>
 
 <!-- Check if one of the items was sent by post -->
-<?php
-// if(isset($_POST['Anduril'])){
-//   $_SESSION["Anduril"] = $_POST['Anduril'];
-// }
-// if(isset($_POST['Glamdring'])){
-//   $_SESSION["Glamdring"] = $_POST['Glamdring'];
-// }
-// if(isset($_POST['Sting'])){
-//   $_SESSION['Sting'] = $_POST['Sting'];
-// }
-// if(isset($_POST['OrcArmor'])){
-//   $_SESSION['OrcArmor'] = $_POST['OrcArmor'];
-// }
-// if(isset($_POST['LegoGandalf'])){
-//   $_SESSION['LegoGandalf'] = $_POST['LegoGandalf'];
-// }
 
-// echo variable info
-//  echo "Session variables dump: ";
-//  var_dump($_SESSION);
-?>
 
 

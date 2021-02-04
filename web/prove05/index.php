@@ -34,9 +34,9 @@ if (!isset($_SESSION)) { session_start(); }
     <div class="row">
       <div class="col">
       <?php 
-      $anduril_path = 'SELECT image_dir FROM items WHERE item_name=\'Anduril\';';
+      //$anduril_path = 'SELECT image_dir FROM items WHERE item_name=\'Anduril\';';
       ?>
-        <img src=<?php pg_query($connect, $anduril_path)?> class="img-responsive">
+        <img src=<?php //pg_query($connect, $anduril_path)?> class="img-responsive">
         <p>Anduril</p>
         <form action='' method='post' id='AndurilForm'>
           <input type='hidden' value='Anduril' name='Anduril'>

@@ -38,9 +38,8 @@ if (!isset($_SESSION)) { session_start(); }
   $arr = array();
   while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
     $arr[$row] = $row['item_name'];
+    echo "$arr[$row]";
   }
-
-  
 
   $iter_count = 0;
   // Go through each result

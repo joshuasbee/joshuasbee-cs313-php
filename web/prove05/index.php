@@ -88,7 +88,7 @@ if (!isset($_SESSION)) { session_start(); }
   $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name= :item");
   // $stmt = $db->prepare('SELECT * FROM scout WHERE first_nsme = :name');
   //$name= '$name';
-  $stmt->bindValue(':item', $item, PDO::PARAM_STR);
+  $statement->bindValue(':item', $item, PDO::PARAM_STR);
   $statement->execute();
   // Go through each result
   while ($row = $statement->fetch(PDO::FETCH_ASSOC))

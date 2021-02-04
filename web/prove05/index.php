@@ -36,7 +36,7 @@ if (!isset($_SESSION)) { session_start(); }
       <?php 
       //$anduril_path = 'SELECT image_dir FROM items WHERE item_name=\'Anduril\';';
       ?>
-        <img src=<?php //pg_query($connect, $anduril_path)?> class="img-responsive">
+        <!-- <img src=<?php //pg_query($connect, $anduril_path)?> class="img-responsive"> -->
         <p>Anduril</p>
         <form action='' method='post' id='AndurilForm'>
           <input type='hidden' value='Anduril' name='Anduril'>
@@ -91,10 +91,10 @@ if (!isset($_SESSION)) { session_start(); }
 
 <?php
   $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
-  $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name= :item");
+  $statement = $db->prepare("SELECT image_dir FROM items");// WHERE item_name= :item");
   // $stmt = $db->prepare('SELECT * FROM scout WHERE first_nsme = :name');
   //$name= '$name';
-  $statement->bindValue(':item', $item, PDO::PARAM_STR);
+  // $statement->bindValue(':item', $item, PDO::PARAM_STR);
   $statement->execute();
   // Go through each result
   while ($row = $statement->fetch(PDO::FETCH_ASSOC))

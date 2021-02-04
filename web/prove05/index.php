@@ -36,9 +36,10 @@ if (!isset($_SESSION)) { session_start(); }
   $stmt2 = $db->prepare("SELECT item_name FROM items");
   $stmt2->execute();
   $arr = array();
+
   while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
-    $arr[] = array($row => $row['item_name']);
-    echo "$arr[$row]";
+    // $arr[] = array($row => $row['item_name']);
+    echo "$row";
   }
 
   $iter_count = 0;
@@ -49,10 +50,10 @@ if (!isset($_SESSION)) { session_start(); }
     if($iter_count == 3){ echo "</div><div class='row'>"; }//closes first row and opens next
     if($iter_count <= 4) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
-    echo "<img src='$pic'><p>$arr[$iter_count]</p>";
+    echo "<img src='$pic'>";//<p>$arr[$iter_count]</p>";
     
-    if($iter_count <= 4){ echo "</div><!--For col-->"; }//closes each col
-    if($iter_count == 4){ echo "</div><!--For row-->"; }//closes first row
+    if($iter_count <= 4){ echo "</div>"; }//closes each col
+    if($iter_count == 4){ echo "</div>"; }//closes first row
     $iter_count++;
     //echo "$iter_count";
   }

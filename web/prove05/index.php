@@ -84,7 +84,7 @@ if (!isset($_SESSION)) { session_start(); }
     <button type="submit" name="destroy" value="true">Destroy Session</button>
   </form> -->
   <?php
-  $item = array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
+  $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
   $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name= :item");
   // $stmt = $db->prepare('SELECT * FROM scout WHERE first_nsme = :name');
   //$name= '$name';

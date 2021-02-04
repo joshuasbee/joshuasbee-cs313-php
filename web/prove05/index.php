@@ -83,7 +83,13 @@ if (!isset($_SESSION)) { session_start(); }
     <!- - This is for testing only - ->
     <button type="submit" name="destroy" value="true">Destroy Session</button>
   </form> -->
-  <?php
+  
+
+</body>
+</html>
+
+
+<?php
   $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
   $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name= :item");
   // $stmt = $db->prepare('SELECT * FROM scout WHERE first_nsme = :name');
@@ -100,18 +106,3 @@ if (!isset($_SESSION)) { session_start(); }
     echo "<img src='$pic'>";
   }
 ?>
-
-</body>
-
-</html>
-
-<?php //empty the session
-// if (isset($_GET["destroy"])){
-//   session_destroy();
-// }
-?>
-
-<!-- Check if one of the items was sent by post -->
-
-
-

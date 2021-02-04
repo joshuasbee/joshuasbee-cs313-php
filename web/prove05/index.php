@@ -44,7 +44,7 @@ if (!isset($_SESSION)) { session_start(); }
         </form>
       </div>
       <div class="col">
-        <img src="../imgs/Glamdring.png" class="img-responsive">
+        <!-- <img src="../imgs/Glamdring.png" class="img-responsive"> -->
         <p>Glamdring</p>
         <form action='' method='post' id='GlamdringForm'>
           <input type='hidden' value='Glamdring' name='Glamdring'>
@@ -52,7 +52,7 @@ if (!isset($_SESSION)) { session_start(); }
         </form>
       </div>
       <div class="col">
-        <img src="imgs/Sting.png" class="img-responsive" id="sting">
+        <!-- <img src="imgs/Sting.png" class="img-responsive" id="sting"> -->
         <p>Sting</p>
         <form action='' method='post' id='StingForm'>
           <input type='hidden' value='Sting' name='Sting'>
@@ -62,7 +62,7 @@ if (!isset($_SESSION)) { session_start(); }
     </div>
     <div class="row">
       <div class="col">
-        <img src="imgs/orc-armor.png" class="img-responsive">
+        <!-- <img src="imgs/orc-armor.png" class="img-responsive"> -->
         <p>Orc armor set</p>
         <form action='' method='post' id='OrcForm'>
           <input type='hidden' value='Orc Armor' name='OrcArmor'>
@@ -70,7 +70,7 @@ if (!isset($_SESSION)) { session_start(); }
         </form>
       </div>
       <div class="col">
-        <img src="imgs/lego-gandalf.png" class="img-responsive">
+        <!-- <img src="imgs/lego-gandalf.png" class="img-responsive"> -->
         <p>Lego Gandalf</p>
         <form action='' method='post' id='GandalfForm'>
           <input type='hidden' value='Lego Gandalf' name='LegoGandalf'>

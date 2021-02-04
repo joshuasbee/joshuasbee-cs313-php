@@ -84,6 +84,7 @@ if (!isset($_SESSION)) { session_start(); }
     <button type="submit" name="destroy" value="true">Destroy Session</button>
   </form> -->
   <?php
+  echo "TESTING";
   $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name=\'Anduril\';");
   $statement->execute();
 
@@ -98,7 +99,7 @@ if (!isset($_SESSION)) { session_start(); }
     // $verse = $row['verse'];
     // $content = $row['content'];
 
-    echo "<p><strong>$pic </strong> - \"$content\"<p>";
+    echo "<p><strong>$pic </strong><p>";
     echo "<img src='$pic'>";
 }
 ?>

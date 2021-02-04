@@ -84,10 +84,12 @@ if (!isset($_SESSION)) { session_start(); }
     <button type="submit" name="destroy" value="true">Destroy Session</button>
   </form> -->
   <?php
-  echo "TESTING";
-  $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name='Anduril'");
+  $item = "Anduril";
+  $statement = $db->prepare("SELECT image_dir FROM items WHERE item_name= :item");
+  // $stmt = $db->prepare('SELECT * FROM scout WHERE first_nsme = :name');
+  //$name= '$name';
+  $stmt->bindValue(':item', $item, PDO::PARAM_STR);
   $statement->execute();
-
   // Go through each result
   while ($row = $statement->fetch(PDO::FETCH_ASSOC))
   {
@@ -95,13 +97,9 @@ if (!isset($_SESSION)) { session_start(); }
     // row, and we can access the different values based on their
     // name
     $pic = $row['image_dir'];
-    // $chapter = $row['chapter'];
-    // $verse = $row['verse'];
-    // $content = $row['content'];
-
     echo "<p><strong>$pic </strong><p>";
     echo "<img src='$pic'>";
-}
+  }
 ?>
 
 </body>

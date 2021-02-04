@@ -110,8 +110,7 @@ if (!isset($_SESSION)) { session_start(); }
 // if(isset($_POST['LegoGandalf'])){
 //   $_SESSION['LegoGandalf'] = $_POST['LegoGandalf'];
 // }
-  $image_path = '../imgs/Anduril.jpeg';
-  echo $image_path;
+
 // echo variable info
 //  echo "Session variables dump: ";
 //  var_dump($_SESSION);

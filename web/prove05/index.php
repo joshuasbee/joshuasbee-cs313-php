@@ -33,8 +33,14 @@ if (!isset($_SESSION)) { session_start(); }
   // $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
   $stmt = $db->prepare("SELECT image_dir FROM items");// WHERE item_name= :item"); //Getting rid of the other part allows it to loop through all images
   $stmt->execute();
-  // $stmt2 = $db->prepare("SELECT item_name FROM items");
-  // $stmt2->execute();
+  $stmt2 = $db->prepare("SELECT item_name FROM items");
+  $stmt2->execute();
+  $arr = array();
+  while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
+    $arr[$row] = $row['item_name'];
+  }
+
+  
 
   $iter_count = 0;
   // Go through each result
@@ -44,14 +50,15 @@ if (!isset($_SESSION)) { session_start(); }
     if($iter_count == 3){ echo "</div><!--close 1st row--><div class='row'>"; }
     if($iter_count <= 3) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
-    $nm = $row['item_name'];
-    echo "<img src='$pic'><p>$nm</p>";
+    echo "<img src='$pic'><p>$arr[$iter_count]</p>";
     
     if($iter_count <= 3){ echo "</div><!--For col-->"; }
     if($iter_count == 4){ echo "</div><!--For row-->"; }
     $iter_count++;
     //echo "$iter_count";
   }
+
+
 ?>
 
 </div><!-- container closing tag -->

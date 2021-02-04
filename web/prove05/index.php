@@ -46,7 +46,7 @@ if (!isset($_SESSION)) { session_start(); }
     $pic = $row['image_dir'];
 
     echo "<img src='$pic'>";
-    if($iter_count == 3){
+    if($iter_count == 4){
       echo "</div>";
     }
     $iter_count++;

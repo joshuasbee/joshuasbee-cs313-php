@@ -9,7 +9,7 @@ $query = ucwords($query);//Capitalizes each word, that is how it is in database
 // echo "searched for: " . "$query"; // This works fine
 $stmt = $db->prepare("SELECT * FROM items WHERE item_name LIKE '%$query%");
 $stmt->execute();
-echo $stmt->fetch(PDO::FETCH_ASSOC);
+echo "Result: " . $stmt->fetch(PDO::FETCH_ASSOC);
 // while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 // {
 //   $names = $row['item_name'];

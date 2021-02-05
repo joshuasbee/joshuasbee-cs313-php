@@ -26,23 +26,22 @@ if (!isset($_SESSION)) { session_start(); }
       <input type="submit" value="Cart" class='btn-success' />
     </form>
   </span>
+  <div class="input-group">
+  <div class="form-outline">
+    <input type="search" id="form1" class="form-control" />
+    <label class="form-label" for="form1">Search</label>
+  </div>
+  <button type="button" class="btn btn-primary">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+
   <h1 class="text-center">LOTR item shop</h1>
   <div class="container">
 <?php
   // $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
   $stmt = $db->prepare("SELECT * FROM items");// WHERE item_name= :item"); //Getting rid of the other part allows it to loop through all images
   $stmt->execute();
-          // $stmt2 = $db->prepare("SELECT item_name FROM items");
-          // $stmt2->execute();
-          // $arr = array();
-
-          // while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
-          //   // $arr[] = array($row => $row['item_name']);
-          //   echo "$row";
-          // }
-          // echo "var dump <br>";
-          // var_dump($row);
-          // echo "<br><br>";
   $iter_count = 0;
   // Go through each result
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

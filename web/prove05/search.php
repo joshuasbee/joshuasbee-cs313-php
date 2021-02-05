@@ -14,6 +14,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
   $name = $row['item_name'];
   $pic = $row['image_dir'];
-  echo "$pic" . "$name";
+  echo "<img src='$pic'>" . "<div>$name</div>";
 }
 ?>

@@ -31,12 +31,14 @@ if (!isset($_SESSION)) { session_start(); }
   </span>
 <!--  -->
   <div class="input-group rounded" id="search">
+  <form action="search.php" method='get'>
   <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">
-            <span class="input-group-append">
-              <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                    <i class="fa fa-search"></i>
-              </button>
-            </span>
+    <span class="input-group-append">
+      <button class="btn btn-outline-secondary border-left-0 border" type="submit">
+      <i class="fa fa-search"></i>
+      </button>
+      </form>
+    </span>
 </div>
 <!--  -->
   <h1 class="text-center">LOTR item shop</h1>

@@ -31,7 +31,7 @@ if (!isset($_SESSION)) { session_start(); }
   </span>
 <!--  -->
 <form action="search.php" method='get'>
-  <div class="input-group rounded mx-auto" id="search">  
+  <div class="input-group rounded mx-auto" id="search">  <!-- mx-auto is the only thing that I found to work to center this -->
   <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" name="query" id="example-search-input">
     <span class="input-group-append">
       <button class="btn btn-outline-secondary border-left-0 border" type="submit">
@@ -55,7 +55,7 @@ if (!isset($_SESSION)) { session_start(); }
     if($iter_count <= 4) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     $names = $row['item_name'];
-    echo "<img src='$pic'><p>$names</p>";
+    echo "<img id='$iter_count' src='$pic'><p>$names</p>";
     
     if($iter_count <= 4){ echo "</div>"; }//closes each col
     if($iter_count == 4){ echo "</div>"; }//closes first row

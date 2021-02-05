@@ -30,7 +30,7 @@ if (!isset($_SESSION)) { session_start(); }
   <div class="container">
 <?php
   // $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
-  $stmt = $db->prepare("SELECT image_dir FROM items");// WHERE item_name= :item"); //Getting rid of the other part allows it to loop through all images
+  $stmt = $db->prepare("SELECT * FROM items");// WHERE item_name= :item"); //Getting rid of the other part allows it to loop through all images
   $stmt->execute();
           // $stmt2 = $db->prepare("SELECT item_name FROM items");
           // $stmt2->execute();

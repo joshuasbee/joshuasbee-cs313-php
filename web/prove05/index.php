@@ -28,11 +28,14 @@ if (!isset($_SESSION)) { session_start(); }
   </span>
 <!--  -->
   <div class="input-group rounded" id="search">
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-    aria-describedby="search-addon" >
-    <button class="btn btn-secondary" type="button">
-    <i class="fa fa-search"></i>
-  </span>
+  <div class="input-group col-md-4">
+            <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">
+            <span class="input-group-append">
+              <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                    <i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
 </div>
 <!--  -->
   <h1 class="text-center">LOTR item shop</h1>

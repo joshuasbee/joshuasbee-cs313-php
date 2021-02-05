@@ -55,7 +55,7 @@ if (!isset($_SESSION)) { session_start(); }
     if($iter_count <= 4) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     $names = $row['item_name'];
-    echo "<img id=\"$iter_count\" src='$pic'><p>$names</p>";
+    echo "<img id='$names' src='$pic'><p>$names</p>";
     
     if($iter_count <= 4){ echo "</div>"; }//closes each col
     if($iter_count == 4){ echo "</div>"; }//closes first row

@@ -26,16 +26,15 @@ if (!isset($_SESSION)) { session_start(); }
       <input type="submit" value="Cart" class='btn-success' />
     </form>
   </span>
-  <div class="input-group">
-  <div class="form-outline">
-    <input type="search" id="form1" class="form-control" />
-    <label class="form-label" for="form1">Search</label>
-  </div>
-  <button type="button" class="btn btn-primary">
+<!--  -->
+  <div class="input-group rounded">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+    aria-describedby="search-addon" />
+  <span class="input-group-text border-0" id="search-addon">
     <i class="fas fa-search"></i>
-  </button>
+  </span>
 </div>
-
+<!--  -->
   <h1 class="text-center">LOTR item shop</h1>
   <div class="container">
 <?php

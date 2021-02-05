@@ -22,8 +22,7 @@ if (!isset($_SESSION)) { session_start(); }
 
 <body>
   <span class="float-right">
-    <form action="cart.php" method='GET'>
-      <!-- calls the cart.php file -->
+    <form action="" method='GET'><!-- change action to call cart.php eventually -->
       <input type="submit" value="Cart" class='btn-success' />
     </form>
   </span>
@@ -33,17 +32,17 @@ if (!isset($_SESSION)) { session_start(); }
   // $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
   $stmt = $db->prepare("SELECT image_dir FROM items");// WHERE item_name= :item"); //Getting rid of the other part allows it to loop through all images
   $stmt->execute();
-  $stmt2 = $db->prepare("SELECT item_name FROM items");
-  $stmt2->execute();
-  $arr = array();
+          // $stmt2 = $db->prepare("SELECT item_name FROM items");
+          // $stmt2->execute();
+          // $arr = array();
 
-  while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
-    // $arr[] = array($row => $row['item_name']);
-    echo "$row";
-  }
-  echo "var dump <br>";
-  var_dump($row);
-  echo "<br><br>";
+          // while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
+          //   // $arr[] = array($row => $row['item_name']);
+          //   echo "$row";
+          // }
+          // echo "var dump <br>";
+          // var_dump($row);
+          // echo "<br><br>";
   $iter_count = 0;
   // Go through each result
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -52,7 +51,8 @@ if (!isset($_SESSION)) { session_start(); }
     if($iter_count == 3){ echo "</div><div class='row'>"; }//closes first row and opens next
     if($iter_count <= 4) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
-    echo "<img src='$pic'>";//<p>$arr[$iter_count]</p>";
+    $names = $row['item_name'];
+    echo "<img src='$pic'><p>$names</p>";
     
     if($iter_count <= 4){ echo "</div>"; }//closes each col
     if($iter_count == 4){ echo "</div>"; }//closes first row

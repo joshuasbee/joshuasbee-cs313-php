@@ -12,7 +12,7 @@ $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
   $names = $row['item_name'];
-  echo "$names";
+  echo "Results: <br>" . "$names";
 }
 
 

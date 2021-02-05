@@ -27,7 +27,7 @@ if (!isset($_SESSION)) { session_start(); }
     </form>
   </span>
 <!--  -->
-  <div class="input-group rounded">
+  <div class="input-group rounded text-center">
   <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
     aria-describedby="search-addon" />
   <span class="input-group-text border-0" id="search-addon">
@@ -38,8 +38,7 @@ if (!isset($_SESSION)) { session_start(); }
   <h1 class="text-center">LOTR item shop</h1>
   <div class="container">
 <?php
-  // $item = "anduril";//array("anduril", "glamdring", "lego_gandalf", "orc_armor", "sting");
-  $stmt = $db->prepare("SELECT * FROM items");// WHERE item_name= :item"); //Getting rid of the other part allows it to loop through all images
+  $stmt = $db->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
   $stmt->execute();
   $iter_count = 0;
   // Go through each result

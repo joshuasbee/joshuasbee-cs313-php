@@ -16,6 +16,9 @@ if (!isset($_SESSION)) { session_start(); }
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+  <!-- for search icon -->
+  <script src="https://use.fontawesome.com/11c7d798d9.js"></script>
+
   <link rel="stylesheet" href="style.css">
   <title>LOTR store</title>
 </head>

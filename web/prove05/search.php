@@ -14,6 +14,11 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
   $name = $row['item_name'];
   $pic = $row['image_dir'];
-  echo "<img src='$pic'>" . "<div>$name</div>";
+  $stock = $row['quantity'];
+  $price = $row['price'];
+  echo "<img src='$pic'>" . "<div>$name</div>" . "Price: \$$price<br>";
+  if ($stock >= 10){ echo "In stock"; }
+  elseif ($stock > 1 && $stock < 10){ echo "Low stock"; }
+  else { echo "Out of stock"; }
 }
 ?>

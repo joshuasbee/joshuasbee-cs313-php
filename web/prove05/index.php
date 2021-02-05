@@ -31,7 +31,7 @@ if (!isset($_SESSION)) { session_start(); }
   </span>
 <!--  -->
 <form action="search.php" method='get'>
-  <div class="input-group rounded" id="search">  
+  <div class="input-group rounded text-center" id="search">  
   <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" name="query" id="example-search-input">
     <span class="input-group-append">
       <button class="btn btn-outline-secondary border-left-0 border" type="submit">

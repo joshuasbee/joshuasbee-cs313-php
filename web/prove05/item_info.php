@@ -35,7 +35,7 @@
     $stock = $row['quantity'];
     $price = $row['price'];
     $nameUC = ucwords($name);//capitalize the name of the item for display
-    echo "<div class='row'";
+    echo "<div class='row'>";
     echo "<img src='$pic'></div>" . "<div class='row'>$nameUC</div>";
     echo "<div class='row'>Price: \$$price</div><div class='row'>";
     if ($stock >= 10){ echo "In stock"; }

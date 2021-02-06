@@ -53,12 +53,12 @@ if (!isset($_SESSION)) { session_start(); }
   //maybe define some constants like 1st row length
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
-    if($iter_count == 0){ echo "<div class='row justify-content-center'>"; }
-    if($iter_count == 3){ echo "</div><div class='row justify-content-center'>"; }//closes first row and opens next
+    if($iter_count == 0){ echo "<div class='row'>"; }
+    if($iter_count == 3){ echo "</div><div class='row'>"; }//closes first row and opens next
     if($iter_count <= 4) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     $names = $row['item_name'];
-    echo "<button id='$names' value='$names' name='$names'><img src='$pic'></button>";
+    echo "<button id='$names' value='$names' name='$names' class='justify-content-center'><img src='$pic'></button>";
     $names = ucwords($names);
     echo "<p>$names</p><br>";//name property for using $_GET['item']
     //TODO add an add to cart button here maybe?

@@ -35,14 +35,14 @@ if (!isset($_SESSION)) { session_start(); }
   </form>
 
 <form action="search.php" method='get'>
-  <div class="input-group rounded mx-auto" id="search">  <!-- mx-auto is the only thing that I found to work to center this -->
+  <span class="input-group rounded mx-auto" id="search">  <!-- mx-auto is the only thing that I found to work to center this -->
   <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" name="query" id="example-search-input">
     <span class="input-group-append">
       <button class="btn btn-outline-secondary border-left-0 border" type="submit">
       <i class="fa fa-search"></i>
       </button>
     </span>
-</div>
+</span>
 </form>
 <!--  -->
   <h1 class="text-center">LOTR item shop</h1>

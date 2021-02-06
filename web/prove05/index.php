@@ -33,16 +33,17 @@ if (!isset($_SESSION)) { session_start(); }
   <form action="" method='get'><!-- call login.php later -->
     <input type='submit' value='Login/Signup' class='btn-primary'>
   </form>
+</span>
 
 <form action="search.php" method='get'>
-  <span class="input-group rounded mx-auto" id="search">  <!-- mx-auto is the only thing that I found to work to center this -->
+  <div class="input-group rounded mx-auto" id="search">  <!-- mx-auto is the only thing that I found to work to center this -->
   <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" name="query" id="example-search-input">
     <span class="input-group-append">
       <button class="btn btn-outline-secondary border-left-0 border" type="submit">
       <i class="fa fa-search"></i>
       </button>
     </span>
-</span>
+  </div>
 </form>
 <!--  -->
   <h1 class="text-center">LOTR item shop</h1>

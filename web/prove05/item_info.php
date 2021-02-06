@@ -6,8 +6,8 @@
   if(isset($_GET['anduril'])){$query = $_GET['anduril'];}
   if(isset($_GET['glamdring'])){$query = $_GET['glamdring'];}
   if(isset($_GET['sting'])){$query = $_GET['sting'];}
-  if(isset($_GET['lego gandalf'])){$query = $_GET['lego gandalf'];}
-  if(isset($_GET['orc armor'])){$query = $_GET['orc armor'];}
+  if(isset($_GET['lego+gandalf'])){$query = $_GET['lego+gandalf'];}
+  if(isset($_GET['orc+armor'])){$query = $_GET['orc+armor'];}
 
   $query = htmlspecialchars($query);//filter out <script> or other malicious code
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");

@@ -59,7 +59,7 @@ if (!isset($_SESSION)) { session_start(); }
     $pic = $row['image_dir'];
     $names = $row['item_name'];
     // echo "<input type='image' id='$names' src='$pic' name='item' value='item'><p>$names</p><br>";//name property for using $_GET['item']
-    echo "<img src='$pic'><p>$names</p><br>";
+    echo "<img src='$pic' name='item'><p>$names</p><br>";
     //TODO add an add to cart button here maybe?
 
     //click image for item info page NAME is the way to get variable using $_GET['name']

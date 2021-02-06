@@ -5,12 +5,11 @@
   //lots of if(isset($_GET['Anduril'])) {$query = $_GET['Anduril'];}
   var_dump($_GET);//for anduril, it is a two item array with "Anduril_x" and "Anduril_y"
 
-  $query = $_GET[$names];
+  $query = $_GET['anduril'];
   echo "result of the get: " . "$query";
   // echo "Results for search of \"$query\":<br>";//show before capitalized
   $query = htmlspecialchars($query);//filter out <script> or other malicious code
-  $query = ucwords($query);//Capitalizes each word, that is how it is in database
-  // echo "searched for: " . "$query"; // This works fine
+
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");
   $stmt->execute();
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

@@ -47,7 +47,7 @@ if (!isset($_SESSION)) { session_start(); }
   $stmt = $db->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
   $stmt->execute();
   $iter_count = 0;
-  echo "<form action=item_info.php method='get";
+  // echo "<form action=item_info.php method='get";
   //maybe define some constants like 1st row length
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
@@ -56,8 +56,9 @@ if (!isset($_SESSION)) { session_start(); }
     if($iter_count <= 4) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     $names = $row['item_name'];
+    echo "<form action=item_info.php method='get";
     echo "<input type='image' id='$names' src='$pic'><p>$names</p><br>";
-    
+    echo "</form";
     //TODO add an add to cart button here maybe?
 
     //click image for item info page NAME is the way to get variable using $_GET['name']
@@ -65,7 +66,7 @@ if (!isset($_SESSION)) { session_start(); }
     if($iter_count == 4){ echo "</div>"; }//closes first row
     $iter_count++;
   }
-  echo "</form>";
+  // echo "</form>";
 ?>
 
 </div><!-- container closing tag -->

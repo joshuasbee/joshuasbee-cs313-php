@@ -40,7 +40,7 @@
     echo "<div class='row justify-content-center'>Price: \$$price</div><div class='row justify-content-center'>";
     if ($stock >= 10){ echo "In stock"; }
     elseif ($stock > 0 && $stock < 10){ echo "Low stock"; }
-    else { echo "Out of stock"; }
+    else { echo "<p class='text-danger'>Out of stock</p>"; }
     echo "</div>";//closes row for stock
     if ($stock > 0){
       echo "<div class='row justify-content-center'>";

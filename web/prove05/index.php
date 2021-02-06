@@ -58,7 +58,7 @@ if (!isset($_SESSION)) { session_start(); }
     if($iter_count <= 4) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     $names = $row['item_name'];
-    echo "<button id='$names' value='submit' name='$names'><img src='$pic'></button>";// value='item'>";
+    echo "<button id='$names' value='$names' name='$names'><img src='$pic'></button>";// value should be submit maybe
     $names = ucwords($names);
     echo "<p>$names</p><br>";//name property for using $_GET['item']
     //TODO add an add to cart button here maybe?

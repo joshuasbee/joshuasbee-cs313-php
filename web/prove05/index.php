@@ -25,12 +25,12 @@ if (!isset($_SESSION)) { session_start(); }
 
 <body>
   <span class="float-right">
-    <form action="" method='GET'><!-- change action to call cart.php eventually -->
+    <form action="" method=''><!-- change action to call cart.php eventually -->
       <input type="submit" value="Cart" class='btn-success' />
     </form>
   </span>
 <span class='float-left'>
-  <form action="" method='get'><!-- call login.php later -->
+  <form action="" method=''><!-- call login.php later -->
     <input type='submit' value='Login/Signup' class='btn-primary'>
   </form>
 </span>

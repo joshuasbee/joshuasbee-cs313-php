@@ -12,8 +12,10 @@
 
   $query = htmlspecialchars($query);//filter out <script> or other malicious code
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");
-  $stmt->execute();
+  $stmt->execute(); ?>
 
+  <div class="mx-auto">
+  <?php
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     $name = $row['item_name'];
@@ -30,3 +32,4 @@
     }
   }
 ?>
+</div>

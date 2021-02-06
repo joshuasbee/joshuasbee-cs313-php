@@ -20,5 +20,6 @@
     if ($stock >= 10){ echo "In stock"; }
     elseif ($stock > 1 && $stock < 10){ echo "Low stock"; }
     else { echo "Out of stock"; }
+    echo "<br>";
   }
 ?>

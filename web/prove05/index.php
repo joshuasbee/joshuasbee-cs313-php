@@ -26,13 +26,13 @@ if (!isset($_SESSION)) { session_start(); }
 <body>
   <span class="float-right">
     <form action="" method=''><!-- change action to call cart later -->
-      <input type="submit" value="Cart" class='btn-success rounded' />
+      <input type="submit" value="Cart" class='btn-success rounded'>
     </form>
   </span>
 
 <span class='float-left'>
   <form action="" method=''><!-- call login later -->
-    <input type='submit' value='Login/Signup' class='btn-primary'>
+    <input type='submit' value='Login/Signup' class='btn-primary rounded'>
   </form>
 </span>
 

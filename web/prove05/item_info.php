@@ -44,7 +44,7 @@
     echo "</div>";//closes row for stock
     if ($stock > 0){
       echo "<div class='row justify-content-center'>";
-      echo "<button id='$name' value='$name' name='$name'>Add to cart</button>";
+      echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
       echo "</div>";
     }
     

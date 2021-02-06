@@ -25,12 +25,13 @@ if (!isset($_SESSION)) { session_start(); }
 
 <body>
   <span class="float-right">
-    <form action="" method=''><!-- change action to call cart.php eventually -->
-      <input type="submit" value="Cart" class='btn-success' />
+    <form action="" method=''><!-- change action to call cart later -->
+      <input type="submit" value="Cart" class='btn-success rounded' />
     </form>
   </span>
+
 <span class='float-left'>
-  <form action="" method=''><!-- call login.php later -->
+  <form action="" method=''><!-- call login later -->
     <input type='submit' value='Login/Signup' class='btn-primary'>
   </form>
 </span>
@@ -45,8 +46,7 @@ if (!isset($_SESSION)) { session_start(); }
     </span>
   </div>
 </form>
-<!--  -->
-  <h1 class="text-center">LOTR item shop</h1>
+<h1 class="text-center">LOTR item shop</h1>
   
 <?php
   echo "<form action='item_info.php' method='get'";

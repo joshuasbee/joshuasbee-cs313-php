@@ -4,10 +4,10 @@
   if (!isset($_SESSION)) { session_start(); }
   //lots of if(isset($_GET['Anduril'])) {$query = $_GET['Anduril'];}
   if(isset($_GET['anduril'])){$query = $_GET['anduril'];}
-  if(isset($_GET['glamdring'])){$query = $_GET['glamdring'];}
-  if(isset($_GET['sting'])){$query = $_GET['sting'];}
-  if(isset($_GET['lego_gandalf'])){$query = $_GET['lego_gandalf'];}
-  if(isset($_GET['orc+armor'])){$query = $_GET['orc+armor'];}
+  elseif(isset($_GET['glamdring'])){$query = $_GET['glamdring'];}
+  elseif(isset($_GET['sting'])){$query = $_GET['sting'];}
+  elseif(isset($_GET['lego_gandalf'])){$query = $_GET['lego_gandalf'];}
+  elseif(isset($_GET['orc_armor'])){$query = $_GET['orc_armor'];}
   else{echo var_dump($_GET);}
   $query = htmlspecialchars($query);//filter out <script> or other malicious code
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");

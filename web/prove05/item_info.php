@@ -23,7 +23,7 @@
     $nameUC = ucwords($name);//capitalize the name of the item for display
     echo "<img src='$pic'>" . "<div>$nameUC</div>" . "Price: \$$price<br>";
     if ($stock >= 10){ echo "In stock<br>"; }
-    elseif ($stock > 1 && $stock < 10){ echo "Low stock<br>"; }
+    elseif ($stock > 0 && $stock < 10){ echo "Low stock<br>"; }
     else { echo "Out of stock"; }
     if ($stock > 0){
       echo "<button id='$name' value='$name' name='$name'>Add to cart</button>";

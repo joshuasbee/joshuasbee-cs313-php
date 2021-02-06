@@ -44,7 +44,7 @@ if (!isset($_SESSION)) { session_start(); }
   <h1 class="text-center">LOTR item shop</h1>
   
 <?php
-  echo "<form action=item_info.php method='get'";
+  echo "<form action='item_info.php' method='get'";
   echo "<div class='container'>";
   $stmt = $db->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
   $stmt->execute();

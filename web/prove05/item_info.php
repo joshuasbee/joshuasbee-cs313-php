@@ -26,7 +26,7 @@
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");
   $stmt->execute(); ?>
 
-  <div class="container justify-content-center">
+  <div class="container align-items-center"> <!-- justify-content-center"> -->
   <?php
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
@@ -35,7 +35,7 @@
     $stock = $row['quantity'];
     $price = $row['price'];
     $nameUC = ucwords($name);//capitalize the name of the item for display
-    echo "<div class='row w-50 mx-auto'>";//CHECK THIS ONE
+    echo "<div class='row'>";//CHECK THIS ONE
     echo "<img src='$pic'></div>" . "<div class='row'>$nameUC</div>";
     echo "<div class='row'>Price: \$$price</div><div class='row'>";
     if ($stock >= 10){ echo "In stock"; }

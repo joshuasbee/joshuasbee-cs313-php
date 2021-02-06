@@ -3,10 +3,9 @@
   $db = get_db();
   if (!isset($_SESSION)) { session_start(); }
   //lots of if(isset($_GET['Anduril'])) {$query = $_GET['Anduril'];}
-  var_dump($_GET);//for anduril, it is a two item array with "Anduril_x" and "Anduril_y"
-
+  // var_dump($_GET);
   $query = $_GET['anduril'];
-  echo "result of the get: " . "$query";
+  // echo "result of the get: " . "$query";
   // echo "Results for search of \"$query\":<br>";//show before capitalized
   $query = htmlspecialchars($query);//filter out <script> or other malicious code
 
@@ -18,6 +17,7 @@
     $pic = $row['image_dir'];
     $stock = $row['quantity'];
     $price = $row['price'];
+    $name = ucwords($name);
     echo "<img src='$pic'>" . "<div>$name</div>" . "Price: \$$price<br>";
     if ($stock >= 10){ echo "In stock"; }
     elseif ($stock > 1 && $stock < 10){ echo "Low stock"; }

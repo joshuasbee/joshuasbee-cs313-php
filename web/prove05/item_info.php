@@ -5,7 +5,7 @@
   //lots of if(isset($_GET['Anduril'])) {$query = $_GET['Anduril'];}
   var_dump($_GET);//for anduril, it is a two item array with "Anduril_x" and "Anduril_y"
 
-  $query = $_GET['item'];
+  $query = $_GET[$names];
   echo "result of the get: " . "$query";
   // echo "Results for search of \"$query\":<br>";//show before capitalized
   $query = htmlspecialchars($query);//filter out <script> or other malicious code

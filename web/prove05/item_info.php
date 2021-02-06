@@ -26,7 +26,8 @@
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");
   $stmt->execute(); ?>
 
-  <div class="row justify-content-center">
+  <!-- <div class="row justify-content-center"> -->
+    <div class='mx-auto'>
   <?php
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {

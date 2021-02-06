@@ -2,6 +2,8 @@
   require "../db/dbConnect.php";
   $db = get_db();
   if (!isset($_SESSION)) { session_start(); }
+  //lots of if(isset($_GET['Anduril'])) {$query = $_GET['Anduril'];}
+  var_dump($_GET);
 
   $query = $_GET['i_name'];
   echo "result of the get: " . "$query";

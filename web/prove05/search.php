@@ -3,7 +3,7 @@
   $db = get_db();
   if (!isset($_SESSION)) { session_start(); }
 
-  $query = $_GET['item'];
+  $query = $_GET['query'];
   $query = htmlspecialchars($query);//filter out <script> or other malicious code
   $query = ucwords($query);//Capitalizes each word, that is how it is in database
 

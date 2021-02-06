@@ -59,7 +59,7 @@ if (!isset($_SESSION)) { session_start(); }
     $pic = $row['image_dir'];
     $names = $row['item_name'];
     // echo "<form action=item_info.php method='get'";
-    echo "<input type='image' id='$names' src='$pic' name='$names'><p>$names</p><br>";//name property for using $_GET['item']
+    echo "<input type='image' id='$names' src='$pic' name='i_name'><p>$names</p><br>";//name property for using $_GET['item']
     // echo "</form";
     //TODO add an add to cart button here maybe?
 

@@ -3,14 +3,16 @@
   $db = get_db();
   if (!isset($_SESSION)) { session_start(); }
   //lots of if(isset($_GET['Anduril'])) {$query = $_GET['Anduril'];}
-  // var_dump($_GET);
-  $query = $_GET['anduril'];
-  // echo "result of the get: " . "$query";
-  // echo "Results for search of \"$query\":<br>";//show before capitalized
-  $query = htmlspecialchars($query);//filter out <script> or other malicious code
+  if(isset($_GET['anduril'])){$query = $_GET['anduril'];}
+  if(isset($_GET['glamdring'])){$query = $_GET['glamdring'];}
+  if(isset($_GET['sting'])){$query = $_GET['sting'];}
+  if(isset($_GET['lego gandalf'])){$query = $_GET['lego gandalf'];}
+  if(isset($_GET['orc armor'])){$query = $_GET['orc armor'];}
 
+  $query = htmlspecialchars($query);//filter out <script> or other malicious code
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");
   $stmt->execute();
+
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     $name = $row['item_name'];

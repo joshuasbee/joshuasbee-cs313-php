@@ -35,15 +35,15 @@
     $stock = $row['quantity'];
     $price = $row['price'];
     $nameUC = ucwords($name);//capitalize the name of the item for display
-    echo "<div class='row justify-content-center'>";//CHECK THIS ONE
-    echo "<img src='$pic'></div>" . "<div class='row'>$nameUC</div>";
-    echo "<div class='row'>Price: \$$price</div><div class='row'>";
+    echo "<div class='row justify-content-center'>";//justify-content-center must be on each item within the container div
+    echo "<img src='$pic'></div>" . "<div class='row justify-content-center'>$nameUC</div>";
+    echo "<div class='row justify-content-center'>Price: \$$price</div><div class='row justify-content-center'>";
     if ($stock >= 10){ echo "In stock"; }
     elseif ($stock > 0 && $stock < 10){ echo "Low stock"; }
     else { echo "Out of stock"; }
     echo "</div>";//closes row for stock
     if ($stock > 0){
-      echo "<div class='row'>";
+      echo "<div class='row justify-content-center'>";
       echo "<button id='$name' value='$name' name='$name'>Add to cart</button>";
       echo "</div>";
     }

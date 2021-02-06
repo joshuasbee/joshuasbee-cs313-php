@@ -3,7 +3,7 @@
   $db = get_db();
   if (!isset($_SESSION)) { session_start(); }
 
-  $query = $_GET['item'];
+  $query = $_GET['submit'];
   echo "result of the get: " . "$query";
   // echo "Results for search of \"$query\":<br>";//show before capitalized
   $query = htmlspecialchars($query);//filter out <script> or other malicious code

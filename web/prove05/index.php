@@ -44,7 +44,7 @@ if (!isset($_SESSION)) { session_start(); }
   
 <?php
   echo "<form action='item_info.php' method='get'";
-  echo "<div class='container text-center'>";
+  echo "<div class='container text-center'>";//Centers everything in this div very well
   $stmt = $db->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
   $stmt->execute();
   $iter_count = 0;
@@ -60,8 +60,6 @@ if (!isset($_SESSION)) { session_start(); }
     echo "<button id='$names' value='$names' name='$names'><img src='$pic'></button>";
     $names = ucwords($names);
     echo "<p>$names</p><br>";//name property for using $_GET['item']
-    // justify-content-center somewhere around here???????????
-
     if($iter_count <= 4){ echo "</div>"; }//closes each col
     if($iter_count == 4){ echo "</div>"; }//closes first row
     $iter_count++;

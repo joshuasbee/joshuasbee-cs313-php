@@ -1,15 +1,15 @@
 <?php 
-require "../db/dbConnect.php";
-$db = get_db();
-if (!isset($_SESSION)) { session_start(); }
+  require "../db/dbConnect.php";
+  $db = get_db();
+  if (!isset($_SESSION)) { session_start(); }
 
-$query = $_GET['query'];
-if ($query != ""){
-  echo "Results for search of \"$query\":<br>";//show before capitalized
+  $query = $_GET['item'];
+  // echo "Results for search of \"$query\":<br>";//show before capitalized
   $query = htmlspecialchars($query);//filter out <script> or other malicious code
   $query = ucwords($query);//Capitalizes each word, that is how it is in database
   // echo "searched for: " . "$query"; // This works fine
-  $stmt = $db->prepare("SELECT * FROM items WHERE item_name LIKE '%$query%'");
+
+  $stmt = $db->prepare("SELECT * FROM items WHERE item_name == '$query'");
   $stmt->execute();
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
@@ -22,5 +22,4 @@ if ($query != ""){
     elseif ($stock > 1 && $stock < 10){ echo "Low stock"; }
     else { echo "Out of stock"; }
   }
-}
 ?>

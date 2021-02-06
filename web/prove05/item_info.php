@@ -8,7 +8,7 @@
   if(isset($_GET['sting'])){$query = $_GET['sting'];}
   if(isset($_GET['lego+gandalf'])){$query = $_GET['lego+gandalf'];}
   if(isset($_GET['orc+armor'])){$query = $_GET['orc+armor'];}
-
+  else{echo var_dump($_GET);}
   $query = htmlspecialchars($query);//filter out <script> or other malicious code
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");
   $stmt->execute();

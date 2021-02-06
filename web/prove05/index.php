@@ -70,5 +70,3 @@ if (!isset($_SESSION)) { session_start(); }
 </div><!-- container closing tag -->
 </body>
 </html>
-
-

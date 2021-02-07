@@ -41,9 +41,9 @@
           <input type="text" id="zip" name="zip" placeholder="10001">
         </div>
       </div>
-      <input type='submit' value='Checkout' class='btn'>
+      <input type='submit' value='Checkout' class='btn'><!--BROKEN LINK CURRENTLY-->
     </form>
-    <a href="cart.php"><- Return to Cart</a>
+    <a href="cart.php"><- Return to Cart</a><!--BROKEN LINK CURRENTLY-->
   </div>
 </body>
 

@@ -33,9 +33,7 @@
     elseif ($stock > 1 && $stock < 10){ echo "Low stock"; }
     else { echo "Out of stock"; }
     if ($stock > 0){
-      echo "<div class='row justify-content-center'>";
       echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
-      echo "</div>";
     }
     echo "<br>";
   }

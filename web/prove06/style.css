@@ -1,0 +1,14 @@
+#search {
+  max-width: 50%;
+  min-width: 25%;
+  /* padding-left: 20%; */
+}
+#sting {
+  padding-top: 50px;
+  padding-bottom: 52px;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+}

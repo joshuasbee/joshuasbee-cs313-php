@@ -25,7 +25,7 @@ if (!isset($_SESSION)) { session_start(); }
 
 <body>
   <span class="float-right">
-    <form action="" method=''><!-- change action to call cart later -->
+    <form action="cart.php" method='get'><!-- change action to call cart later -->
       <input type="submit" value="Cart" class='btn-success rounded'>
     </form>
   </span>

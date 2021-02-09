@@ -22,7 +22,7 @@
       <br>
       <input type='password' placeholder='password' class='form-control'>
       <br>
-      <button type='submit' class='btn btn-info btn-md'>
+      <button type='submit' class='btn btn-info'>
     </form>
   </div>
 </div>

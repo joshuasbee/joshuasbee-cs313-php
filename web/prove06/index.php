@@ -31,7 +31,7 @@ if (!isset($_SESSION)) { session_start(); }
   </span>
 
 <span class='float-left'>
-  <form action="" method=''><!-- call login later -->
+  <form action="login.php" method='post'><!-- call login later -->
     <input type='submit' value='Login/Signup' class='btn-primary rounded'>
   </form>
 </span>

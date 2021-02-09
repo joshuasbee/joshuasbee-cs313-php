@@ -16,7 +16,7 @@
 <body>
 <div class='container'>
   <div class='row justify-content-center align-items-center'>
-    <p>Sign in</p>
+    <p>Sign in</p><br>
     <form action="" method="">
       <input type='text' placeholder='email' class='form-control'>
       <br>

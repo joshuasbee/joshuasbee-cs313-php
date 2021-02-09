@@ -17,7 +17,7 @@
 <div class='container'> 
   <h1 class='justify-content-center align-items-center'>Sign in</h1>
   <div class='row justify-content-center align-items-center'>
-    <form action="" method="">
+    <form action="" method="" class='form'>
       <input type='text' placeholder='email' class='form-control'>
       <br>
       <input type='password' placeholder='password' class='form-control'>

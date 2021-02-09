@@ -17,8 +17,11 @@
 <div class='text-center'>
   <p>Sign in</p>
   <form action="" method="">
-    <input type='text' placeholder='email'>
-    <input type='password' placeholder='password'>
+    <input type='text' placeholder='email' class='form-control'>
+    <br>
+    <input type='password' placeholder='password' class='form-control'>
+    <br>
+    <button type='submit' class='btn btn-info btn-md'>
   </form>
 </div>
 

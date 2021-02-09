@@ -23,7 +23,7 @@
       <input type='password' placeholder='password' class='form-control'>
       <br>
       <button type='submit' class='btn btn-info' name='login'>Login</button>
-      <button type='submit' class='btn btn-info' name='signup'>Sign up</button>
+      <button type='submit' class='btn btn-info float-right' name='signup'>Sign up</button>
     </form>
   </div>
 </div>

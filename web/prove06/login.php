@@ -13,9 +13,16 @@
   <link rel="stylesheet" href="style.css">
   <title>Login</title>
 </head>
-
 <body>
-  hello
-</body>
+<div class='text-center'>
+  <p>Sign in</p>
+  <form action="" method="">
+    <input type='text' placeholder='email'>
+    <input type='password' placeholder='password'>
+  </form>
+</div>
 
+
+
+</body>
 </html>

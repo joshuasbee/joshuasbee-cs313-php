@@ -14,9 +14,19 @@
   <title>Login</title>
 </head>
 <body>
-<h1>Sign up</h1>
-
-
+<div class='container'> 
+  <h1 class='text-center'>Sign up</h1>
+  <div class='row justify-content-center align-items-center'>
+    <form action="logsign.php" method="get" class='form'>
+      <input type='text' placeholder='email' class='form-control'>
+      <br>
+      <input type='password' placeholder='password' class='form-control'>
+      <br>
+      <button type='submit' class='btn btn-info' name='login'>Login</button>
+      <button type='submit' class='btn btn-info float-right' name='signup'>Sign up</button>
+    </form>
+  </div>
+</div>
 <?php
 ?>
 </body>

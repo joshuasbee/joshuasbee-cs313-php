@@ -11,7 +11,6 @@
 
 -- CREATE TABLE users(
 --   user_id    SERIAL      NOT NULL PRIMARY KEY,
---   username   VARCHAR(50) NOT NULL,
 --   email      VARCHAR(50) NOT NULL,
 --   password_  VARCHAR(50) NOT NULL
 -- );
@@ -30,7 +29,7 @@
 --   price      VARCHAR(20) NOT NULL
 -- );
 INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('900 125th St', 'Puyallup', 'WA', 'US', 98373, 't', 't');
-INSERT INTO users (username, email, password_) VALUES ('admin', 'admin99@gmail.com', 'pass');
+INSERT INTO users (email, password_) VALUES ('admin99@gmail.com', 'pass');
 INSERT INTO user_to_address(user_id, address_id) VALUES (1, 1);
 INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('anduril', 0, '../imgs/Anduril.jpeg', 499);
 INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('glamdring', 5, '../imgs/Glamdring.png', 399);

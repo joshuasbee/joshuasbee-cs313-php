@@ -11,7 +11,7 @@ CREATE TABLE address_(
 
 CREATE TABLE users(
   user_id    SERIAL      NOT NULL PRIMARY KEY,
-  username   VARCHAR(50) NOT NULL,
+  --username   VARCHAR(50) NOT NULL,
   email      VARCHAR(50) NOT NULL,
   password_  VARCHAR(50) NOT NULL
 );

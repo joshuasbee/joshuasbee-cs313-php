@@ -14,7 +14,7 @@
     $email = $_POST['email'];//sanitize inputs probably
     $pass = $_POST['password'];
     echo 'before sql, email in: ' . $email . ' pass: ' . $pass;
-    $psql = "INSERT INTO users (email, password_) VALUES ($email, $pass)";
+    $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
     $stmt= $db->prepare($psql);
     $stmt->execute([$email, $pass]);
     echo 'inserted';

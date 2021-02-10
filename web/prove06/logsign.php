@@ -69,9 +69,9 @@
       <br>
       <input type='text' placeholder='Zip Code' name='zipcode' class='form-control'>
       <br>
-      <input type="radio" id="Billing" name="billing" value="true">
+      <input type="checkbox" id="Billing" name="billing" value="true">
       <label for="Billing">Billing Address</label>
-      <input type="radio" id="Shipping" name="shipping" value="true">
+      <input type="checkbox" id="Shipping" name="shipping" value="true">
       <label for="Shipping">Shipping Address</label>
       <!-- 
       state_

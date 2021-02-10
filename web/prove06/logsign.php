@@ -13,7 +13,7 @@
     //add email to database
     $email = $_POST['email'];//sanitize inputs probably
     $pass = $_POST['password'];
-    echo 'before sql';
+    echo 'before sql, email in: ' . $email . ' pass: ' . $pass;
     $psql = "INSERT INTO users (email, password) VALUES ($email, $pass)";
     $stmt= $db->prepare($psql);
     $stmt->execute([$email, $pass]);

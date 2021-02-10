@@ -1,3 +1,18 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Login</title>
+</head>
 <?php
   require "../db/dbConnect.php";
   $db = get_db();
@@ -8,7 +23,6 @@
 
     $stmt = $db->prepare("SELECT * FROM users");//Select * allows me to pick different rows of the table in the while loop
     $stmt->execute();
-    $ran=false;
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       $email = $row['email'];
@@ -19,11 +33,9 @@
         header("Location: ./index.php");
         exit();
       }
-      elseif($ran==false){
+      else{
         echo 'Incorrect username or password!';
         exit();
-        echo 'did not exit';
-        $ran=true;
       }
     }
   }
@@ -40,3 +52,19 @@
   //header("Location: ./signup.php");
   //exit();
 ?>
+<body>
+<div class='container'> 
+  <h1 class='text-center'>Sign in</h1>
+  <div class='row justify-content-center align-items-center'>
+    <form action="logsign.php" method="post" class='form'>
+      <input type='text' placeholder='email' name='email' value='$email' class='form-control'>
+      <br>
+      <input type='password' placeholder='password' name='password' value='password' class='form-control'>
+      <br>
+      <input type='text' placeholder='Street address' class='form-control'>
+      <button type='submit' class='btn btn-info' name='signup'>Sign up</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

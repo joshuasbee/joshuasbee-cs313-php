@@ -75,7 +75,7 @@
       <label for="Shipping">Shipping Address</label>
       <input type="radio" id="Both" name="billship" value="both">
       <label for="Both">Both</label>
-      <button type='submit' class='btn btn-info' name='signup'>Sign up</button>
+      <button type='submit' class='btn btn-info' name='sign-up'>Sign up</button>
     </form>
   </div>
 </div>
@@ -85,7 +85,7 @@
 function validate(){
   echo 'validate function';
 }
-if(isset($_POST['signup'])){
+if(isset($_POST['sign-up'])){
   validate();
 }
 

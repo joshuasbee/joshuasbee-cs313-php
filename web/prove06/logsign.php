@@ -91,8 +91,9 @@ function upload(){
 
 function validate(){
   if(isset($_POST['email'])){
+    $email = $_POST['email'];
     if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //Valid email!
+      echo $email . ' is a valid email';
     }
   } else{echo 'invalid email';}
 

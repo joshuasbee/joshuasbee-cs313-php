@@ -44,9 +44,7 @@
     //add email to database
     $email = $_POST['email'];//sanitize inputs probably
     $pass = $_POST['password'];
-    // $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
-    // $stmt= $db->prepare($psql);
-    // $stmt->execute();
+    
     //TODO Maybe add address and address id to user id
   }
   //header("Location: ./signup.php");
@@ -75,16 +73,36 @@
       <label for="Shipping">Shipping Address</label>
       <input type="radio" id="Both" name="billship" value="both">
       <label for="Both">Both</label>
-      <button type='submit' class='btn btn-info' name='sign-up'>Sign up</button>
+      <button type='submit' class='btn btn-info' name='sign-up'>Sign up</button><br>
     </form>
   </div>
 </div>
 </body>
 </html>
 <?php 
-function validate(){
-  echo 'validate function';
+$passwordexp = '';
+
+function upload(){
+  $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
+  $stmt= $db->prepare($psql);
+  $stmt->execute();
 }
+
+
+function validate(){
+  if(isset($_POST['email'])){
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //Valid email!
+    }
+  } else{echo 'invalid email';}
+
+
+// $str = "Visit W3Schools";
+// $pattern = "/w3schools/i";
+// echo preg_match($pattern, $str); 
+// upload();
+}
+
 if(isset($_POST['sign-up'])){
   validate();
 }

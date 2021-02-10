@@ -8,7 +8,7 @@
 
     $stmt = $db->prepare("SELECT * FROM users");//Select * allows me to pick different rows of the table in the while loop
     $stmt->execute();
-    
+    $ran=false;
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       $email = $row['email'];
@@ -19,12 +19,11 @@
         header("Location: ./index.php");
         exit();
       }
-      else{
+      elseif($ran==false){
         echo 'Incorrect username or password!';
+        $ran=true;
       }
     }
-    
-    
   }
 
   if(isset($_POST['signup'])){

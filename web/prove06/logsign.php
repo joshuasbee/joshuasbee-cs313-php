@@ -22,6 +22,7 @@
       elseif($ran==false){
         echo 'Incorrect username or password!';
         exit();
+        echo 'did not exit';
         $ran=true;
       }
     }

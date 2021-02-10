@@ -16,7 +16,7 @@
     echo 'before sql, email in: ' . $email . ' pass: ' . $pass;
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
     $stmt= $db->prepare($psql);
-    $stmt->execute(array($email, $pass));
+    $stmt->execute();//array($email, $pass));//error here last time
     echo 'inserted';
     
   }

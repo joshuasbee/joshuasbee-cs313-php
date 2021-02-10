@@ -11,11 +11,11 @@
 
   if(isset($_POST['signup'])){
     //add email to database
-    $email = $_POST['email'];
+    $email = $_POST['email'];//sanitize inputs probably
     $pass = $_POST['password'];
     echo 'before sql';
     $psql = "INSERT INTO users (email, password) VALUES ($email, $pass)";
-    $stmt= $pdo->prepare($psql);
+    $stmt= $db->prepare($psql);
     $stmt->execute([$email, $pass]);
     echo 'inserted';
     

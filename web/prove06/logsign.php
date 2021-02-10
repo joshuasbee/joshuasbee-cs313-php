@@ -14,17 +14,17 @@
       $email = $row['email'];
       $pass = $row['password_'];
       if($email_post == $email && $pass_post == $pass){
-        //successful login
+        //if successful login, then go to the other page
         echo 'Login successful!';
+        header("Location: ./index.php");
+        exit();
       }
       else{
-        echo 'incorrect username or password';
+        echo 'Incorrect username or password!';
       }
     }
-    //then go to the other page
-    sleep(5);
-    header("Location: ./index.php");
-    exit();
+    
+    
   }
 
   if(isset($_POST['signup'])){

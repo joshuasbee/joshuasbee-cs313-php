@@ -61,7 +61,22 @@
       <br>
       <input type='password' placeholder='password' name='password' value='<?php echo (isset($pass))?$pass:'';?>' class='form-control'>
       <br>
-      <input type='text' placeholder='Street address' class='form-control'>
+      <input type='text' placeholder='Street address' name='street' class='form-control'>
+      <br>
+      <input type='text' placeholder='City' name='city' class='form-control'>
+      <br>
+      <input type='text' placeholder='State' name='state' class='form-control'>
+      <br>
+      <input type='text' placeholder='Zip Code' name='zipcode' class='form-control'>
+      <br>
+      <input type="radio" id="Billing" name="billing" value="true">
+      <label for="Billing">Billing Address</label>
+      <input type="radio" id="Shipping" name="shipping" value="true">
+      <label for="Shipping">Shipping Address</label>
+      <!-- 
+      state_
+      zip
+      billing shipping -->
       <button type='submit' class='btn btn-info' name='signup'>Sign up</button>
     </form>
   </div>

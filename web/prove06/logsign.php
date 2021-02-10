@@ -3,7 +3,21 @@
   $db = get_db();
   if(isset($_POST['login'])){
     //verify that the login worked
+    $email_post = $_POST['email'];//probably sanitize inputs
+    $pass_post = $_POST['password'];
 
+    $stmt = $db->prepare("SELECT * FROM users");//Select * allows me to pick different rows of the table in the while loop
+    $stmt->execute();
+    
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+    {
+      $email = $row['email'];
+      $pass = $row['password'];
+      if($email_post == $email && $pass_post == $pass){
+        //successful login
+        echo 'login successful!';
+      }
+    }
     //then go to the other page
     //header("Location: http://www.example.com/another-page.php");
     //exit();
@@ -13,14 +27,11 @@
     //add email to database
     $email = $_POST['email'];//sanitize inputs probably
     $pass = $_POST['password'];
-    echo 'before sql, email in: ' . $email . ' pass: ' . $pass;
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
     $stmt= $db->prepare($psql);
-    $stmt->execute();//array($email, $pass));//error here last time
-    echo 'inserted';
-    
+    $stmt->execute();
+    //TODO Maybe add address and address id to user id
   }
-//header("Location: ./signup.php");
-    //exit();
-
+  //header("Location: ./signup.php");
+  //exit();
 ?>

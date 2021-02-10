@@ -9,7 +9,8 @@
 
   if(isset($_GET['signup'])){
     //add email to database
-    echo 'something';
+    header("Location: ./signup.php");
+    exit();
   }
 
 

@@ -57,9 +57,9 @@
   <h1 class='text-center'>Sign in</h1>
   <div class='row justify-content-center align-items-center'>
     <form action="logsign.php" method="post" class='form'>
-      <input type='text' placeholder='email' name='email' value='$email' class='form-control'>
+      <input type='text' placeholder='email' name='email' value='<?php echo (isset($email))?$email:"";?>' class='form-control'>
       <br>
-      <input type='password' placeholder='password' name='password' value='password' class='form-control'>
+      <input type='password' placeholder='password' name='password' value='<?php echo (isset($pass))?$pass:'';?>' class='form-control'>
       <br>
       <input type='text' placeholder='Street address' class='form-control'>
       <button type='submit' class='btn btn-info' name='signup'>Sign up</button>

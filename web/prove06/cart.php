@@ -13,9 +13,11 @@
   <link rel="stylesheet" href="style.css">
   <title>Cart</title>
 </head>
-
 <body>
   cart
+  <?php 
+  //TODO change how this behaves when logged in and not logged in, maybe do a query for their cart ID if it fails tell them to login
+  ?>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
-<?php 
-  // if (!isset($_SESSION)) { session_start(); }
+ <?php 
+//PAGE MAY BE UNNECESSARY
 ?>
 <!doctype html>
 <html lang="en">

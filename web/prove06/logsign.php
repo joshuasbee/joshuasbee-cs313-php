@@ -21,6 +21,7 @@
       }
       elseif($ran==false){
         echo 'Incorrect username or password!';
+        exit();
         $ran=true;
       }
     }
@@ -30,9 +31,9 @@
     //add email to database
     $email = $_POST['email'];//sanitize inputs probably
     $pass = $_POST['password'];
-    $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
-    $stmt= $db->prepare($psql);
-    $stmt->execute();
+    // $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
+    // $stmt= $db->prepare($psql);
+    // $stmt->execute();
     //TODO Maybe add address and address id to user id
   }
   //header("Location: ./signup.php");

@@ -1,9 +1,9 @@
 <?php
-  if(isset($_POST['login'])){
+  if(isset($_GET['login'])){
     echo 'login pressed';
   }
 
-  if(isset($_POST['signup'])){
+  if(isset($_GET['signup'])){
     echo 'signup pressed';
   }
 

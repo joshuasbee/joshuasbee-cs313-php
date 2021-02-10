@@ -69,10 +69,12 @@
       <br>
       <input type='text' placeholder='Zip Code' name='zipcode' class='form-control'>
       <br>
-      <input type="radio" id="Billing" name="billing" value="true">
-      <label for="Billing">Billing Address</label><br>
-      <input type="radio" id="Shipping" name="shipping" value="true">
+      <input type="radio" id="Billing" name="billship" value="bill">
+      <label for="Billing">Billing Address</label>
+      <input type="radio" id="Shipping" name="billship" value="ship">
       <label for="Shipping">Shipping Address</label>
+      <input type="radio" id="Both" name="billship" value="both">
+      <label for="Both">Both</label>
       <button type='submit' class='btn btn-info' name='signup'>Sign up</button>
     </form>
   </div>
@@ -80,7 +82,7 @@
 </body>
 </html>
 <?php 
-echo 'after form';
+
 
 
 

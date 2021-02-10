@@ -104,6 +104,7 @@ function validate(){
 }
 
 if(isset($_POST['sign-up'])){
+  echo 'calling validate';
   validate();
 }
 

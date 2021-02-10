@@ -11,8 +11,8 @@
 
   if(isset($_GET['signup'])){
     //add email to database
-    $username = $_GET['username'];
-    echo $username;
+    $username = $_POST['username'];
+    echo 'username entered: ' . $username;
     // $sql = "INSERT INTO users (email, password) VALUES ()";
     // $stmt= $pdo->prepare($sql);
     // $stmt->execute([$name, $surname, $sex]);

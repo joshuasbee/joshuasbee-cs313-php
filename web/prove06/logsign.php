@@ -13,14 +13,14 @@
     //add email to database
     $email = $_POST['email'];
     $pass = $_POST['password'];
-
+    echo 'before sql';
     $psql = "INSERT INTO users (email, password) VALUES ($email, $pass)";
     $stmt= $pdo->prepare($psql);
     $stmt->execute([$email, $pass]);
     echo 'inserted';
-    //header("Location: ./signup.php");
-    //exit();
+    
   }
-
+//header("Location: ./signup.php");
+    //exit();
 
 ?>

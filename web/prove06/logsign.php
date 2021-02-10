@@ -69,17 +69,19 @@
       <br>
       <input type='text' placeholder='Zip Code' name='zipcode' class='form-control'>
       <br>
-      <input type="checkbox" id="Billing" name="billing" value="true">
-      <label for="Billing">Billing Address</label>
-      <input type="checkbox" id="Shipping" name="shipping" value="true">
+      <input type="radio" id="Billing" name="billing" value="true">
+      <label for="Billing">Billing Address</label><br>
+      <input type="radio" id="Shipping" name="shipping" value="true">
       <label for="Shipping">Shipping Address</label>
-      <!-- 
-      state_
-      zip
-      billing shipping -->
       <button type='submit' class='btn btn-info' name='signup'>Sign up</button>
     </form>
   </div>
 </div>
 </body>
 </html>
+<?php 
+echo 'after form';
+
+
+
+?>

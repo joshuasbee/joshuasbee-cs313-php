@@ -56,7 +56,7 @@
 <div class='container'> 
   <h1 class='text-center'>Sign Up</h1>
   <div class='row justify-content-center align-items-center'>
-    <form action="logsign.php" method="post" class='form'>
+    <form action="logsign.php" method="post" class='form'><!-- ACTION something maybe? -->
       <input type='text' placeholder='email' name='email' value='<?php echo (isset($email))?$email:"";?>' class='form-control'>
       <br>
       <input type='password' placeholder='password' name='password' value='<?php echo (isset($pass))?$pass:'';?>' class='form-control'>
@@ -82,7 +82,12 @@
 </body>
 </html>
 <?php 
-
+function validate(){
+  echo 'validate function';
+}
+if(isset($_POST['signup'])){
+  validate();
+}
 
 
 

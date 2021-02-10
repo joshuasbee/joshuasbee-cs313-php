@@ -2,6 +2,7 @@
   require "../db/dbConnect.php";
   $db = get_db();
   if(isset($_POST['login'])){
+    echo 'attempting login<br>';
     //verify that the login worked
     $email_post = $_POST['email'];//probably sanitize inputs
     $pass_post = $_POST['password'];

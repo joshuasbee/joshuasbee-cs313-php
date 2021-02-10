@@ -2,7 +2,6 @@
   require "../db/dbConnect.php";
   $db = get_db();
   if(isset($_POST['login'])){
-    echo 'attempting login<br>';
     //verify that the login worked
     $email_post = $_POST['email'];//probably sanitize inputs
     $pass_post = $_POST['password'];
@@ -16,12 +15,16 @@
       $pass = $row['password_'];
       if($email_post == $email && $pass_post == $pass){
         //successful login
-        echo 'login successful!';
+        echo 'Login successful!';
+      }
+      else{
+        echo 'incorrect username or password';
       }
     }
     //then go to the other page
-    //header("Location: http://www.example.com/another-page.php");
-    //exit();
+    sleep(5);
+    header("Location: ./index.php");
+    exit();
   }
 
   if(isset($_POST['signup'])){

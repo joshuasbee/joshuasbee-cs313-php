@@ -13,7 +13,7 @@
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       $email = $row['email'];
-      $pass = $row['password'];
+      $pass = $row['password_'];
       if($email_post == $email && $pass_post == $pass){
         //successful login
         echo 'login successful!';

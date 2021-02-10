@@ -9,7 +9,7 @@
     //exit();
   }
 
-  if(isset($_GET['signup'])){
+  if(isset($_POST['signup'])){
     //add email to database
     $username = $_POST['username'];
     echo 'username entered: ' . $username;

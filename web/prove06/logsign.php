@@ -1,7 +1,7 @@
 <?php
   require "../db/dbConnect.php";
   $db = get_db();
-  if(isset($_GET['login'])){
+  if(isset($_POST['login'])){
     //verify that the login worked
 
     //then go to the other page
@@ -11,8 +11,8 @@
 
   if(isset($_POST['signup'])){
     //add email to database
-    $username = $_POST['username'];
-    echo 'username entered: ' . $username;
+    $email = $_POST['email'];
+    echo 'email entered: ' . $email;
     // $sql = "INSERT INTO users (email, password) VALUES ()";
     // $stmt= $pdo->prepare($sql);
     // $stmt->execute([$name, $surname, $sex]);

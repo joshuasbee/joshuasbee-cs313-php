@@ -18,9 +18,9 @@
   <h1 class='text-center'>Sign in</h1>
   <div class='row justify-content-center align-items-center'>
     <form action="logsign.php" method="post" class='form'>
-      <input type='text' placeholder='email' class='form-control'>
+      <input type='text' placeholder='email' name='email' class='form-control'>
       <br>
-      <input type='password' placeholder='password' class='form-control'>
+      <input type='password' placeholder='password' name='password' class='form-control'>
       <br>
       <button type='submit' class='btn btn-info' name='login'>Login</button>
       <button type='submit' class='btn btn-info float-right' name='signup'>Sign up</button>

@@ -1,10 +1,15 @@
 <?php
   if(isset($_GET['login'])){
-    echo 'login pressed';
+    //verify that the login worked
+
+    //then go to the other page
+    //header("Location: http://www.example.com/another-page.php");
+    //exit();
   }
 
   if(isset($_GET['signup'])){
-    echo 'signup pressed';
+    //add email to database
+    echo 'something';
   }
 
 

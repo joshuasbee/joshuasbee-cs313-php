@@ -114,16 +114,17 @@
       $state = filter_var($_POST['state'], FILTER_SANITIZE_STRING);
       $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_NUMBER_INT);
       $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING);
-    }// Validate e-mail
+    }//if none of the input fields are empty, then sanitize and set variables.
     else { echo '<div class="text-danger text-center">All fields must be filled</div>'; $err=1; }
-    
-    if(filter_var($email, FILTER_VALIDATE_EMAIL)){echo 'email good';}
-    else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
-    if(preg_match($p_ex, $password)){echo 'password good';} 
-    else{'<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
-    if(preg_match($z_ex, $zipcode)){echo 'zip good';} 
-    else{'<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
-    
+    if ($err != 1){
+      // Validate e-mail
+      if(filter_var($email, FILTER_VALIDATE_EMAIL)){echo 'email good';}
+      else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
+      if(preg_match($p_ex, $password)){echo 'password good';} 
+      else{'<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
+      if(preg_match($z_ex, $zipcode)){echo 'zip good';} 
+      else{'<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
+    }
     if ($err != 1){
       upload();
     }

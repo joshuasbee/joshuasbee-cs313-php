@@ -94,7 +94,9 @@
       // Validate e-mail
       echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'<div class="text-danger text-center">Invalid email</div>';
     } 
-    else{}
+    else{
+      echo '<div class="text-danger text-center">All fields must be filled</div>';
+    }
 
     // $str = "Visit W3Schools";
     // $pattern = "/w3schools/i";

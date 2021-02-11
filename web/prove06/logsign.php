@@ -117,7 +117,7 @@
       // Validate e-mail
       if(filter_var($email, FILTER_VALIDATE_EMAIL)){}
       else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
-      if(preg_match($p_ex, $password)){} 
+      if(preg_match($p_ex, $password)){echo 'password good';} 
       else{'<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
       if(preg_match($z_ex, $zipcode)){} else{'<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
     }

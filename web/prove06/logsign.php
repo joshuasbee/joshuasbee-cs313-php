@@ -77,11 +77,10 @@
     </form>
   </div>
 </div>
+<script src='script.js'></script>
 </body>
 </html>
 <?php 
-$passwordexp = '';
-
 function upload(){
   $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
   $stmt= $db->prepare($psql);
@@ -90,12 +89,16 @@ function upload(){
 
 
 function validate(){
-  if(isset($_POST['email'])){
+  if(isset($_POST['email'], $_POST["password"], $_POST["street"], $_POST["city"], $_POST["zipcode"], $_POST["billship"])){
     $email = $_POST['email'];
-    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      echo $email . ' is a valid email';
-    }
-  } else{echo 'invalid email';}
+    $password = $_POST["password"];
+    $street = $_POST["street"];
+    $city = $_POST["city"];
+    $zipcode = $_POST["zipcode"];
+    $billship = $_POST["billship"];
+    echo '<script type="text/javascript">validate();</script>';
+  } 
+  else{echo 'invalid email';}
 
 
 // $str = "Visit W3Schools";

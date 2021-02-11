@@ -92,7 +92,7 @@
       $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_STRING);
       $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING);
       // Validate e-mail
-      echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'<br><div class="text-danger">Invalid email</div>';
+      echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'<div class="text-danger text-center">Invalid email</div>';
     } 
     else{}
 

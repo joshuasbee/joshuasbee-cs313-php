@@ -102,7 +102,7 @@
   }
 
   function validate(){
-    $p_ex = "/[-()*\&\^%$#@\!0-9a-zA-z]+/";
+    $p_ex = "/[-()*\&\^%$#@\!0-9a-zA-z]{6,16}/";
     $z_ex = "/\d{5}/";
     $err = 0;//error flag to check if we submit information to database
     if("" != trim($_POST['email']) && "" != trim($_POST["password"]) && "" != trim($_POST["street"]) &&
@@ -118,7 +118,7 @@
       if(filter_var($email, FILTER_VALIDATE_EMAIL)){}
       else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
       if(preg_match($p_ex, $password)){} 
-      else{'<div class="text-danger text-center">Invalid password, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
+      else{'<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
       if(preg_match($z_ex, $zipcode)){} else{'<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
     }
     else { echo '<div class="text-danger text-center">All fields must be filled</div>'; }

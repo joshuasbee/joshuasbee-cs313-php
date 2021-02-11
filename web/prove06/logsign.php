@@ -91,8 +91,7 @@ function validate(){
     $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_STRING);
     $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING);
   // Validate e-mail
-   echo 'inside php validate function';
-    echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'Invalid email';
+    echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'<br>Invalid email';
 
   } 
   else{}

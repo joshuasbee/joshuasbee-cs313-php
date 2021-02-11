@@ -82,16 +82,10 @@
     $stmt= $db->prepare($psql);
     $stmt->execute();
   }
-  // function trim_it()//https://stackoverflow.com/questions/4993104/using-ifempty-with-multiple-variables-not-in-an-array
-  // {
-  //   foreach(func_get_args() as $arg)
-  //       if("" == trim($arg))
-  //           continue;
-  //       else
-  //           return false;
-  //   return true;
-  // }
+
   function validate(){
+    $p_ex = "/[-()*\&\^%$#@\!0-9a-zA-z]+/";
+
     if("" != trim($_POST['email']) && ""!= trim($_POST["password"]) && "" != trim($_POST["street"]) &&
      "" != trim($_POST["city"]) && "" != trim($_POST["zipcode"]) && "" != trim($_POST["billship"])){
       $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -102,6 +96,7 @@
       $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING);
       // Validate e-mail
       echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'<div class="text-danger text-center">Invalid email</div>';
+      echo (preg_match($p_ex, $password))?"":'<div class="text-danger text-center">Invalid password, can only contain letters, numbers, and !@#$%^&*()-</div>';
     } 
     else{
       echo '<div class="text-danger text-center">All fields must be filled</div>';

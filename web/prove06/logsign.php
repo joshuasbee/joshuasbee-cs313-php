@@ -84,11 +84,11 @@
       <br>
       <input type='number' placeholder='Zip Code' name='zipcode' value='<?php echo (isset($_POST['zipcode']))?$_POST['zipcode']:'';?>' class='form-control'>
       <br>
-      <input type="radio" id="Billing" name="billship" value='<?php echo (isset($_POST['billship']))?$_POST['billship']:'';?>'><!-- value='bill' -->
+      <input type="radio" id="Billing" name="billship" value='bill'>
       <label for="Billing">Billing Address</label>
-      <input type="radio" id="Shipping" name="billship" value='<?php echo (isset($_POST['billship']))?$_POST['billship']:'';?>'><!-- value='ship' -->
+      <input type="radio" id="Shipping" name="billship" value='ship'>
       <label for="Shipping">Shipping Address</label>
-      <input type="radio" id="Both" name="billship" value='<?php echo (isset($_POST['billship']))?$_POST['billship']:'';?>'><!-- value='both' -->
+      <input type="radio" id="Both" name="billship" value='both'>
       <label for="Both">Both</label>
       <button type='submit' class='btn btn-info' name='sign-up'>Sign up</button><br>
     </form>

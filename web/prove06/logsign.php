@@ -84,7 +84,7 @@
       <br>
       <input type='number' placeholder='Zip Code' name='zipcode' value='<?php echo (isset($_POST['zipcode']))?$_POST['zipcode']:'';?>' class='form-control'>
       <br>
-      <input type="radio" id="Billing" name="billship" value='bill'>
+      <input type="radio" id="Billing" name="billship" value='bill'><!-- Radio button selection is not preserved -->
       <label for="Billing">Billing Address</label>
       <input type="radio" id="Shipping" name="billship" value='ship'>
       <label for="Shipping">Shipping Address</label>
@@ -95,15 +95,17 @@
   </div>
   <?php 
   function upload(){
-    $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
-    $stmt= $db->prepare($psql);
-    $stmt->execute();
+    echo 'upload function';
+    // $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
+    // $stmt= $db->prepare($psql);
+    // $stmt->execute();
   }
 
   function validate(){
     $p_ex = "/[-()*\&\^%$#@\!0-9a-zA-z]+/";
     $z_ex = "/\d{5}/";
-    if("" != trim($_POST['email']) && ""!= trim($_POST["password"]) && "" != trim($_POST["street"]) &&
+    $err = 0;//error flag to check if we submit information to database
+    if("" != trim($_POST['email']) && "" != trim($_POST["password"]) && "" != trim($_POST["street"]) &&
      "" != trim($_POST["city"]) && "" != trim($_POST['state']) && "" != trim($_POST["zipcode"]) && "" != trim($_POST["billship"])){
       $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
@@ -113,23 +115,22 @@
       $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_NUMBER_INT);
       $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING);
       // Validate e-mail
-      echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'<div class="text-danger text-center">Invalid email</div>';
-      echo (preg_match($p_ex, $password))?"":'<div class="text-danger text-center">Invalid password, can only contain letters, numbers, and !@#$%^&*()-</div>';
-      echo (preg_match($z_ex, $zipcode))?"":'<div class="text-danger text-center">Zip code must be 5 digits</div>';
-    } 
-    else{
-      echo '<div class="text-danger text-center">All fields must be filled</div>';
+      if(filter_var($email, FILTER_VALIDATE_EMAIL)){}
+      else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
+      if(preg_match($p_ex, $password)){} 
+      else{'<div class="text-danger text-center">Invalid password, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
+      if(preg_match($z_ex, $zipcode)){} else{'<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
+    }
+    else { echo '<div class="text-danger text-center">All fields must be filled</div>'; }
+    if ($err != 1){
+      upload();
     }
 
-    // $str = "Visit W3Schools";
-    // $pattern = "/w3schools/i";
-    // echo preg_match($pattern, $str); 
-    // upload();
-    }
+  }
     if(isset($_POST['sign-up'])){//calls validate when sign up button is pressed
       unset($_POST['sign-up']);//makes sure you can click the button again if you didn't do the form correctly
       validate();
-  }
+    }
   ?>
 </div><!-- container div -->
 </body>

@@ -54,7 +54,7 @@
 <div class='container'> 
   <h1 class='text-center'>Sign Up</h1>
   <div class='row justify-content-center align-items-center'>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class='form'><!-- ACTION something maybe? -->
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class='form'>
       <input type='text' placeholder='email' name='email' value='<?php echo (isset($email))?$email:"";?>' class='form-control'>
       <br>
       <input type='password' placeholder='password' name='password' value='<?php echo (isset($pass))?$pass:'';?>' class='form-control'>
@@ -91,8 +91,6 @@
             return false;
     return true;
   }
-
-
   function validate(){
     if(!mempty($_POST['email'], $_POST["password"], $_POST["street"], $_POST["city"], $_POST["zipcode"], $_POST["billship"])){
       $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -114,6 +112,7 @@
     // upload();
     }
     if(isset($_POST['sign-up'])){//calls validate when sign up button is pressed
+      unset($_POST['sign-up']);
       validate();
   }
   ?>

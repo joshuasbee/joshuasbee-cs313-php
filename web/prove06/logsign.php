@@ -65,7 +65,7 @@
       <br>
       <input type='text' placeholder='State' name='state' class='form-control'>
       <br>
-      <input type='text' placeholder='Zip Code' name='zipcode' class='form-control'>
+      <input type='number' placeholder='Zip Code' name='zipcode' class='form-control'>
       <br>
       <input type="radio" id="Billing" name="billship" value="bill">
       <label for="Billing">Billing Address</label>
@@ -85,18 +85,20 @@
 
   function validate(){
     $p_ex = "/[-()*\&\^%$#@\!0-9a-zA-z]+/";
-
+    $z_ex = "/\d{5}/";
     if("" != trim($_POST['email']) && ""!= trim($_POST["password"]) && "" != trim($_POST["street"]) &&
-     "" != trim($_POST["city"]) && "" != trim($_POST["zipcode"]) && "" != trim($_POST["billship"])){
+     "" != trim($_POST["city"]) && "" != trim($_POST['state']) && "" != trim($_POST["zipcode"]) && "" != trim($_POST["billship"])){
       $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
       $street = filter_var($_POST["street"], FILTER_SANITIZE_STRING);
       $city = filter_var($_POST["city"], FILTER_SANITIZE_STRING);
-      $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_STRING);
+      $state = filter_var($_POST['state'], FILTER_SANITIZE_STRING);
+      $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_NUMBER_INT);
       $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING);
       // Validate e-mail
       echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'<div class="text-danger text-center">Invalid email</div>';
       echo (preg_match($p_ex, $password))?"":'<div class="text-danger text-center">Invalid password, can only contain letters, numbers, and !@#$%^&*()-</div>';
+      echo (preg_match($z_ex, $zipcode))?"":'<div class="text-danger text-center">Zip code must be 5 digits</div>';
     } 
     else{
       echo '<div class="text-danger text-center">All fields must be filled</div>';

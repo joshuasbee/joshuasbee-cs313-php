@@ -85,7 +85,7 @@
   function mempty()//https://stackoverflow.com/questions/4993104/using-ifempty-with-multiple-variables-not-in-an-array
   {
     foreach(func_get_args() as $arg)
-        if(empty($arg))
+        if(!empty($arg))
             continue;
         else
             return false;

@@ -82,17 +82,18 @@
     $stmt= $db->prepare($psql);
     $stmt->execute();
   }
-  function trim_it()//https://stackoverflow.com/questions/4993104/using-ifempty-with-multiple-variables-not-in-an-array
-  {
-    foreach(func_get_args() as $arg)
-        if("" == trim($arg))
-            continue;
-        else
-            return false;
-    return true;
-  }
+  // function trim_it()//https://stackoverflow.com/questions/4993104/using-ifempty-with-multiple-variables-not-in-an-array
+  // {
+  //   foreach(func_get_args() as $arg)
+  //       if("" == trim($arg))
+  //           continue;
+  //       else
+  //           return false;
+  //   return true;
+  // }
   function validate(){
-    if(!trim_it($_POST['email'], $_POST["password"], $_POST["street"], $_POST["city"], $_POST["zipcode"], $_POST["billship"])){
+    if("" != trim($_POST['email']) && ""!= trim($_POST["password"]) && "" != trim($_POST["street"]) &&
+     "" != trim($_POST["city"]) && "" != trim($_POST["zipcode"]) && "" != trim($_POST["billship"])){
       $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
       $street = filter_var($_POST["street"], FILTER_SANITIZE_STRING);

@@ -74,21 +74,21 @@
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class='form'>
       <input type='text' placeholder='email' name='email' value='<?php echo (isset($_POST['email']))?$_POST['email']:"";?>' class='form-control'>
       <br>
-      <input type='password' placeholder='password' name='password' value='<?php echo (isset($pass))?$pass:'';?>' class='form-control'>
+      <input type='password' placeholder='password' name='password' value='<?php echo (isset($_POST['password']))?$_POST['password']:'';?>' class='form-control'>
       <br>
-      <input type='text' placeholder='Street address' name='street' class='form-control'>
+      <input type='text' placeholder='Street address' name='street' value='<?php echo (isset($_POST['street']))?$_POST['street']:'';?>' class='form-control'>
       <br>
-      <input type='text' placeholder='City' name='city' class='form-control'>
+      <input type='text' placeholder='City' name='city' value='<?php echo (isset($_POST['city']))?$_POST['city']:'';?>' class='form-control'>
       <br>
-      <input type='text' placeholder='State' name='state' class='form-control'>
+      <input type='text' placeholder='State' name='state' value='<?php echo (isset($_POST['state']))?$_POST['state']:'';?>' class='form-control'>
       <br>
-      <input type='number' placeholder='Zip Code' name='zipcode' class='form-control'>
+      <input type='number' placeholder='Zip Code' name='zipcode' value='<?php echo (isset($_POST['zipcode']))?$_POST['zipcode']:'';?>' class='form-control'>
       <br>
-      <input type="radio" id="Billing" name="billship" value="bill">
+      <input type="radio" id="Billing" name="billship" value='<?php echo (isset($_POST['billship']))?$_POST['billship']:'';?>'><!-- value='bill' -->
       <label for="Billing">Billing Address</label>
-      <input type="radio" id="Shipping" name="billship" value="ship">
+      <input type="radio" id="Shipping" name="billship" value='<?php echo (isset($_POST['billship']))?$_POST['billship']:'';?>'><!-- value='ship' -->
       <label for="Shipping">Shipping Address</label>
-      <input type="radio" id="Both" name="billship" value="both">
+      <input type="radio" id="Both" name="billship" value='<?php echo (isset($_POST['billship']))?$_POST['billship']:'';?>'><!-- value='both' -->
       <label for="Both">Both</label>
       <button type='submit' class='btn btn-info' name='sign-up'>Sign up</button><br>
     </form>

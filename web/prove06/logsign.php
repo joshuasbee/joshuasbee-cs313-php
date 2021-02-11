@@ -96,9 +96,10 @@
   <?php 
   function upload(){
     echo 'upload function';
-    // $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
-    // $stmt= $db->prepare($psql);
-    // $stmt->execute();
+    $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
+    $stmt= $db->prepare($psql);
+    $stmt->execute();
+
   }
 
   function validate(){
@@ -118,12 +119,13 @@
     else { echo '<div class="text-danger text-center">All fields must be filled</div>'; $err=1; }
     if ($err != 1){
       // Validate e-mail
-      if(filter_var($email, FILTER_VALIDATE_EMAIL)){echo 'email good';}
+      if(filter_var($email, FILTER_VALIDATE_EMAIL)){}
       else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
-      if(preg_match($p_ex, $password)){echo 'password good';} 
+      if(preg_match($p_ex, $password)){} 
       else{echo '<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
-      if(preg_match($z_ex, $zipcode)){echo 'zip good';} 
+      if(preg_match($z_ex, $zipcode)){} 
       else{echo '<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
+      echo 'billing or shipping: ' . $billship;
     }
     if ($err != 1){
       upload();

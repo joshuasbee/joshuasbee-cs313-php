@@ -54,7 +54,7 @@
 <div class='container'> 
   <h1 class='text-center'>Sign Up</h1>
   <div class='row justify-content-center align-items-center'>
-    <form action="logsign.php" method="post" class='form'><!-- ACTION something maybe? -->
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class='form'><!-- ACTION something maybe? -->
       <input type='text' placeholder='email' name='email' value='<?php echo (isset($email))?$email:"";?>' class='form-control'>
       <br>
       <input type='password' placeholder='password' name='password' value='<?php echo (isset($pass))?$pass:'';?>' class='form-control'>
@@ -77,7 +77,7 @@
     </form>
   </div>
 </div>
-<script src='script.js'></script>
+<!-- <script src='script.js'></script> -->
 </body>
 </html>
 <?php 
@@ -87,7 +87,6 @@ function upload(){
   $stmt->execute();
 }
 
-
 function validate(){
   if(isset($_POST['email'], $_POST["password"], $_POST["street"], $_POST["city"], $_POST["zipcode"], $_POST["billship"])){
     $email = $_POST['email'];
@@ -96,10 +95,10 @@ function validate(){
     $city = $_POST["city"];
     $zipcode = $_POST["zipcode"];
     $billship = $_POST["billship"];
-    echo '<script type="text/javascript">validate();</script>';
+    // echo '<script type="text/javascript">validate();</script>';
+
   } 
   else{echo 'invalid email';}
-
 
 // $str = "Visit W3Schools";
 // $pattern = "/w3schools/i";
@@ -107,8 +106,7 @@ function validate(){
 // upload();
 }
 
-if(isset($_POST['sign-up'])){
-  echo 'calling validate';
+if(isset($_POST['sign-up'])){//calls validate when sign up button is pressed
   validate();
 }
 

@@ -1,3 +1,3 @@
-function validate(){
-  alert();
+function validate(){//gets called if form is fully filled out
+  
 }

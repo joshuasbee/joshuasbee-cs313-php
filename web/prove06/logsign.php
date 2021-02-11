@@ -75,26 +75,26 @@
       <label for="Both">Both</label>
       <button type='submit' class='btn btn-info' name='sign-up'>Sign up</button><br>
     </form>
-    <?php 
-    function upload(){
-      $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
-      $stmt= $db->prepare($psql);
-      $stmt->execute();
-    }
+  </div>
+  <?php 
+  function upload(){
+    $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
+    $stmt= $db->prepare($psql);
+    $stmt->execute();
+  }
 
-    function validate(){
-      if(isset($_POST['email'], $_POST["password"], $_POST["street"], $_POST["city"], $_POST["zipcode"], $_POST["billship"])){
-        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-        $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-        $street = filter_var($_POST["street"], FILTER_SANITIZE_STRING);
-        $city = filter_var($_POST["city"], FILTER_SANITIZE_STRING);
-        $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_STRING);
-        $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING);
+  function validate(){
+    if(isset($_POST['email'], $_POST["password"], $_POST["street"], $_POST["city"], $_POST["zipcode"], $_POST["billship"])){
+      $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+      $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+      $street = filter_var($_POST["street"], FILTER_SANITIZE_STRING);
+      $city = filter_var($_POST["city"], FILTER_SANITIZE_STRING);
+      $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_STRING);
+      $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING);
       // Validate e-mail
-        echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'<br><div class="text-danger">Invalid email</div>';
-
-      } 
-      else{}
+      echo (filter_var($email, FILTER_VALIDATE_EMAIL))?"":'<br><div class="text-danger">Invalid email</div>';
+    } 
+    else{}
 
     // $str = "Visit W3Schools";
     // $pattern = "/w3schools/i";
@@ -103,10 +103,8 @@
     }
     if(isset($_POST['sign-up'])){//calls validate when sign up button is pressed
       validate();
-    }
-    ?>
-
-  </div>
+  }
+  ?>
 </div><!-- container div -->
 </body>
 </html>

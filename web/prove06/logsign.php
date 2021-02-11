@@ -13,6 +13,23 @@
   <link rel="stylesheet" href="style.css">
   <title>Login</title>
 </head>
+<script>
+// function ajax(str) {
+//   if (str.length == 0) {
+//     document.getElementById("txtHint").innerHTML = "";
+//     return;
+//   } else {
+//     var xmlhttp = new XMLHttpRequest();
+//     xmlhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {
+//         document.getElementById("txtHint").innerHTML = this.responseText;
+//       }
+//     };
+//     xmlhttp.open("GET", "gethint.php?q=" + str, true);
+//     xmlhttp.send();
+//   }
+// }
+</script>
 <?php
   require "../db/dbConnect.php";
   $db = get_db();
@@ -55,7 +72,7 @@
   <h1 class='text-center'>Sign Up</h1>
   <div class='row justify-content-center align-items-center'>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class='form'>
-      <input type='text' placeholder='email' name='email' value='<?php echo (isset($email))?$email:"";?>' class='form-control'>
+      <input type='text' placeholder='email' name='email' value='<?php echo (isset($_POST['email']))?$_POST['email']:"";?>' class='form-control'>
       <br>
       <input type='password' placeholder='password' name='password' value='<?php echo (isset($pass))?$pass:'';?>' class='form-control'>
       <br>
@@ -110,7 +127,7 @@
     // upload();
     }
     if(isset($_POST['sign-up'])){//calls validate when sign up button is pressed
-      unset($_POST['sign-up']);
+      unset($_POST['sign-up']);//makes sure you can click the button again if you didn't do the form correctly
       validate();
   }
   ?>

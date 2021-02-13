@@ -16,7 +16,6 @@
 <?php
   if (!isset($_SESSION)) { session_start(); }
   require "../db/dbConnect.php";
-  // $db='db';
   $GLOBALS['db'] = get_db();
 
   if(isset($_POST['login'])){//check if login button was clicked
@@ -77,21 +76,21 @@
   {
     //insert into users table the email and password from the form
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$password')";
-    $stmt = $GLOBALS[$db]->prepare($psql)->execute();
+    $stmt = $GLOBALS['db']->prepare($psql)->execute();
     //update address table with address from form
     $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('$street', '$city', '$state', '$country', $zipcode, $arr[$billship])";
-    $stmt = $GLOBALS[$db]->prepare($address)->execute();
+    $stmt = $GLOBALS['db']->prepare($address)->execute();
     //get the user id and save to a php variable, uid, for inserting to user_to_address table
     $user_id = "SELECT user_id FROM users WHERE email = '$email'";
-    $stmt = $GLOBALS[$db]->query($user_id)->fetch();
+    $stmt = $GLOBALS['db']->query($user_id)->fetch();
     $uid = $stmt['user_id'];
     //get the address id and save to a php variable, aid, for inserting to user_to_address table
     $address_id = "SELECT address_id FROM address_ WHERE street = '$street' AND city='$city'";
-    $add = $GLOBALS[$db]->query($address_id)->fetch();
+    $add = $GLOBALS['db']->query($address_id)->fetch();
     $aid = $add['address_id'];    
     //add to user_to_address table the new user id and their address ID for use when 'shipping'
     $add_to_id = "INSERT INTO user_to_address (user_id, address_id) VALUES ('$uid', '$aid')";
-    $stmt = $GLOBALS[$db]->prepare($add_to_id)->execute();
+    $stmt = $GLOBALS['db']->prepare($add_to_id)->execute();
 
     $_SESSION['user_id'] = $uid;//Set session variable to user's user id, that way they behave differently when adding to cart
   }

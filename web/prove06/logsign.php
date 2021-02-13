@@ -83,7 +83,7 @@
 
     $user_id = "SELECT user_id FROM users WHERE email = '$email'";
     $stmt = $GLOBALS[$db]->query($user_id)->fetch();
-    echo $stmt . ' should be same as in db row just registered';
+    echo var_dump($stmt) . ' should be same as in db row just registered';
     // $stmt->execute();
 
 

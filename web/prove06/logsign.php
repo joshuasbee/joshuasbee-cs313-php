@@ -130,7 +130,6 @@
     if ($err != 1){
       upload($email, $password, $street, $city, $state, $country, $zipcode, $billship, $arr);
     }
-
   }
   if(isset($_POST['sign-up'])){//calls validate when sign up button is pressed
     unset($_POST['sign-up']);//makes sure you can click the button again if you didn't do the form correctly

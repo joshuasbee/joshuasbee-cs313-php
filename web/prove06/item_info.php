@@ -25,8 +25,10 @@
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");
   $stmt->execute();
   ?>
+  <form method=post>
   <div class="container">
   <?php
+  $name = '';
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     $name = $row['item_name'];
@@ -47,6 +49,10 @@
       echo "</div>";
     }
   }
+  echo '</form>';
+  // if (isset())
+
+
 ?>
 </div>
 

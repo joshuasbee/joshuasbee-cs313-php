@@ -77,10 +77,16 @@
     $stmt->execute();
 
     $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('$street', '$city', '$state', '$country', $zipcode, $arr[$billship])";
-    $statement = $GLOBALS[$db]->prepare($address);
-    $statement->execute();
-    echo $psql . "<br>" . $address;
+    $stmt = $GLOBALS[$db]->prepare($address);
+    $stmt->execute();
     //billship comes out as bill, ship or both, $arr[$billship] should work for t and f at the end of the insert statement.
+
+    // $user_id = "SELECT user_id FROM users WHERE email = $email";
+    // $stmt = $GLOBALS[$db]->prepare($user_id);
+
+
+
+    //TODO after SIGNUP do whatever is done after successful login. 
   }
 
   function validate(){

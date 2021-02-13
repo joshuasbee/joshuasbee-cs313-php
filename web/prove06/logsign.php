@@ -55,6 +55,8 @@
       <br>
       <input type='text' placeholder='State' name='state' value='<?php echo (isset($_POST['state']))?$_POST['state']:'';?>' class='form-control'>
       <br>
+      <input type='text' placeholder='Country' name='country' value='<?php echo (isset($_POST['country']))?$_POST['country']:'';?>' class='form-control'>
+      <br>
       <input type='number' placeholder='Zip Code' name='zipcode' value='<?php echo (isset($_POST['zipcode']))?$_POST['zipcode']:'';?>' class='form-control'>
       <br>
       <input type="radio" id="Billing" name="billship" value='bill'><!-- Radio button selection is not preserved -->
@@ -67,22 +69,18 @@
     </form>
   </div>
   <?php
-  function upload($email, $password, $street, $city, $state, $zipcode, $billship, $arr)
+  function upload($email, $password, $street, $city, $state, $country, $zipcode, $billship, $arr)
   {
     //this is called correctly
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$password')";
-    // $stmt= $db->prepare($psql);
-    // $stmt->execute();
+    $stmt= $db->prepare($psql);
+    $stmt->execute();
 
     $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('$street', '$city', '$state', '$country', $zipcode, $arr[$billship])";
-    // $statement = $db->prepare($address);
-    // $statement->execute();
-    
+    $statement = $db->prepare($address);
+    $statement->execute();
     echo $psql . "<br>" . $address;
-
-
     //billship comes out as bill, ship or both, $arr[$billship] should work for t and f at the end of the insert statement.
-   
   }
 
   function validate(){
@@ -96,6 +94,7 @@
       $street = filter_var($_POST["street"], FILTER_SANITIZE_STRING);
       $city = filter_var($_POST["city"], FILTER_SANITIZE_STRING);
       $state = filter_var($_POST['state'], FILTER_SANITIZE_STRING);
+      $country = filter_var($_POST['country'], FILTER_SANITIZE_STRING);
       $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_NUMBER_INT);
       $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING); 
       $arr = [//then in sql insert we should be able to use $arr[$billship] to get the appropriate t and f.
@@ -115,7 +114,7 @@
       else{echo '<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
     }
     if ($err != 1){
-      upload($email, $password, $street, $city, $state, $zipcode, $billship, $arr);
+      upload($email, $password, $street, $city, $state, $country, $zipcode, $billship, $arr);
     }
 
   }

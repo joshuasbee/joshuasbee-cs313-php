@@ -91,6 +91,7 @@
     $aid = $add['address_id'];
     echo '<br>user: ' . $uid . ' address: ' . $aid;
     $add_to_id = "INSERT INTO user_to_address (user_id, address_id) VALUES ('$uid', '$aid')";
+    $stmt = $GLOBALS[$db]->prepare($add_to_id)->execute();
 
     //add to cart id and to user_to_address
     //TODO after SIGNUP do whatever is done after successful login. 

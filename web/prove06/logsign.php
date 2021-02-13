@@ -89,6 +89,7 @@
     echo 'uid: ' . $stmt['user_id'] . '<br>Add id: ' . $add['address_id'];
     $uid = $stmt['user_id'];//changing because I don't know how to put '' inside of the sql statement 
     $aid = $add['address_id'];
+    echo '<br>user: ' . $uid . ' address: ' . $aid;
     $add_to_id = "INSERT INTO user_to_address (user_id, address_id) VALUES ('$uid', '$aid')";
 
     //add to cart id and to user_to_address

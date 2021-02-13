@@ -21,7 +21,7 @@
   if(isset($_POST['login'])){//check if login button was clicked
     //verify that the login worked
     $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $password_post = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+    $pass_post = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     $stmt = $GLOBALS[$db]->prepare("SELECT * FROM users");//Select * allows me to pick multiple rows of the table in the while loop
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

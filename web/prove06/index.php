@@ -27,13 +27,16 @@ if (!isset($_SESSION)) { session_start(); }
       <input type="submit" value="Cart" class='btn-success rounded'>
     </form>
   </span>
-
-<span class='float-left'>
-  <form action="login.php" method='post'><!-- call login later -->
+<?php
+if(!isset($_SESSION['user_id'])){
+  echo "<span class='float-left'>
+  <form action='login.php' method='post'><!-- call login later -->
     <input type='submit' value='Login/Signup' class='btn-primary rounded'>
   </form>
-</span>
+</span>";
+}
 
+?>
 <form action="search.php" method='get'>
   <div class="input-group rounded mx-auto" id="search">  <!-- mx-auto is the only thing that I found to work to center this -->
   <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" name="query" id="example-search-input">

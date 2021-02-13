@@ -28,18 +28,15 @@
     {
       $email = $row['email'];
       $pass = $row['password_'];
-      if($email_post == $email && $pass_post == $pass){
+      if($email_post == $email && $pass_post == $pass){//check for match of input and database
         //if successful login, then go to the other page
         $user_id = "SELECT user_id FROM users WHERE email = '$email'";
         $stmt = $GLOBALS[$db]->query($user_id)->fetch();
         $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
-        echo $_SESSION['user_id'] . ' is your user id';
         header("Location: ./index.php");
         exit();
       }
       else{
-        echo $email_post . ' inputs ' . $pass_post . '<br>';
-        echo $email . ' and ' . $pass . '<br>';
         echo 'Incorrect username or password!';
         exit();
       }

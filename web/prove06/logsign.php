@@ -22,7 +22,7 @@
     //verify that the login worked
     $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password_post = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-    $stmt = $GLOBALS[$db]->prepare("SELECT * FROM users");//Select * allows me to pick different rows of the table in the while loop
+    $stmt = $GLOBALS[$db]->prepare("SELECT * FROM users");//Select * allows me to pick multiple rows of the table in the while loop
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
@@ -38,6 +38,7 @@
         exit();
       }
       else{
+        echo $email . ' and ' . $pass . '<br>';
         echo 'Incorrect username or password!';
         exit();
       }

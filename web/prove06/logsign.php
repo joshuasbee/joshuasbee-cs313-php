@@ -1,3 +1,7 @@
+<?php  
+  require "../db/dbConnect.php";
+  $db = get_db();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -14,8 +18,6 @@
   <title>Login</title>
 </head>
 <?php
-  require "../db/dbConnect.php";
-  $db = get_db();
   if(isset($_POST['login'])){
     //verify that the login worked
     $email_post = $_POST['email'];//probably sanitize inputs
@@ -73,7 +75,7 @@
   {
     //this is called correctly
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$password')";
-    $stmt= $db->prepare($psql);
+    $stmt = $db->prepare($psql);
     $stmt->execute();
 
     $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('$street', '$city', '$state', '$country', $zipcode, $arr[$billship])";

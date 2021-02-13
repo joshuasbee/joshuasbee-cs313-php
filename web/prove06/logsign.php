@@ -67,25 +67,14 @@
     </form>
   </div>
   <?php
-  $email = "";
-  $password = "";
-  $street = "";
-  $city = "";
-  $state = "";
-  $zipcode = "";
-  $billship = "";
-  $arr = [//then in sql insert we should be able to use $arr[$billship] to get the appropriate t and f.
-    'bill' => "'t', 'f'",
-    'ship' => "'f', 't'",
-    'both' => "'t', 't'"
-  ];
-  function upload(){
+  function upload($email, $password, $street, $city, $state, $zipcode, $billship, $arr)
+  {
     //this is called correctly
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
     // $stmt= $db->prepare($psql);
     // $stmt->execute();
 
-    $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('900 125th St', 'Puyallup', 'WA', 'US', 98373, $arr[$billship])";
+    $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('$street', 'Puyallup', 'WA', 'US', 98373, $arr[$billship])";
     // $statement = $db->prepare($address);
     // $statement->execute();
     
@@ -126,7 +115,7 @@
       else{echo '<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
     }
     if ($err != 1){
-      upload();
+      upload($email, $password, $street, $city, $state, $zipcode, $billship, $arr);
     }
 
   }

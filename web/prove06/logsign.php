@@ -38,7 +38,7 @@
         exit();
       }
       else{
-        echo $email_post . ' inputs ' . $pass_post '<br>';
+        echo $email_post . ' inputs ' . $pass_post . '<br>';
         echo $email . ' and ' . $pass . '<br>';
         echo 'Incorrect username or password!';
         exit();

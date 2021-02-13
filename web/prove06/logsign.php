@@ -1,7 +1,3 @@
-<?php  
-  require "../db/dbConnect.php";
-  $db = get_db();
-?>
 <!doctype html>
 <html lang="en">
 
@@ -18,6 +14,8 @@
   <title>Login</title>
 </head>
 <?php
+require "../db/dbConnect.php";
+$db = get_db();
   if(isset($_POST['login'])){
     //verify that the login worked
     $email_post = $_POST['email'];//probably sanitize inputs
@@ -73,6 +71,8 @@
   <?php
   function upload($email, $password, $street, $city, $state, $country, $zipcode, $billship, $arr)
   {
+    require "../db/dbConnect.php";
+    $db = get_db();
     //this is called correctly
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$password')";
     $stmt = $db->prepare($psql);

@@ -25,7 +25,6 @@
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");
   $stmt->execute();
   ?>
-
   <div class="container">
   <?php
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

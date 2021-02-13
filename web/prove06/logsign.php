@@ -70,11 +70,11 @@
   function upload($email, $password, $street, $city, $state, $zipcode, $billship, $arr)
   {
     //this is called correctly
-    $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
+    $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$password')";
     // $stmt= $db->prepare($psql);
     // $stmt->execute();
 
-    $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('$street', 'Puyallup', 'WA', 'US', 98373, $arr[$billship])";
+    $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('$street', '$city', '$state', '$country', $zipcode, $arr[$billship])";
     // $statement = $db->prepare($address);
     // $statement->execute();
     

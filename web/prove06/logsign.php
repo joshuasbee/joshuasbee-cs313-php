@@ -33,6 +33,7 @@
         $user_id = "SELECT user_id FROM users WHERE email = '$email'";
         $stmt = $GLOBALS[$db]->query($user_id)->fetch();
         $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
+        echo $_SESSION['user_id'] . ' is your user id';
         header("Location: ./index.php");
         exit();
       }

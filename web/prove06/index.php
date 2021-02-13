@@ -37,7 +37,6 @@ if(!isset($_SESSION['user_id'])){
 }
 else {
   echo "<span class='float-left'>
-  <div class='text-success'> Signed in</div>
   <form action='signout.php' method='post'>
     <input type='submit' value='Sign Out' class='btn-primary rounded'>
   </form>

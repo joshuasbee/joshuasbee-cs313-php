@@ -36,7 +36,7 @@ CREATE TABLE cart_item(
 
 CREATE TABLE user_to_cart(
   user_to_cart_id SERIAL  NOT NULL PRIMARY KEY,
-  cart_id         INTEGER NOT NULL REFERENCES cart(cart_id),
+  cart_id         INTEGER NOT NULL REFERENCES cart_item(cart_id),
   user_id         INTEGER NOT NULL REFERENCES users(user_id)
 );
 

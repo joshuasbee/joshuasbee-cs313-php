@@ -85,9 +85,9 @@
     $stmt = $GLOBALS[$db]->query($user_id)->fetch();
 
     $address_id = "SELECT address_id FROM address_ WHERE street = '$street' AND city='$city'";
-    $stmt = $GLOBALS[$db]->query($address_id)->fetch();
+    $add = $GLOBALS[$db]->query($address_id)->fetch();
     //$stmt['user_id']// USER ID
-    echo 'uid: ' . $stmt['user_id'] . '<br>Add id: ' . $stmt['address_id'];
+    echo 'uid: ' . $stmt['user_id'] . '<br>Add id: ' . $add['address_id'];
 
     //add to cart id and to user_to_address_id
     //TODO after SIGNUP do whatever is done after successful login. 

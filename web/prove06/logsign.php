@@ -81,7 +81,7 @@
     $stmt->execute();
     //billship comes out as bill, ship or both, $arr[$billship] should work for t and f at the end of the insert statement.
 
-    $user_id = "SELECT user_id FROM users WHERE email = $email";
+    $user_id = "SELECT user_id FROM users WHERE email = '$email'";
     $stmt = $GLOBALS[$db]->query($user_id)->fetch();
     echo $stmt . ' should be same as in db row just registered';
     // $stmt->execute();

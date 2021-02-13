@@ -14,8 +14,9 @@
   <title>Login</title>
 </head>
 <?php
-require "../db/dbConnect.php";
-$db = get_db();
+  require "../db/dbConnect.php";
+  GLOBAL $db;
+  $db = get_db();
   if(isset($_POST['login'])){
     //verify that the login worked
     $email_post = $_POST['email'];//probably sanitize inputs
@@ -71,8 +72,6 @@ $db = get_db();
   <?php
   function upload($email, $password, $street, $city, $state, $country, $zipcode, $billship, $arr)
   {
-    require "../db/dbConnect.php";
-    $db = get_db();
     //this is called correctly
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$password')";
     $stmt = $db->prepare($psql);
@@ -120,10 +119,10 @@ $db = get_db();
     }
 
   }
-    if(isset($_POST['sign-up'])){//calls validate when sign up button is pressed
-      unset($_POST['sign-up']);//makes sure you can click the button again if you didn't do the form correctly
-      validate();
-    }
+  if(isset($_POST['sign-up'])){//calls validate when sign up button is pressed
+    unset($_POST['sign-up']);//makes sure you can click the button again if you didn't do the form correctly
+    validate();
+  }
   ?>
 </div><!-- container div -->
 </body>

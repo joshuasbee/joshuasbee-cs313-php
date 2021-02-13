@@ -74,7 +74,7 @@
   
     //TODO go back to main page or add back button
   }
-  else {
+  elseif(!isset($_SESSION['user_id'])){
     echo '<br>Login to add an item to your cart.';
   }
 

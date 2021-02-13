@@ -37,7 +37,7 @@ if(!isset($_SESSION['user_id'])){
 }
 else {
   echo "<span class='float-left'>
-  <div class='text-success'>signed in</div>
+  <div class='text-success'> Signed in</div>
 </span>";
 }
 

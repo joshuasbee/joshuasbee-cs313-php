@@ -60,9 +60,9 @@
     
     //add item to cart_item then get the cart id added to user_to_cart_id
     $psql = "INSERT INTO cart_item (item_id) VALUES ('$iid')";
-    $stmt = $GLOBALS['db']->prepare()->execute();
+    $stmt = $GLOBALS['db']->prepare($psql)->execute();
 
-    
+
     /* INSERT INTO cart_item(cart_id, item_id) VALUES (1, 3);
      INSERT INTO user_to_cart(user_to_cart_id, cart_id, user_id) VALUES (1, 1, 1);*/
     // $psql = "INSERT INTO user_to_cart_id (email, password_) VALUES ('$email', '$password')";

@@ -23,7 +23,7 @@
     //verify that the login worked
     $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $pass_post = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-    $stmt = $GLOBALS[$db]->prepare("SELECT * FROM users");//Select * allows me to pick multiple rows of the table in the while loop
+    $stmt = $GLOBALS['db']->prepare("SELECT * FROM users");//Select * allows me to pick multiple rows of the table in the while loop
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
@@ -32,7 +32,7 @@
       if($email_post == $email && $pass_post == $pass){//check for match of input and database
         //if successful login, then go to the other page
         $user_id = "SELECT user_id FROM users WHERE email = '$email'";
-        $stmt = $GLOBALS[$db]->query($user_id)->fetch();
+        $stmt = $GLOBALS['db']->query($user_id)->fetch();
         $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
         header("Location: ./index.php");
         exit();

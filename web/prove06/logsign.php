@@ -66,7 +66,19 @@
       <button type='submit' class='btn btn-info' name='sign-up'>Sign up</button><br>
     </form>
   </div>
-  <?php 
+  <?php
+  $email = "";
+  $password = "";
+  $street = "";
+  $city = "";
+  $state = "";
+  $zipcode = "";
+  $billship = "";
+  $arr = [//then in sql insert we should be able to use $arr[$billship] to get the appropriate t and f.
+    'bill' => "'t', 'f'",
+    'ship' => "'f', 't'",
+    'both' => "'t', 't'"
+  ];
   function upload(){
     //this is called correctly
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";

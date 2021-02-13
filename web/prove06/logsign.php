@@ -77,7 +77,7 @@
     $stmt->execute();
 
     $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('$street', '$city', '$state', '$country', $zipcode, $arr[$billship])";
-    $statement = $db->prepare($address);
+    $statement = $GLOBALS[$db]->prepare($address);
     $statement->execute();
     echo $psql . "<br>" . $address;
     //billship comes out as bill, ship or both, $arr[$billship] should work for t and f at the end of the insert statement.

@@ -58,15 +58,19 @@
     $stmt = $GLOBALS['db']->query($item_id)->fetch();
     $iid = $stmt['item_id'];
     
-    //add item to cart_item then get the cart id added to user_to_cart_id
+    //add item to cart_item 
     $psql = "INSERT INTO cart_item (item_id) VALUES ('$iid')";
     $stmt = $GLOBALS['db']->prepare($psql)->execute();
-
-
+    //then get the cart id of most recent cart addition, which is line above
+    $cart_id = "SELECT cart_id FROM cart_item WHERE cart_id = (SELECT MAX(cart_id) from cart_item)";
+    $stmt = $GLOBALS['db']->query($cart_id)->fetch();
+    $cid = $stmt['cart_id'];
+    //add it to user_to_cart_id
     /* INSERT INTO cart_item(cart_id, item_id) VALUES (1, 3);
-     INSERT INTO user_to_cart(user_to_cart_id, cart_id, user_id) VALUES (1, 1, 1);*/
-    // $psql = "INSERT INTO user_to_cart_id (email, password_) VALUES ('$email', '$password')";
-    // $stmt = $GLOBALS['db']->prepare($psql)->execute();
+       INSERT INTO user_to_cart(cart_id, user_id) VALUES (1, 1, 1);*/
+    $uid = $_SESSION['user_id'];
+    $psql = "INSERT INTO user_to_cart_id (cart_id, user_id) VALUES ('$cid', '$uid')";
+    $stmt = $GLOBALS['db']->prepare($psql)->execute();
     
   }
 

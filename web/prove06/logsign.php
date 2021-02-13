@@ -13,23 +13,6 @@
   <link rel="stylesheet" href="style.css">
   <title>Login</title>
 </head>
-<script>
-// function ajax(str) {
-//   if (str.length == 0) {
-//     document.getElementById("txtHint").innerHTML = "";
-//     return;
-//   } else {
-//     var xmlhttp = new XMLHttpRequest();
-//     xmlhttp.onreadystatechange = function() {
-//       if (this.readyState == 4 && this.status == 200) {
-//         document.getElementById("txtHint").innerHTML = this.responseText;
-//       }
-//     };
-//     xmlhttp.open("GET", "gethint.php?q=" + str, true);
-//     xmlhttp.send();
-//   }
-// }
-</script>
 <?php
   require "../db/dbConnect.php";
   $db = get_db();
@@ -56,16 +39,6 @@
       }
     }
   }
-
-  if(isset($_POST['signup'])){
-    //add email to database
-    $email = $_POST['email'];//sanitize inputs probably
-    $pass = $_POST['password'];
-    
-    //TODO Maybe add address and address id to user id
-  }
-  //header("Location: ./signup.php");
-  //exit();
 ?>
 <body>
 <div class='container'> 
@@ -95,11 +68,20 @@
   </div>
   <?php 
   function upload(){
-    echo 'upload function';
+    //this is called correctly
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$pass')";
-    $stmt= $db->prepare($psql);
-    $stmt->execute();
+    // $stmt= $db->prepare($psql);
+    // $stmt->execute();
 
+    $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('900 125th St', 'Puyallup', 'WA', 'US', 98373, $arr[$billship])";
+    // $statement = $db->prepare($address);
+    // $statement->execute();
+    
+    echo $psql . "<br>" . $address;
+
+
+    //billship comes out as bill, ship or both, $arr[$billship] should work for t and f at the end of the insert statement.
+   
   }
 
   function validate(){
@@ -114,7 +96,12 @@
       $city = filter_var($_POST["city"], FILTER_SANITIZE_STRING);
       $state = filter_var($_POST['state'], FILTER_SANITIZE_STRING);
       $zipcode = filter_var($_POST["zipcode"], FILTER_SANITIZE_NUMBER_INT);
-      $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING);
+      $billship = filter_var($_POST["billship"], FILTER_SANITIZE_STRING); 
+      $arr = [//then in sql insert we should be able to use $arr[$billship] to get the appropriate t and f.
+        'bill' => "'t', 'f'",
+        'ship' => "'f', 't'",
+        'both' => "'t', 't'"
+      ];
     }//if none of the input fields are empty, then sanitize and set variables.
     else { echo '<div class="text-danger text-center">All fields must be filled</div>'; $err=1; }
     if ($err != 1){
@@ -125,7 +112,6 @@
       else{echo '<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
       if(preg_match($z_ex, $zipcode)){} 
       else{echo '<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
-      echo 'billing or shipping: ' . $billship;
     }
     if ($err != 1){
       upload();

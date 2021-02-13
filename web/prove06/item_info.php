@@ -50,7 +50,7 @@
     }
   }
   echo '</form>';
-  if (isset($_POST[$name])){
+  if (isset($_POST[$name]) && isset($_SESSION['user_id'])){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
     //add to database
     //lookup item ID
     $item = $_POST[$name];
@@ -66,12 +66,16 @@
     $stmt = $GLOBALS['db']->query($cart_id)->fetch();
     $cid = $stmt['cart_id'];
     //add it to user_to_cart_id
-    /* INSERT INTO cart_item(cart_id, item_id) VALUES (1, 3);
-       INSERT INTO user_to_cart(cart_id, user_id) VALUES (1, 1, 1);*/
+    /* INSERT INTO cart_item(item_id) VALUES (3);
+       INSERT INTO user_to_cart(cart_id, user_id) VALUES (1, 1);*/
     $uid = $_SESSION['user_id'];
-    $psql = "INSERT INTO user_to_cart_id (cart_id, user_id) VALUES ('$cid', '$uid')";
+    $psql = "INSERT INTO user_to_cart (cart_id, user_id) VALUES ('$cid', '$uid')";
     $stmt = $GLOBALS['db']->prepare($psql)->execute();
-    
+  
+    //TODO go back to main page or add back button
+  }
+  else {
+    echo '<br>Login to add an item to your cart.';
   }
 
 

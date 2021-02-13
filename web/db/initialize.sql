@@ -8,5 +8,5 @@ INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('sting', 30, '.
 INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('lego gandalf', 512, '../imgs/lego-gandalf.png', 5);
 INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('orc armor', 20, '../imgs/orc-armor.png', 599);
 --have to create carts after items that are to be put in them
-INSERT INTO cart_item(cart_id, item_id) VALUES (1, 3);
+INSERT INTO cart_item(item_id) VALUES (3);
 INSERT INTO user_to_cart(user_to_cart_id, cart_id, user_id) VALUES (1, 1, 1);

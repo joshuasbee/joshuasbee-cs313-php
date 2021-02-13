@@ -57,11 +57,12 @@
     $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";
     $stmt = $GLOBALS['db']->query($item_id)->fetch();
     $iid = $stmt['item_id'];
-    echo '<br><br>' . $iid;
+    
     //add item to cart_item then get the cart id added to user_to_cart_id
-    // $psql = "INSERT INTO cart_item (item_id) VALUES ('$email', '$password')";
-    // $stmt = $GLOBALS['db']->prepare()->execute();
+    $psql = "INSERT INTO cart_item (item_id) VALUES ('$iid')";
+    $stmt = $GLOBALS['db']->prepare()->execute();
 
+    
     /* INSERT INTO cart_item(cart_id, item_id) VALUES (1, 3);
      INSERT INTO user_to_cart(user_to_cart_id, cart_id, user_id) VALUES (1, 1, 1);*/
     // $psql = "INSERT INTO user_to_cart_id (email, password_) VALUES ('$email', '$password')";

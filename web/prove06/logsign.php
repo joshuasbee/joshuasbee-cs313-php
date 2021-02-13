@@ -93,6 +93,8 @@
     $stmt = $GLOBALS['db']->prepare($add_to_id)->execute();
 
     $_SESSION['user_id'] = $uid;//Set session variable to user's user id, that way they behave differently when adding to cart
+    header("Location: ./index.php");
+    exit();
   }
 
   function validate(){

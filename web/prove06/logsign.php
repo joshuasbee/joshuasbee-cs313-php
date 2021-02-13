@@ -86,10 +86,12 @@
 
     $address_id = "SELECT address_id FROM address_ WHERE street = '$street' AND city='$city'";
     $add = $GLOBALS[$db]->query($address_id)->fetch();
-    //$stmt['user_id']// USER ID
-    echo 'uid: ' . $stmt['user_id'] . '<br>Add id: ' . $add['address_id'];
+    //echo 'uid: ' . $stmt['user_id'] . '<br>Add id: ' . $add['address_id'];
+    $uid = $stmt['user_id'];//changing because I don't know how to put '' inside of the sql statement 
+    $aid = $add['address_id'];
+    $add_to_id = "INSERT INTO user_to_address (user_id, address_id) VALUES ('$uid', '$aid')";
 
-    //add to cart id and to user_to_address_id
+    //add to cart id and to user_to_address
     //TODO after SIGNUP do whatever is done after successful login. 
   }
 

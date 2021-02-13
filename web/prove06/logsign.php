@@ -16,6 +16,7 @@
 <?php
   if (!isset($_SESSION)) { session_start(); }
   require "../db/dbConnect.php";
+  $db='db';
   $GLOBALS[$db] = get_db();
 
   if(isset($_POST['login'])){//check if login button was clicked

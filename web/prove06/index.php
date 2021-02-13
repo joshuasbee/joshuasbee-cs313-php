@@ -35,6 +35,11 @@ if(!isset($_SESSION['user_id'])){
   </form>
 </span>";
 }
+else {
+  echo "<span class='float-left'>
+  <div class='text-success'>signed in</div>
+</span>";
+}
 
 ?>
 <form action="search.php" method='get'>

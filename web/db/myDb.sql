@@ -11,15 +11,14 @@ CREATE TABLE address_(
 
 CREATE TABLE users(
   user_id    SERIAL      NOT NULL PRIMARY KEY,
-  --username   VARCHAR(50) NOT NULL,
   email      VARCHAR(50) NOT NULL,
   password_  VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE orders(
-  order_id SERIAL  NOT NULL PRIMARY KEY,
-  user_id  INTEGER NOT NULL REFERENCES Users(user_id)
-);
+-- CREATE TABLE orders(
+--   order_id SERIAL  NOT NULL PRIMARY KEY,
+--   user_id  INTEGER NOT NULL REFERENCES Users(user_id)
+-- );
 
 CREATE TABLE items(
   item_id    SERIAL      NOT NULL PRIMARY KEY,
@@ -29,16 +28,16 @@ CREATE TABLE items(
   price      VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE cart(
+CREATE TABLE cart_item(
   cart_id   SERIAL      NOT NULL PRIMARY KEY,
-  quantity  INTEGER     NOT NULL,
+  -- quantity  INTEGER     NOT NULL, -- Maybe add back later, but complicated for now
   item_id   INTEGER     NOT NULL REFERENCES  items(item_id)
 );
 
-CREATE TABLE cart_to_user(
-  cart_to_user_id SERIAL  NOT NULL PRIMARY KEY,
+CREATE TABLE user_to_cart(
+  user_to_cart_id SERIAL  NOT NULL PRIMARY KEY,
   cart_id         INTEGER NOT NULL REFERENCES cart(cart_id),
-  order_id        INTEGER NOT NULL REFERENCES orders(order_id)
+  user_id         INTEGER NOT NULL REFERENCES users(user_id)
 );
 
 CREATE TABLE user_to_address(

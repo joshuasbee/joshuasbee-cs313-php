@@ -21,13 +21,13 @@ echo '<!doctype html>
 <body>';
 
 echo 'Your Cart Contains:<br><br>';
-if(isset($_SESSION['Anduril'])){
+if(isset($_SESSION['Anduril'])){//if the session variable is set, show it in the cart
   echo $_SESSION["Anduril"];
   echo "<form action='' method='post' id='AndurilForm'>
   <input type='hidden' value='Anduril' name='Anduril'>
   <button class='btn' type='submit' form='AndurilForm' value='Anduril'>Remove from cart</button>
   </form>";
-  if(isset($_POST['Anduril'])){
+  if(isset($_POST['Anduril'])){//if the button is pressed, remove from session variables, then refresh
     unset($_SESSION['Anduril']);
     echo "<meta http-equiv='refresh' content='0'>";//from https://stackoverflow.com/questions/10643626/refresh-page-after-form-submitting
   }
@@ -76,6 +76,7 @@ if(isset($_SESSION['LegoGandalf'])){
     echo "<meta http-equiv='refresh' content='0'>";
   }
 }
+//navigation buttons
 echo '<br>' . '<a href="index.php"><- Back to store</a>';
 echo '<br><br>' . '<a href="checkout.php">Checkout -></a>';
 

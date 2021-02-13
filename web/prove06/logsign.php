@@ -14,13 +14,14 @@
   <title>Login</title>
 </head>
 <?php
+  if (!isset($_SESSION)) { session_start(); }
   require "../db/dbConnect.php";
   $GLOBALS[$db] = get_db();
-  if(isset($_POST['login'])){
-    //verify that the login worked
-    $email_post = $_POST['email'];//probably sanitize inputs
-    $pass_post = $_POST['password'];
 
+  if(isset($_POST['login'])){//check if login button was clicked
+    //verify that the login worked
+    $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $password_post = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     $stmt = $db->prepare("SELECT * FROM users");//Select * allows me to pick different rows of the table in the while loop
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -29,7 +30,9 @@
       $pass = $row['password_'];
       if($email_post == $email && $pass_post == $pass){
         //if successful login, then go to the other page
-        echo 'Login successful!';
+        $user_id = "SELECT user_id FROM users WHERE email = '$email'";
+        $stmt = $GLOBALS[$db]->query($user_id)->fetch();
+        $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
         header("Location: ./index.php");
         exit();
       }
@@ -71,30 +74,25 @@
   <?php
   function upload($email, $password, $street, $city, $state, $country, $zipcode, $billship, $arr)
   {
-    //this is called correctly
+    //insert into users table the email and password from the form
     $psql = "INSERT INTO users (email, password_) VALUES ('$email', '$password')";
-    $stmt = $GLOBALS[$db]->prepare($psql);
-    $stmt->execute();
-
+    $stmt = $GLOBALS[$db]->prepare($psql)->execute();
+    //update address table with address from form
     $address = "INSERT INTO address_ (street, city, state_, country, zip, billing, shipping) VALUES ('$street', '$city', '$state', '$country', $zipcode, $arr[$billship])";
-    $stmt = $GLOBALS[$db]->prepare($address);
-    $stmt->execute();
-    //billship comes out as bill, ship or both, $arr[$billship] should work for t and f at the end of the insert statement.
-
+    $stmt = $GLOBALS[$db]->prepare($address)->execute();
+    //get the user id and save to a php variable, uid, for inserting to user_to_address table
     $user_id = "SELECT user_id FROM users WHERE email = '$email'";
     $stmt = $GLOBALS[$db]->query($user_id)->fetch();
-
+    $uid = $stmt['user_id'];
+    //get the address id and save to a php variable, aid, for inserting to user_to_address table
     $address_id = "SELECT address_id FROM address_ WHERE street = '$street' AND city='$city'";
     $add = $GLOBALS[$db]->query($address_id)->fetch();
-    echo 'uid: ' . $stmt['user_id'] . '<br>Add id: ' . $add['address_id'];
-    $uid = $stmt['user_id'];//changing because I don't know how to put '' inside of the sql statement 
-    $aid = $add['address_id'];
-    echo '<br>user: ' . $uid . ' address: ' . $aid;
+    $aid = $add['address_id'];    
+    //add to user_to_address table the new user id and their address ID for use when 'shipping'
     $add_to_id = "INSERT INTO user_to_address (user_id, address_id) VALUES ('$uid', '$aid')";
     $stmt = $GLOBALS[$db]->prepare($add_to_id)->execute();
 
-    //add to cart id and to user_to_address
-    //TODO after SIGNUP do whatever is done after successful login. 
+    $_SESSION['user_id'] = $uid;//Set session variable to user's user id, that way they behave differently when adding to cart
   }
 
   function validate(){

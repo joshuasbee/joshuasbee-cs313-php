@@ -15,8 +15,19 @@
 </head>
 <body>
   cart
-  <?php 
-  //TODO change how this behaves when logged in and not logged in, maybe do a query for their cart ID if it fails tell them to login
+  <?php
+  if (!isset($_SESSION)) { session_start(); }
+  if(isset($_SESSION['user_id'])){
+    echo 'logged in';
+    //get their items in their cart and display them
+    //SELECT cart_id FROM user_to_cart WHERE user_id = $_SESSION['user_id']; could be multiple carts
+    //select item_id from cart_item where cart_id = (cart_id from above);
+    //display items
+  }
+  else{
+    echo 'not logged in';
+    //maybe say sign up to access your cart
+  }
   ?>
 </body>
 

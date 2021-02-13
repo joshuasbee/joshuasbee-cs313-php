@@ -14,19 +14,19 @@
   require "../db/dbConnect.php";
   $db = get_db();
   if (!isset($_SESSION)) { session_start(); }
-  //lots of if(isset($_GET['Anduril'])) {$query = $_GET['Anduril'];}
+  //changes what displays based on the value passed based on image clicked on index.php 
   if(isset($_GET['anduril'])){$query = $_GET['anduril'];}
   elseif(isset($_GET['glamdring'])){$query = $_GET['glamdring'];}
   elseif(isset($_GET['sting'])){$query = $_GET['sting'];}
   elseif(isset($_GET['lego_gandalf'])){$query = $_GET['lego_gandalf'];}//something changes spaces to _ 
   elseif(isset($_GET['orc_armor'])){$query = $_GET['orc_armor'];}
-  // else{echo var_dump($_GET);}
-
+  
   $query = htmlspecialchars($query);//filter out <script> or other malicious code
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name = '$query'");
-  $stmt->execute(); ?>
+  $stmt->execute();
+  ?>
 
-  <div class="container"> <!-- justify-content-center"> -->
+  <div class="container">
   <?php
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
@@ -47,7 +47,6 @@
       echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
       echo "</div>";
     }
-    
   }
 ?>
 </div>

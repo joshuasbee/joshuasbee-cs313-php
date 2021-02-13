@@ -1,9 +1,7 @@
 <?php 
-
 require "../db/dbConnect.php";
 $db = get_db();
-
-// if (!isset($_SESSION)) { session_start(); }
+if (!isset($_SESSION)) { session_start(); }
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,7 +23,7 @@ $db = get_db();
 
 <body>
   <span class="float-right">
-    <form action="cart.php" method='get'><!-- change action to call cart later -->
+    <form action="cart.php" method='get'>
       <input type="submit" value="Cart" class='btn-success rounded'>
     </form>
   </span>

@@ -123,7 +123,7 @@
       else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
       if(preg_match($p_ex, $password)){} 
       else{echo '<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
-      if(preg_match($z_ex, $zipcode) && $zipcode.length() < 6){} 
+      if(preg_match($z_ex, $zipcode) && strlen($zipcode) < 6){} 
       else{echo '<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}
     }
     if ($err != 1){

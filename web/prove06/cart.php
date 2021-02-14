@@ -18,18 +18,18 @@
   <?php
   if (!isset($_SESSION)) { session_start(); }
   if(isset($_SESSION['user_id'])){
-    echo 'logged in';
+    $uid = $_SESSION['user_id'];
     //get their items in their cart and display them
     //SELECT cart_id FROM user_to_cart WHERE user_id = $_SESSION['user_id']; could be multiple carts
-    $stmt = $db->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
+    $stmt = $db->prepare("SELECT * FROM user_to_cart WHERE user_id = '$uid'");//Select * allows me to pick different rows of the table in the while loop
     $stmt->execute();
-  
+
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       // $pic = $row['image_dir'];
       // $names = $row['item_name'];
       // $names = ucwords($names);
-    
+      echo 'cart_id '. $row['cart_id'] . '<br>';
     }
       
     //select item_id from cart_item where cart_id = (cart_id from above);

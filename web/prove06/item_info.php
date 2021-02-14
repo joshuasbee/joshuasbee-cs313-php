@@ -14,7 +14,7 @@
     <form action="cart.php" method='get'>
       <input type="submit" value="Cart" class='btn-success rounded'>
     </form>
-  </span>
+</span>
 <?php 
   require "../db/dbConnect.php";
   $db = get_db();
@@ -55,7 +55,8 @@
     }
   }
   echo '</form>';
-  echo '<a href="index.php"><- Return to store</a>';
+  echo '<div class="row justify-content-center">';
+  echo '<a href="index.php"><- Return to store</a></div>';
   if (isset($_POST[$name]) && isset($_SESSION['user_id'])){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
     //add to database
     //lookup item ID
@@ -82,7 +83,9 @@
     echo '<script>alert("Item added to cart!")</script>';
   }
   elseif(!isset($_SESSION['user_id'])){
-    echo '<br>Login to add an item to your cart.';
+    echo "<div class='row justify-content-center'>Login to add an item to your cart.</div>";
+
+    // echo '<br>Login to add an item to your cart.';
   }
 
 ?>

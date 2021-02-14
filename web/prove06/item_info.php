@@ -74,11 +74,11 @@
     
     //TODO go back to main page or add back button
     echo '<script>alert("Item added to cart!")</script>';
+    echo '<a href="index.php"><- Return to store</a>';
   }
   elseif(!isset($_SESSION['user_id'])){
     echo '<br>Login to add an item to your cart.';
   }
-
 
 ?>
 </div>

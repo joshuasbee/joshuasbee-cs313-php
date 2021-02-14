@@ -21,6 +21,17 @@
     echo 'logged in';
     //get their items in their cart and display them
     //SELECT cart_id FROM user_to_cart WHERE user_id = $_SESSION['user_id']; could be multiple carts
+    $stmt = $db->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
+    $stmt->execute();
+  
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+    {
+      // $pic = $row['image_dir'];
+      // $names = $row['item_name'];
+      // $names = ucwords($names);
+    
+    }
+      
     //select item_id from cart_item where cart_id = (cart_id from above);
     //display items
   }

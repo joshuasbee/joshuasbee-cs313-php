@@ -10,6 +10,11 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<span class="float-right">
+    <form action="cart.php" method='get'>
+      <input type="submit" value="Cart" class='btn-success rounded'>
+    </form>
+  </span>
 <?php 
   require "../db/dbConnect.php";
   $db = get_db();

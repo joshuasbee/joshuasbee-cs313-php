@@ -83,9 +83,7 @@
     echo '<script>alert("Item added to cart!")</script>';
   }
   elseif(!isset($_SESSION['user_id'])){
-    echo "<div class='row justify-content-center'>Login to add an item to your cart.</div>";
-
-    // echo '<br>Login to add an item to your cart.';
+    echo "<div class='row justify-content-center text-danger'>Login to add an item to your cart.</div>";
   }
 
 ?>

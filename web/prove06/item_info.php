@@ -73,7 +73,7 @@
     $stmt = $GLOBALS['db']->prepare($psql)->execute();
     
     //TODO go back to main page or add back button
-    echo '<script>alert("Added to cart")</script>';
+    echo '<script>alert("Item added to cart!")</script>';
   }
   elseif(!isset($_SESSION['user_id'])){
     echo '<br>Login to add an item to your cart.';

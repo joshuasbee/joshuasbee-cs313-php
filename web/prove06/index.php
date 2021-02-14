@@ -1,6 +1,6 @@
 <?php 
 require "../db/dbConnect.php";
-$db = get_db();
+$GLOBALS['db'] = get_db();
 if (!isset($_SESSION)) { session_start(); }
 ?>
 <!doctype html>
@@ -59,7 +59,7 @@ else {
 <?php
   echo "<form action='item_info.php' method='get'";
   echo "<div class='container text-center'>";//Centers everything in this div very well
-  $stmt = $db->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
+  $stmt = $GLOBALS['db']->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
   $stmt->execute();
   $iter_count = 0;
   

@@ -14,14 +14,15 @@
   <title>Cart</title>
 </head>
 <body>
-  cart
   <?php
+   require "../db/dbConnect.php";
+   $GLOBALS['db'] = get_db();
   if (!isset($_SESSION)) { session_start(); }
   if(isset($_SESSION['user_id'])){
     $uid = $_SESSION['user_id'];
     //get their items in their cart and display them
     //SELECT cart_id FROM user_to_cart WHERE user_id = $_SESSION['user_id']; could be multiple carts
-    $stmt = $db->prepare("SELECT * FROM user_to_cart WHERE user_id = '$uid'");//Select * allows me to pick different rows of the table in the while loop
+    $stmt = $GLOBALS['db']->prepare("SELECT * FROM user_to_cart WHERE user_id = '$uid'");//Select * allows me to pick different rows of the table in the while loop
     $stmt->execute();
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

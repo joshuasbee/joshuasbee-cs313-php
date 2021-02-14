@@ -24,16 +24,30 @@
     //SELECT cart_id FROM user_to_cart WHERE user_id = $_SESSION['user_id']; could be multiple carts
     $stmt = $GLOBALS['db']->prepare("SELECT * FROM user_to_cart WHERE user_id = '$uid'");//Select * allows me to pick different rows of the table in the while loop
     $stmt->execute();
+    //get all cart ids in an array
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+    {
+      //$carts = $row['cart_id'];
+    }
+  
+      // $user_id = "SELECT user_id FROM users WHERE email = '$email'";
+      // $stmt = $GLOBALS['db']->query($user_id)->fetch();
+      // $_SESSION['user_id'] = $stmt['user_id'];
+    
 
+
+    $stmt = $GLOBALS['db']->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
+    $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       // $pic = $row['image_dir'];
-      // $names = $row['item_name'];
-      // $names = ucwords($names);
-      echo 'cart_id '. $row['cart_id'] . '<br>';
+      $names = $row['item_name'];
+      $names = ucwords($names);
+      echo 'item names: '. $names . '<br>';
+      echo '<div class="row justify-content-center">';
 
 
-      
+      echo '</div>';
     }
       
     //select item_id from cart_item where cart_id = (cart_id from above);

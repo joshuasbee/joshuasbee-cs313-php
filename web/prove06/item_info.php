@@ -50,6 +50,7 @@
     }
   }
   echo '</form>';
+  echo '<a href="index.php"><- Return to store</a>';
   if (isset($_POST[$name]) && isset($_SESSION['user_id'])){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
     //add to database
     //lookup item ID
@@ -74,7 +75,6 @@
     
     //TODO go back to main page or add back button
     echo '<script>alert("Item added to cart!")</script>';
-    echo '<a href="index.php"><- Return to store</a>';
   }
   elseif(!isset($_SESSION['user_id'])){
     echo '<br>Login to add an item to your cart.';

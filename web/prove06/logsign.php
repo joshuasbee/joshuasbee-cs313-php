@@ -44,7 +44,7 @@
   }
 ?>
 <body>
-<div class='container'> 
+<div class='container'>
   <h1 class='text-center'>Sign Up</h1>
   <div class='row justify-content-center align-items-center'>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class='form'>

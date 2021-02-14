@@ -71,8 +71,9 @@
     $uid = $_SESSION['user_id'];
     $psql = "INSERT INTO user_to_cart (cart_id, user_id) VALUES ('$cid', '$uid')";
     $stmt = $GLOBALS['db']->prepare($psql)->execute();
-  
+    
     //TODO go back to main page or add back button
+    echo '<script>alert("Added to cart")</script>';
   }
   elseif(!isset($_SESSION['user_id'])){
     echo '<br>Login to add an item to your cart.';

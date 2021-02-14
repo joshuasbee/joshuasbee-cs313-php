@@ -31,6 +31,9 @@
       // $names = $row['item_name'];
       // $names = ucwords($names);
       echo 'cart_id '. $row['cart_id'] . '<br>';
+
+
+      
     }
       
     //select item_id from cart_item where cart_id = (cart_id from above);
@@ -40,6 +43,8 @@
     echo 'not logged in';
     //maybe say sign up to access your cart
   }
+  echo '<div class="row justify-content-center">';
+  echo '<a href="index.php"><- Return to store</a></div>';
   ?>
 </body>
 

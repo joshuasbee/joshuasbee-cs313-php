@@ -30,15 +30,14 @@
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       $carts[$count] = $row['cart_id'];
-      echo 'cart var dump:<br>';
-      var_dump($carts);
       $count++;
     }
-//Get the items from all the cart ID's and print them
+//Get the items from all the cart ID's
     $items;
     for ($i=0; $i < $count; $i++) { 
     $stmt = $GLOBALS['db']->query("SELECT item_id FROM cart_item WHERE cart_id = '$carts[$i]'")->fetch();
     $items[$i] = $stmt['item_id'];
+    echo $items[$i];
     }
 
 

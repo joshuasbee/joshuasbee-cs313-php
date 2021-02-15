@@ -30,11 +30,14 @@
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       $carts[$count] = $row['cart_id'];
+      echo 'carts: ' . $carts[$count];
       $count++;
     }
       // $user_id = "SELECT user_id FROM users WHERE email = '$email'";
       // $stmt = $GLOBALS['db']->query($user_id)->fetch();
       // $_SESSION['user_id'] = $stmt['user_id'];
+
+
     $stmt = $GLOBALS['db']->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

@@ -61,8 +61,7 @@
     //add to database
     //lookup item ID
     $item = $_POST[$name];
-    error_log('item NAME: ' . $item);
-
+    var_dump($item);
     $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";
     $stmt = $GLOBALS['db']->query($item_id)->fetch();
     $iid = $stmt['item_id'];

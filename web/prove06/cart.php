@@ -34,8 +34,7 @@
     }
     //$carts is array of cart ID's for that user's ID
 
-    echo '<br><br>';
-//Get the items from all the cart ID's
+    //Get the items from all the cart ID's
     $items;
     for ($i=0; $i < $count; $i++) { 
     $stmt = $GLOBALS['db']->query("SELECT item_id FROM cart_item WHERE cart_id = '$carts[$i]'")->fetch();
@@ -43,21 +42,24 @@
     }
     //$items is an array of item ID's with the given cart ID
 
-
-    $stmt = $GLOBALS['db']->prepare("SELECT * FROM items WHERE item_id = '$items'");//Select * allows me to pick different rows of the table in the while loop
-    $stmt->execute();
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-    {
-      $names = $row['item_name'];
-      $names = ucwords($names);
-      echo 'item names: '. $names . '<br>';
-      echo '<div class="row justify-content-center">';
-      echo '</div>';
+    //display all item names
+    for ($j=0; $j < $i; $j++) { 
+      $stmt = $GLOBALS['db']->query("SELECT * FROM items WHERE item_id = '$items[$j]'")->fetch();
+      echo $stmt['item_name'];
     }
-      
-    //select item_id from cart_item where cart_id = (cart_id from above);
-    //display items
-  }
+
+
+    
+    // while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+    // {
+    //   $names = $row['item_name'];
+    //   $names = ucwords($names);
+    //   echo '<div class="row justify-content-center">';
+    //   echo 'item names: '. $names . '<br>';
+    //   echo '</div>';
+    // }
+    
+  }//ending for if userid is set
   else{
     echo 'not logged in';
     //maybe say sign up to access your cart

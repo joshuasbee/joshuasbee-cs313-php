@@ -45,7 +45,9 @@
     //display all item names
     for ($j=0; $j < $i; $j++) { 
       $stmt = $GLOBALS['db']->query("SELECT * FROM items WHERE item_id = '$items[$j]'")->fetch();
-      echo $stmt['item_name'];
+      echo '<div class="row justify-content-center">';
+      echo ucwords($stmt['item_name']);
+      echo '</div>';
     }
 
 

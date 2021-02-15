@@ -34,35 +34,24 @@
     }
     //$carts is array of cart ID's for that user's ID
     if (isset($carts)){
+      //Get the items from all the cart ID's
+      $items;
+      for ($i=0; $i < $count; $i++) { 
+      $stmt = $GLOBALS['db']->query("SELECT item_id FROM cart_item WHERE cart_id = '$carts[$i]'")->fetch();
+      $items[$i] = $stmt['item_id'];
+      }
+      //$items is an array of item ID's with the given cart ID
 
+      //display all item names
+      for ($j=0; $j < $i; $j++) { 
+        $stmt = $GLOBALS['db']->query("SELECT * FROM items WHERE item_id = '$items[$j]'")->fetch();
+        echo '<div class="row justify-content-center">';
+        echo ucwords($stmt['item_name']);
+        //TODO add remove from cart button
+        echo '</div>';
+      }
     }
     else{ echo '<div class="row justify-content-center">Cart is empty</div>'; }
-
-    //Get the items from all the cart ID's
-    $items;
-    for ($i=0; $i < $count; $i++) { 
-    $stmt = $GLOBALS['db']->query("SELECT item_id FROM cart_item WHERE cart_id = '$carts[$i]'")->fetch();
-    $items[$i] = $stmt['item_id'];
-    }
-    //$items is an array of item ID's with the given cart ID
-
-    //display all item names
-    for ($j=0; $j < $i; $j++) { 
-      $stmt = $GLOBALS['db']->query("SELECT * FROM items WHERE item_id = '$items[$j]'")->fetch();
-      echo '<div class="row justify-content-center">';
-      echo ucwords($stmt['item_name']);
-      echo '</div>';
-    }
-
-    // while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-    // {
-    //   $names = $row['item_name'];
-    //   $names = ucwords($names);
-    //   echo '<div class="row justify-content-center">';
-    //   echo 'item names: '. $names . '<br>';
-    //   echo '</div>';
-    // }
-    
   }//ending for if userid is set
   else{
     echo 'not logged in';

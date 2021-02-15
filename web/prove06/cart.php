@@ -32,7 +32,7 @@
       $carts[$count] = $row['cart_id'];
       $count++;
     }
-    var_dump($carts);
+    //$carts is array of cart ID's for that user's ID
 
     echo '<br><br>';
 //Get the items from all the cart ID's
@@ -41,18 +41,18 @@
     $stmt = $GLOBALS['db']->query("SELECT item_id FROM cart_item WHERE cart_id = '$carts[$i]'")->fetch();
     $items[$i] = $stmt['item_id'];
     }
-    var_dump($items);
+    //$items is an array of item ID's with the given cart ID
 
-    // $stmt = $GLOBALS['db']->prepare("SELECT * FROM items WHERE item_id = '$iid'");//Select * allows me to pick different rows of the table in the while loop
-    // $stmt->execute();
-    // while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+
+    $stmt = $GLOBALS['db']->prepare("SELECT * FROM items WHERE item_id = '$items'");//Select * allows me to pick different rows of the table in the while loop
+    $stmt->execute();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
-      // $names = $row['item_name'];
-      // $names = ucwords($names);
-      // echo 'item names: '. $names . '<br>';
-      // echo '<div class="row justify-content-center">';
-            //all this does now is print every item and their name
-      // echo '</div>';
+      $names = $row['item_name'];
+      $names = ucwords($names);
+      echo 'item names: '. $names . '<br>';
+      echo '<div class="row justify-content-center">';
+      echo '</div>';
     }
       
     //select item_id from cart_item where cart_id = (cart_id from above);

@@ -26,29 +26,31 @@
     $stmt->execute();
     //get all cart ids in an array
     $count = 0;
-    $carts;
+    $carts;//initialize variable for bigger scope
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       $carts[$count] = $row['cart_id'];
       echo 'carts: ' . $carts[$count];
       $count++;
     }
-      // $user_id = "SELECT user_id FROM users WHERE email = '$email'";
-      // $stmt = $GLOBALS['db']->query($user_id)->fetch();
-      // $_SESSION['user_id'] = $stmt['user_id'];
+//Get the items from all the cart ID's and print them
+    $items;
+    for ($i=0; $i < $count; $i++) { 
+    $stmt = $GLOBALS['db']->query("SELECT item_id FROM cart_item WHERE cart_id = '$carts[$i]'")->fetch();
+    $items[$i] = $stmt['item_id'];
+    }
 
 
-    $stmt = $GLOBALS['db']->prepare("SELECT * FROM items");//Select * allows me to pick different rows of the table in the while loop
+    $stmt = $GLOBALS['db']->prepare("SELECT * FROM items WHERE item_id = '$iid'");//Select * allows me to pick different rows of the table in the while loop
     $stmt->execute();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
-      // $pic = $row['image_dir'];
-      $names = $row['item_name'];
-      $names = ucwords($names);
-      echo 'item names: '. $names . '<br>';
-      echo '<div class="row justify-content-center">';
-
-      echo '</div>';
+      // $names = $row['item_name'];
+      // $names = ucwords($names);
+      // echo 'item names: '. $names . '<br>';
+      // echo '<div class="row justify-content-center">';
+            //all this does now is print every item and their name
+      // echo '</div>';
     }
       
     //select item_id from cart_item where cart_id = (cart_id from above);

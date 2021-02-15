@@ -37,9 +37,8 @@
     for ($i=0; $i < $count; $i++) { 
     $stmt = $GLOBALS['db']->query("SELECT item_id FROM cart_item WHERE cart_id = '$carts[$i]'")->fetch();
     $items[$i] = $stmt['item_id'];
-    echo $items[$i];
     }
-
+    var_dump($items);
 
     // $stmt = $GLOBALS['db']->prepare("SELECT * FROM items WHERE item_id = '$iid'");//Select * allows me to pick different rows of the table in the while loop
     // $stmt->execute();

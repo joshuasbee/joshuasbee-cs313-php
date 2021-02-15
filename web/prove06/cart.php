@@ -30,7 +30,8 @@
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       $carts[$count] = $row['cart_id'];
-      // echo 'cart var dump: ' . var_dump($carts);
+      echo 'cart var dump:<br>';
+      var_dump($carts);
       $count++;
     }
 //Get the items from all the cart ID's and print them

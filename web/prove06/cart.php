@@ -33,6 +33,10 @@
       $count++;
     }
     //$carts is array of cart ID's for that user's ID
+    if (isset($carts)){
+
+    }
+    else{ echo '<div class="row justify-content-center">Cart is empty</div>'; }
 
     //Get the items from all the cart ID's
     $items;
@@ -50,8 +54,6 @@
       echo '</div>';
     }
 
-
-    
     // while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     // {
     //   $names = $row['item_name'];

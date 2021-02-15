@@ -61,6 +61,7 @@
     //add to database
     //lookup item ID
     $item = $_POST[$name];
+    echo "DEBUG: " . $item;
     $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";
     $stmt = $GLOBALS['db']->query($item_id)->fetch();
     $iid = $stmt['item_id'];
@@ -73,8 +74,6 @@
     $stmt = $GLOBALS['db']->query($cart_id)->fetch();
     $cid = $stmt['cart_id'];
     //add it to user_to_cart_id
-    /* INSERT INTO cart_item(item_id) VALUES (3);
-       INSERT INTO user_to_cart(cart_id, user_id) VALUES (1, 1);*/
     $uid = $_SESSION['user_id'];
     $psql = "INSERT INTO user_to_cart (cart_id, user_id) VALUES ('$cid', '$uid')";
     $stmt = $GLOBALS['db']->prepare($psql)->execute();

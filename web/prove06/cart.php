@@ -41,9 +41,9 @@
     }
 
 
-    $stmt = $GLOBALS['db']->prepare("SELECT * FROM items WHERE item_id = '$iid'");//Select * allows me to pick different rows of the table in the while loop
-    $stmt->execute();
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+    // $stmt = $GLOBALS['db']->prepare("SELECT * FROM items WHERE item_id = '$iid'");//Select * allows me to pick different rows of the table in the while loop
+    // $stmt->execute();
+    // while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       // $names = $row['item_name'];
       // $names = ucwords($names);

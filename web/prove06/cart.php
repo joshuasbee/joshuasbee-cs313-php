@@ -32,6 +32,9 @@
       $carts[$count] = $row['cart_id'];
       $count++;
     }
+    var_dump($carts);
+
+    echo '<br><br>';
 //Get the items from all the cart ID's
     $items;
     for ($i=0; $i < $count; $i++) { 

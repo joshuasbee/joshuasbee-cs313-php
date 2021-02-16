@@ -30,7 +30,8 @@
     $pic = $row['image_dir'];
     $stock = $row['quantity'];
     $price = $row['price'];
-    $nameUC = ucwords($names);
+    $name_ = str_replace("_", " ", $name);
+    $nameUC = ucwords($name_);//capitalize the name of the item for display
     echo "<div class='row justify-content-center'>";
     echo "<img src='$pic'>";
     echo "</div><div class='row justify-content-center'>";

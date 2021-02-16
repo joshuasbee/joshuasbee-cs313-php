@@ -22,7 +22,7 @@
     //verify that the login worked
     $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $pass_post = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-    $stmt = $GLOBALS['db']->prepare("SELECT * FROM users where email = '$email_post'")->execute();//select all items in table under the inputted email. 
+    $stmt = $GLOBALS['db']->query("SELECT * FROM users where email = '$email_post'")->fetch();//select all items in table under the inputted email. 
     $email = $stmt['email'];
     $pass = $stmt['password_'];
     // while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

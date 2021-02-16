@@ -37,6 +37,8 @@
         exit();
       }
       else{
+        echo 'pass: ' . $pass . '<br>';
+        echo 'verify: ' . password_verify($pass_post);
         echo 'Incorrect username or password!';
         exit();
       }

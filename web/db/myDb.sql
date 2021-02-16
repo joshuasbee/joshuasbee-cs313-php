@@ -12,7 +12,7 @@ CREATE TABLE address_(
 CREATE TABLE users(
   user_id    SERIAL      NOT NULL PRIMARY KEY,
   email      VARCHAR(50) NOT NULL,
-  password_  VARCHAR(50) NOT NULL
+  password_  VARCHAR(100) NOT NULL
 );
 
 -- CREATE TABLE orders(

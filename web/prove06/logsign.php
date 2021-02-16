@@ -28,7 +28,7 @@
     {
       $email = $row['email'];
       $pass = $row['password_'];
-      if($email_post == $email && password_verify($pass_post) == $pass){//check for match of input and database
+      if($email_post == $email && password_verify($pass_post, $pass)){//check for match of input and database
         //if successful login, then go to the other page
         $user_id = "SELECT user_id FROM users WHERE email = '$email'";
         $stmt = $GLOBALS['db']->query($user_id)->fetch();

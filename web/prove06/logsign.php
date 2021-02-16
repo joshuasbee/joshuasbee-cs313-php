@@ -17,7 +17,6 @@
   if (!isset($_SESSION)) { session_start(); }
   require "../db/dbConnect.php";
   $GLOBALS['db'] = get_db();
-  echo '<span class="float-left"><a href="index.php"><- Return to store</a></span>';
   if(isset($_POST['login'])){//check if login button was clicked
     //verify that the login worked
     $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);

@@ -16,6 +16,7 @@
 <body>
 <div class='container'> 
   <h1 class='text-center'>Log in</h1>
+  <span class="float-left"><a href="index.php"><- Return to store</a></span>
   <div class='row justify-content-center align-items-center'>
     <form action="logsign.php" method="post" class='form'>
       <input type='text' placeholder='email' name='email' class='form-control'>

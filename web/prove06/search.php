@@ -11,6 +11,11 @@
 </head>
 <body>
 <span class="float-left"><a href="index.php"><- Return to store</a></span>
+<span class="float-right">
+    <form action="cart.php" method='get'>
+      <input type="submit" value="Cart" class='btn-success rounded'>
+    </form>
+</span>
 <form method=post>
 <div class='container'>
 <?php 

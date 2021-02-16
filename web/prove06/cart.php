@@ -52,7 +52,7 @@
         echo $nameUC;
         echo '</div>';
         //TODO add remove from cart button
-
+        
       }
     }
     else{ echo '<div class="row justify-content-center">Cart is empty</div>'; }

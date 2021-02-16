@@ -71,11 +71,9 @@ else {
     if($iter_count <= 4) { echo "<div class='col'>"; }
     $pic = $row['image_dir'];
     $names = $row['item_name'];
-    $name_ = str_replace("_", " ", $names);
-    $nameUC = ucwords($name_);//capitalize the name of the item for display
-    echo "<button id='$names' value='$names' name='$names'><img src='$pic'></button>";//name property for using $_GET['item']
+    echo "<button id='$names' value='$names' name='$names'><img src='$pic'></button>";
     $names = ucwords($names);
-    echo "<p>$nameUC</p><br>";
+    echo "<p>$names</p><br>";//name property for using $_GET['item']
     if($iter_count <= 4){ echo "</div>"; }//closes each col
     if($iter_count == 4){ echo "</div>"; }//closes first row
     $iter_count++;

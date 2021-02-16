@@ -40,8 +40,7 @@
     $pic = $row['image_dir'];
     $stock = $row['quantity'];
     $price = $row['price'];
-    $nameS = str_replace("_", " ", $name);
-    $nameUC = ucwords($nameS);//capitalize the name of the item for display
+    $nameUC = ucwords($name);//capitalize the name of the item for display
     echo "<div class='row justify-content-center'>";//justify-content-center must be on each item within the container div
     echo "<img src='$pic'></div>" . "<div class='row justify-content-center'>$nameUC</div>";
     echo "<div class='row justify-content-center'>Price: \$$price</div><div class='row justify-content-center'>";
@@ -59,8 +58,9 @@
   echo '<div class="row justify-content-center">';
   echo '<a href="index.php"><- Return to store</a></div>';
   if (isset($_POST[$name]) && isset($_SESSION['user_id'])){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
+    //add to database
+    //lookup item ID
     $item = $_POST[$name];
-
     $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";
     $stmt = $GLOBALS['db']->query($item_id)->fetch();
     $iid = $stmt['item_id'];
@@ -73,14 +73,19 @@
     $stmt = $GLOBALS['db']->query($cart_id)->fetch();
     $cid = $stmt['cart_id'];
     //add it to user_to_cart_id
+    /* INSERT INTO cart_item(item_id) VALUES (3);
+       INSERT INTO user_to_cart(cart_id, user_id) VALUES (1, 1);*/
     $uid = $_SESSION['user_id'];
     $psql = "INSERT INTO user_to_cart (cart_id, user_id) VALUES ('$cid', '$uid')";
     $stmt = $GLOBALS['db']->prepare($psql)->execute();
+    
+    //TODO go back to main page or add back button
     echo '<script>alert("Item added to cart!")</script>';
   }
   elseif(!isset($_SESSION['user_id'])){
     echo "<div class='row justify-content-center text-danger'>Login to add an item to your cart.</div>";
   }
+
 ?>
 </div>
 

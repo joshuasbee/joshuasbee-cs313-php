@@ -17,36 +17,33 @@
   if (!isset($_SESSION)) { session_start(); }
   require "../db/dbConnect.php";
   $GLOBALS['db'] = get_db();
+
   if(isset($_POST['login'])){//check if login button was clicked
     //verify that the login worked
     $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $pass_post = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-    $stmt = $GLOBALS['db']->query("SELECT * FROM users where email = '$email_post'")->fetch();//select all items in table under the inputted email. 
-    $email = $stmt['email'];
-    $pass = $stmt['password_'];
-    if($email_post == $email && password_verify($pass_post, $pass)){//check for match of input and database
-      //if successful login, then go to the other page
-      $user_id = "SELECT user_id FROM users WHERE email = '$email'";
-      $stmt = $GLOBALS['db']->query($user_id)->fetch();
-      $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
-      header("Location: ./index.php");
-      exit();
-    }
-    elseif($email_post == 'a' && $pass_post == 'a'){//REMOVE LATER WHEN DONE
-      $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
-      header("Location: ./index.php");
-      exit();
-    }
-    else{
-      echo 'pass: ' . $pass . '<br>';
-      echo 'verify: ' . password_verify($pass_post);
-      echo 'Incorrect username or password!';
-      exit();
+    $stmt = $GLOBALS['db']->prepare("SELECT * FROM users");//Select * allows me to pick multiple rows of the table in the while loop
+    $stmt->execute();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+    {
+      $email = $row['email'];
+      $pass = $row['password_'];
+      if($email_post == $email && $pass_post == $pass){//check for match of input and database
+        //if successful login, then go to the other page
+        $user_id = "SELECT user_id FROM users WHERE email = '$email'";
+        $stmt = $GLOBALS['db']->query($user_id)->fetch();
+        $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
+        header("Location: ./index.php");
+        exit();
+      }
+      else{
+        echo 'Incorrect username or password!';
+        exit();
+      }
     }
   }
 ?>
 <body>
-<span class="float-left"><a href="index.php"><- Return to store</a></span>
 <div class='container'>
   <h1 class='text-center'>Sign Up</h1>
   <div class='row justify-content-center align-items-center'>
@@ -125,7 +122,7 @@
       // Validate e-mail
       if(filter_var($email, FILTER_VALIDATE_EMAIL)){}
       else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
-      if(preg_match($p_ex, $password)){ $password = password_hash($password, PASSWORD_DEFAULT); } //hash the password immediately 
+      if(preg_match($p_ex, $password)){} 
       else{echo '<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
       if(preg_match($z_ex, $zipcode) && strlen($zipcode) < 6){} 
       else{echo '<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}

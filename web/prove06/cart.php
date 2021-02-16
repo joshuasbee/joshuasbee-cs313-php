@@ -46,9 +46,13 @@
       for ($j=0; $j < $i; $j++) { 
         $stmt = $GLOBALS['db']->query("SELECT * FROM items WHERE item_id = '$items[$j]'")->fetch();
         echo '<div class="row justify-content-center">';
-        echo ucwords($stmt['item_name']);
-        //TODO add remove from cart button
+        $name = $stmt['item_name'];
+        $name_ = str_replace("_", " ", $name);
+        $nameUC = ucwords($name_);
+        echo $nameUC;
         echo '</div>';
+        //TODO add remove from cart button
+
       }
     }
     else{ echo '<div class="row justify-content-center">Cart is empty</div>'; }

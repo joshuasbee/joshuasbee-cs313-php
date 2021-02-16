@@ -40,7 +40,7 @@
     $pic = $row['image_dir'];
     $stock = $row['quantity'];
     $price = $row['price'];
-    $nameUC = str_replace("_", " ");
+    $nameUC = str_replace("_", " ", $name);
     echo 'after str_replace: ' . $nameUC . '<br>';
     $nameUC = ucwords($name);//capitalize the name of the item for display
     echo 'after uc: ' . $nameUC . '<br>';

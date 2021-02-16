@@ -41,6 +41,7 @@
     $stock = $row['quantity'];
     $price = $row['price'];
     $nameUC = ucwords($name);//capitalize the name of the item for display
+    $nameUC = str_replace("_", " ");
     echo "<div class='row justify-content-center'>";//justify-content-center must be on each item within the container div
     echo "<img src='$pic'></div>" . "<div class='row justify-content-center'>$nameUC</div>";
     echo "<div class='row justify-content-center'>Price: \$$price</div><div class='row justify-content-center'>";
@@ -52,7 +53,6 @@
       echo "<div class='row justify-content-center'>";
       echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
       echo "</div>";
-      echo 'NAME ->' . $name;//TESTING PURPOSES
     }
   }
   echo '</form>';

@@ -52,6 +52,7 @@
       echo "<div class='row justify-content-center'>";
       echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
       echo "</div>";
+      echo 'NAME ->' . $name;
     }
   }
   echo '</form>';
@@ -61,7 +62,7 @@
     //add to database
     //lookup item ID
     $item = $_POST[$name];
-    var_dump($item);
+
     $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";
     $stmt = $GLOBALS['db']->query($item_id)->fetch();
     $iid = $stmt['item_id'];

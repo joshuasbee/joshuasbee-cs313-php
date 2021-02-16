@@ -17,7 +17,7 @@
   if (!isset($_SESSION)) { session_start(); }
   require "../db/dbConnect.php";
   $GLOBALS['db'] = get_db();
-
+  echo '<span class="float-left"><a href="index.php"><- Return to store</a></span>';
   if(isset($_POST['login'])){//check if login button was clicked
     //verify that the login worked
     $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -25,26 +25,20 @@
     $stmt = $GLOBALS['db']->query("SELECT * FROM users where email = '$email_post'")->fetch();//select all items in table under the inputted email. 
     $email = $stmt['email'];
     $pass = $stmt['password_'];
-    // while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-    // {
-      // $email = $row['email'];
-      // $pass = $row['password_'];
-      echo $email . '<br>' . $pass;
-      if($email_post == $email && password_verify($pass_post, $pass)){//check for match of input and database
-        //if successful login, then go to the other page
-        $user_id = "SELECT user_id FROM users WHERE email = '$email'";
-        $stmt = $GLOBALS['db']->query($user_id)->fetch();
-        $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
-        header("Location: ./index.php");
-        exit();
-      }
-      else{
-        echo 'pass: ' . $pass . '<br>';
-        echo 'verify: ' . password_verify($pass_post);
-        echo 'Incorrect username or password!';
-        exit();
-      }
-    // }
+    if($email_post == $email && password_verify($pass_post, $pass)){//check for match of input and database
+      //if successful login, then go to the other page
+      $user_id = "SELECT user_id FROM users WHERE email = '$email'";
+      $stmt = $GLOBALS['db']->query($user_id)->fetch();
+      $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
+      header("Location: ./index.php");
+      exit();
+    }
+    else{
+      echo 'pass: ' . $pass . '<br>';
+      echo 'verify: ' . password_verify($pass_post);
+      echo 'Incorrect username or password!';
+      exit();
+    }
   }
 ?>
 <body>
@@ -126,10 +120,7 @@
       // Validate e-mail
       if(filter_var($email, FILTER_VALIDATE_EMAIL)){}
       else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
-      if(preg_match($p_ex, $password)){
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        echo 'phash = ' . $password;//REMOVE LATER
-      } 
+      if(preg_match($p_ex, $password)){ $password = password_hash($password, PASSWORD_DEFAULT); } //hash the password immediately 
       else{echo '<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
       if(preg_match($z_ex, $zipcode) && strlen($zipcode) < 6){} 
       else{echo '<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}

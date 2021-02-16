@@ -81,7 +81,6 @@
   elseif(!isset($_SESSION['user_id'])){
     echo "<div class='row justify-content-center text-danger'>Login to add an item to your cart.</div>";
   }
-
 ?>
 </div>
 

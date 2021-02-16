@@ -29,11 +29,11 @@
     $pic = $row['image_dir'];
     $stock = $row['quantity'];
     $price = $row['price'];
-    $name = ucwords($name);
+    $nameUC = ucwords($names);
     echo "<div class='row justify-content-center'>";
     echo "<img src='$pic'>";
     echo "</div><div class='row justify-content-center'>";
-    echo "$name";
+    echo "$nameUC";
     echo "</div><div class='row justify-content-center'>";
     echo "Price: \$$price<br>";
     echo "</div><div class='row justify-content-center'>";

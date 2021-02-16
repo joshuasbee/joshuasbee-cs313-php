@@ -23,11 +23,13 @@
     $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $pass_post = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     $stmt = $GLOBALS['db']->prepare("SELECT * FROM users where email = '$email_post'")->execute();//select all items in table under the inputted email. 
-    
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-    {
-      $email = $row['email'];
-      $pass = $row['password_'];
+    $email = $stmt['email'];
+    $pass = $stmt['password_'];
+    // while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+    // {
+      // $email = $row['email'];
+      // $pass = $row['password_'];
+      echo $email . '<br>' . $pass;
       if($email_post == $email && password_verify($pass_post, $pass)){//check for match of input and database
         //if successful login, then go to the other page
         $user_id = "SELECT user_id FROM users WHERE email = '$email'";
@@ -42,7 +44,7 @@
         echo 'Incorrect username or password!';
         exit();
       }
-    }
+    // }
   }
 ?>
 <body>

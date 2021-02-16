@@ -10,6 +10,7 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<span class="float-left"><a href="index.php"><- Return to store</a></span>
 <form method=post>
 <div class='container'>
 <?php 

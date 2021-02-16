@@ -6,8 +6,10 @@ INSERT INTO user_to_address(user_id, address_id) VALUES (1, 1);
 INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('anduril', 0, '../imgs/Anduril.jpeg', 499);
 INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('glamdring', 5, '../imgs/Glamdring.png', 399);
 INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('sting', 30, '../imgs/Sting.png', 199);
-INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('lego gandalf', 512, '../imgs/lego-gandalf.png', 5);
-INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('orc armor', 20, '../imgs/orc-armor.png', 599);
+-- INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('lego gandalf', 512, '../imgs/lego-gandalf.png', 5);
+-- INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('orc armor', 20, '../imgs/orc-armor.png', 599);
+INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('lego_gandalf', 512, '../imgs/lego-gandalf.png', 5);
+INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('orc_armor', 20, '../imgs/orc-armor.png', 599);
 --have to create carts after items are created
 -- INSERT INTO cart_item(item_id) VALUES (3);
 -- INSERT INTO user_to_cart(cart_id, user_id) VALUES (1, 1);

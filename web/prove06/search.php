@@ -31,7 +31,11 @@
     $price = $row['price'];
     $name = ucwords($name);
     echo "<div class='row justify-content-center'>";
-    echo "<img src='$pic'>" . "<div>$name</div>" . "Price: \$$price<br>";
+    echo "<img src='$pic'>";
+    echo "</div><div class='row justify-content-center'>";
+    echo "$name";
+    echo "</div><div class='row justify-content-center'>";
+    echo "Price: \$$price<br>";
     echo "</div><div class='row justify-content-center'>";
     if ($stock >= 10){ echo "In stock"; }
     elseif ($stock > 1 && $stock < 10){ echo "Low stock"; }

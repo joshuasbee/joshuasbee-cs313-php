@@ -41,9 +41,7 @@
     $stock = $row['quantity'];
     $price = $row['price'];
     $nameS = str_replace("_", " ", $name);
-    echo 'after str_replace: ' . $nameS . '<br>';
     $nameUC = ucwords($nameS);//capitalize the name of the item for display
-    echo 'after uc: ' . $nameUC . '<br>';
     echo "<div class='row justify-content-center'>";//justify-content-center must be on each item within the container div
     echo "<img src='$pic'></div>" . "<div class='row justify-content-center'>$nameUC</div>";
     echo "<div class='row justify-content-center'>Price: \$$price</div><div class='row justify-content-center'>";

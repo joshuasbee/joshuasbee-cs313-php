@@ -32,13 +32,15 @@
     $name = ucwords($name);
     echo "<div class='row justify-content-center'>";
     echo "<img src='$pic'>" . "<div>$name</div>" . "Price: \$$price<br>";
+    echo "</div><div class='row justify-content-center'>";
     if ($stock >= 10){ echo "In stock"; }
     elseif ($stock > 1 && $stock < 10){ echo "Low stock"; }
     else { echo "Out of stock"; }
+    echo "</div><div class='row justify-content-center'>";
     if ($stock > 0){
       echo "<br><button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
     }
-    echo '</div>';//closing div tag for centering content
+    echo '</div>';//closing div tag for last justify-content-center
     echo "<br></div></form>";//close container div and form
   }
   if (isset($_POST[$name]) && isset($_SESSION['user_id'])){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database

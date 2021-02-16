@@ -28,7 +28,7 @@
     {
       $email = $row['email'];
       $pass = $row['password_'];
-      if($email_post == $email && $pass_post == $pass){//check for match of input and database
+      if($email_post == $email && password_verify($pass_post) == $pass){//check for match of input and database
         //if successful login, then go to the other page
         $user_id = "SELECT user_id FROM users WHERE email = '$email'";
         $stmt = $GLOBALS['db']->query($user_id)->fetch();
@@ -122,7 +122,9 @@
       // Validate e-mail
       if(filter_var($email, FILTER_VALIDATE_EMAIL)){}
       else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
-      if(preg_match($p_ex, $password)){} 
+      if(preg_match($p_ex, $password)){
+        $password = password_hash($password);
+      } 
       else{echo '<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}
       if(preg_match($z_ex, $zipcode) && strlen($zipcode) < 6){} 
       else{echo '<div class="text-danger text-center">Zip code must be 5 digits</div>'; $err = 1;}

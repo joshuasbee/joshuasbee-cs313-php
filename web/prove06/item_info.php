@@ -52,15 +52,13 @@
       echo "<div class='row justify-content-center'>";
       echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
       echo "</div>";
-      echo 'NAME ->' . $name;
+      echo 'NAME ->' . $name;//TESTING PURPOSES
     }
   }
   echo '</form>';
   echo '<div class="row justify-content-center">';
   echo '<a href="index.php"><- Return to store</a></div>';
   if (isset($_POST[$name]) && isset($_SESSION['user_id'])){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
-    //add to database
-    //lookup item ID
     $item = $_POST[$name];
 
     $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";
@@ -78,8 +76,6 @@
     $uid = $_SESSION['user_id'];
     $psql = "INSERT INTO user_to_cart (cart_id, user_id) VALUES ('$cid', '$uid')";
     $stmt = $GLOBALS['db']->prepare($psql)->execute();
-    
-    //TODO go back to main page or add back button
     echo '<script>alert("Item added to cart!")</script>';
   }
   elseif(!isset($_SESSION['user_id'])){

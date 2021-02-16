@@ -40,9 +40,9 @@
     $pic = $row['image_dir'];
     $stock = $row['quantity'];
     $price = $row['price'];
-    $name = str_replace("_", " ", $name);
-    echo 'after str_replace: ' . $name . '<br>';
-    $nameUC = ucwords($name);//capitalize the name of the item for display
+    $nameS = str_replace("_", " ", $nameS);
+    echo 'after str_replace: ' . $nameS . '<br>';
+    $nameUC = ucwords($nameS);//capitalize the name of the item for display
     echo 'after uc: ' . $nameUC . '<br>';
     echo "<div class='row justify-content-center'>";//justify-content-center must be on each item within the container div
     echo "<img src='$pic'></div>" . "<div class='row justify-content-center'>$nameUC</div>";

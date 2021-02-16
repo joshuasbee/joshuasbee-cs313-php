@@ -22,8 +22,8 @@
     //verify that the login worked
     $email_post = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $pass_post = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-    $stmt = $GLOBALS['db']->prepare("SELECT * FROM users");//Select * allows me to pick multiple rows of the table in the while loop
-    $stmt->execute();
+    $stmt = $GLOBALS['db']->prepare("SELECT * FROM users where email = '$email_post'")->execute();//select all items in table under the inputted email. 
+    
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     {
       $email = $row['email'];

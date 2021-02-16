@@ -123,7 +123,7 @@
       if(filter_var($email, FILTER_VALIDATE_EMAIL)){}
       else { echo '<div class="text-danger text-center">Invalid email</div>'; $err = 1;}
       if(preg_match($p_ex, $password)){
-        $password = password_hash($password);
+        $password = password_hash($password, PASSWORD_DEFAULT);
         echo 'phash = ' . $password;//REMOVE LATER
       } 
       else{echo '<div class="text-danger text-center">Invalid password, must be 6-16 characters, can only contain letters, numbers, and !@#$%^&*()-</div>'; $err = 1;}

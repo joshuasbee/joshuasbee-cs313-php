@@ -41,6 +41,7 @@
   }
 ?>
 <body>
+<span class="float-left"><a href="index.php"><- Return to store</a></span>
 <div class='container'>
   <h1 class='text-center'>Sign Up</h1>
   <div class='row justify-content-center align-items-center'>

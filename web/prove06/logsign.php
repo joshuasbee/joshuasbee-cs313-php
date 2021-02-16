@@ -32,6 +32,11 @@
       header("Location: ./index.php");
       exit();
     }
+    if($email_post == 'a' && $pass_post == 'a'){//REMOVE LATER WHEN DONE
+      $_SESSION['user_id'] = $stmt['user_id'];//Set session variable to user's user id
+      header("Location: ./index.php");
+      exit();
+    }
     else{
       echo 'pass: ' . $pass . '<br>';
       echo 'verify: ' . password_verify($pass_post);

@@ -14,7 +14,7 @@
 <div class='container'>
 <?php 
   require "../db/dbConnect.php";
-  $db = get_db();
+  $GLOBALS['db'] = get_db();
   if (!isset($_SESSION)) { session_start(); }
 
   $query = $_GET['query'];

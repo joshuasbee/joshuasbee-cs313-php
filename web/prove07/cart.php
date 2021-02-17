@@ -24,21 +24,20 @@
   $stmt = $db->prepare("SELECT items.item_name FROM user_to_cart INNER JOIN cart_item ON user_to_cart.cart_id = cart_item.cart_id 
     INNER JOIN items ON cart_item.item_id = items.item_id;");
   $stmt->execute();
-  if ($stmt->row_count() > 0){
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-    {
-      $name = $row['item_name'];
-      echo '<div class="row justify-content-center">';
-      $name_ = str_replace("_", " ", $name);
-      $nameUC = ucwords($name_);
-      echo $nameUC;
-      echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
-      echo '</div>';
-      
-      
-    }
+
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+  {
+    $name = $row['item_name'];
+    echo '<div class="row justify-content-center">';
+    $name_ = str_replace("_", " ", $name);
+    $nameUC = ucwords($name_);
+    echo $nameUC;
+    echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
+    echo '</div>';
   }
-  else { echo '<div class="row justify-content-center">Cart is empty</div>'; }
+  if (!isset($row->item_name)){
+    echo 'empty';
+  }
   }//ending if logged in
   else{ echo 'not logged in'; }
   if(isset($_POST[$name]) && isset($_SESSION['user_id'])){

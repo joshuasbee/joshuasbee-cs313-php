@@ -44,10 +44,11 @@
     echo "</div><div class='row justify-content-center'>";
     echo "Price: \$$price<br>";
     echo "</div>";
+    echo "<div class='row justify-content-center'>";
     if ($stock >= 10){ echo "<p class='text-success'>In stock</p>"; }
     elseif ($stock > 1 && $stock < 10){ echo "<p class='text-warning'>Low stock</p>"; }
     else { echo "<p class='text-danger'>Out of stock</p>"; }
-    echo "<div class='row justify-content-center'>";
+    echo "</div><div class='row justify-content-center'>";
     if ($stock > 0){
       echo "<br><button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
     }

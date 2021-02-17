@@ -35,7 +35,7 @@
     echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
     echo '</div>';
   }
-  if (is_array($row)){
+  if (is_array($row)){//make a counter in the loop, if it is zero, run this
     echo '<div class="row justify-content-center">Cart is empty!</div>';
   }
   }//ending if logged in

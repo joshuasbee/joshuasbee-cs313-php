@@ -27,6 +27,7 @@
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     $name = $row['item_name'];
+    echo 'name variable has: ' . $name;
     if (count($row['item_name']) > 0) {
     echo '<div class="row justify-content-center">';
     $name_ = str_replace("_", " ", $name);

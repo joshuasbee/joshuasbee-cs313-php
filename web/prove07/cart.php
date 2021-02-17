@@ -20,51 +20,32 @@
   if (!isset($_SESSION)) { session_start(); }
   if(isset($_SESSION['user_id'])){
     $uid = $_SESSION['user_id'];
-    //get their items in their cart and display them
-    //SELECT cart_id FROM user_to_cart WHERE user_id = $_SESSION['user_id']; could be multiple carts
-    $stmt = $GLOBALS['db']->prepare("SELECT * FROM user_to_cart WHERE user_id = '$uid'");//Select * allows me to pick different rows of the table in the while loop
-    $stmt->execute();
-    //get all cart ids in an array
-    $count = 0;
-    $carts;//initialize variable for bigger scope
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-    {
-      $carts[$count] = $row['cart_id'];
-      $count++;
+    //display all item names and remove from cart buttons
+    
+  $stmt = $db->prepare("SELECT items.item_name FROM user_to_cart INNER JOIN cart_item ON user_to_cart.cart_id = cart_item.cart_id 
+    INNER JOIN items ON cart_item.item_id = items.item_id;");
+  $stmt->execute();
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+  {
+    $name = $row['item_name'];
+    if (isset($row['item_name'])) {
+    echo '<div class="row justify-content-center">';
+    $name_ = str_replace("_", " ", $name);
+    $nameUC = ucwords($name_);
+    echo $nameUC;
+    echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
+    echo '</div>';
     }
-    //$carts is array of cart ID's for that user's ID
-    if (isset($carts)){
-      //Get the items from all the cart ID's
-      $items;
-      for ($i=0; $i < $count; $i++) { 
-      $stmt = $GLOBALS['db']->query("SELECT item_id FROM cart_item WHERE cart_id = '$carts[$i]'")->fetch();
-      $items[$i] = $stmt['item_id'];
-      }
-      //$items is an array of item ID's with the given cart ID
-     
-      //display all item names and remove from cart buttons
-      for ($j=0; $j < $i; $j++) { 
-        $stmt = $GLOBALS['db']->query("SELECT * FROM items WHERE item_id = '$items[$j]'")->fetch();
-        echo '<div class="row justify-content-center">';
-        $name = $stmt['item_name'];
-        $name_ = str_replace("_", " ", $name);
-        $nameUC = ucwords($name_);
-        echo $nameUC;
-        echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
-        echo '</div>';
-      }
-      echo '</form>';
-    }//ending if cart is set
-    else{ echo '<div class="row justify-content-center">Cart is empty</div>'; }
-  }//ending for if userid is set
-  else{
-    echo 'not logged in';
-    //maybe say sign up to access your cart
+    else{echo 'cart is empty';}
   }
+  }//ending if logged in
+  else{ echo 'not logged in'; }
+  //else{ echo '<div class="row justify-content-center">Cart is empty</div>'; }
+  
+  
   if(isset($_POST[$name]) && isset($_SESSION['user_id'])){
   //remove item from cart
   }
-
   echo '<div class="row justify-content-center">';
   echo '<a href="index.php"><- Return to store</a></div>';
   ?>

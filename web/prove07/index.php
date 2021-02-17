@@ -23,7 +23,7 @@ if (!isset($_SESSION)) { session_start(); }
 
 <body>
   <span class="float-right">
-    <form action="cart2.php" method='get'>
+    <form action="cart.php" method='get'>
       <input type="submit" value="Cart" class='btn-success rounded'>
     </form>
   </span>

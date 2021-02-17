@@ -50,15 +50,11 @@
         $name_ = str_replace("_", " ", $name);
         $nameUC = ucwords($name_);
         echo $nameUC;
-        
-        //TODO add remove from cart button
-        // echo '<div class="row justify-content-center">';
         echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
         echo '</div>';
-        // echo '</div';
       }
       echo '</form>';
-    }
+    }//ending if cart is set
     else{ echo '<div class="row justify-content-center">Cart is empty</div>'; }
   }//ending for if userid is set
   else{
@@ -67,7 +63,6 @@
   }
   if(isset($_POST[$name]) && isset($_SESSION['user_id'])){
   //remove item from cart
-    echo 'remove ' . $name;
   }
 
   echo '<div class="row justify-content-center">';

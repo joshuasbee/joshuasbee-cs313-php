@@ -36,7 +36,7 @@
     echo '</div>';
   }
   if (!isset($row->item_name)){
-    echo 'empty';
+    echo '<div class="row justify-content-center">Cart is empty!</div>';
   }
   }//ending if logged in
   else{ echo 'not logged in'; }

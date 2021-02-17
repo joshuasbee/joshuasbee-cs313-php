@@ -64,10 +64,8 @@
   if(isset($_POST[$name]) && isset($_SESSION['user_id'])){
   //remove item from cart
   }
-
   echo '<div class="row justify-content-center">';
   echo '<a href="index.php"><- Return to store</a></div>';
   ?>
 </body>
-
 </html>

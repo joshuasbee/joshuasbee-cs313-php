@@ -21,14 +21,13 @@
   if(isset($_SESSION['user_id'])){
     $uid = $_SESSION['user_id'];
     //display all item names and remove from cart buttons
-    
   $stmt = $db->prepare("SELECT items.item_name FROM user_to_cart INNER JOIN cart_item ON user_to_cart.cart_id = cart_item.cart_id 
     INNER JOIN items ON cart_item.item_id = items.item_id;");
   $stmt->execute();
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     $name = $row['item_name'];
-    if (isset($row['item_name'])) {
+    if (count($row['item_name']) > 0) {
     echo '<div class="row justify-content-center">';
     $name_ = str_replace("_", " ", $name);
     $nameUC = ucwords($name_);
@@ -40,9 +39,6 @@
   }
   }//ending if logged in
   else{ echo 'not logged in'; }
-  //else{ echo '<div class="row justify-content-center">Cart is empty</div>'; }
-  
-  
   if(isset($_POST[$name]) && isset($_SESSION['user_id'])){
   //remove item from cart
   }
@@ -50,5 +46,4 @@
   echo '<a href="index.php"><- Return to store</a></div>';
   ?>
 </body>
-
 </html>

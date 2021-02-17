@@ -27,16 +27,15 @@
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     $name = $row['item_name'];
-    echo 'name variable has: ' . $name;
-    if (count($row['item_name']) > 0) {
     echo '<div class="row justify-content-center">';
     $name_ = str_replace("_", " ", $name);
     $nameUC = ucwords($name_);
     echo $nameUC;
     echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
     echo '</div>';
-    }
-    else{echo 'cart is empty';}
+  }
+  if ($row != $stmt->fetch(PDO::FETCH_ASSOC)){
+    echo '<div class="row justify-content-center">Cart is empty!</div>';
   }
   }//ending if logged in
   else{ echo 'not logged in'; }

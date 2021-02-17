@@ -50,10 +50,11 @@
         $name_ = str_replace("_", " ", $name);
         $nameUC = ucwords($name_);
         echo $nameUC;
-        echo '</div>';
+        
         //TODO add remove from cart button
         // echo '<div class="row justify-content-center">';
         echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
+        echo '</div>';
         // echo '</div';
       }
       echo '</form>';

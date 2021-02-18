@@ -59,7 +59,7 @@
 
   if(isset($rem) && isset($_SESSION['user_id'])){//TODO change postname because that is whatever the last item was in the loop
   //remove item from cart
-  $n = $_rem;
+  $n = $rem;
   $x = "SELECT cart_item.cart_id, cart_item.item_id 
           FROM cart_item
           INNER JOIN user_to_cart ON cart_item.cart_id = user_to_cart.cart_id

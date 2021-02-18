@@ -24,7 +24,7 @@
   $stmt = $db->prepare("SELECT items.item_name, items.item_id FROM user_to_cart INNER JOIN cart_item ON user_to_cart.cart_id = cart_item.cart_id 
     INNER JOIN items ON cart_item.item_id = items.item_id;");
   $stmt->execute();
-
+    $count = 0;
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     $name = $row['item_name'];
@@ -37,8 +37,9 @@
     echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
     echo '</form>';
     echo '</div>';
+    $count++;
   }
-  if (is_array($row)){//make a counter in the loop, if it is zero, run this
+  if ($count == 0){//make a counter in the loop, if it is zero, run this
     echo '<div class="row justify-content-center">Cart is empty!</div>';
   }
   }//ending if logged in

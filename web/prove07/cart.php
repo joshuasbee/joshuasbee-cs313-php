@@ -24,7 +24,8 @@
   $stmt = $db->prepare("SELECT items.item_name, items.item_id FROM user_to_cart INNER JOIN cart_item ON user_to_cart.cart_id = cart_item.cart_id 
     INNER JOIN items ON cart_item.item_id = items.item_id;");
   $stmt->execute();
-    $count = 0;
+  echo '<form method=post>';
+  $count = 0;
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     $name = $row['item_name'];
@@ -33,18 +34,19 @@
     $name_ = str_replace("_", " ", $name);
     $nameUC = ucwords($name_);
     echo $nameUC;
-    echo '<form method=post name="$id">';
+    
     echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
-    echo '</form>';
+   
     echo '</div>';
     $count++;
   }
+  echo '</form>';
   if ($count == 0){//make a counter in the loop, if it is zero, run this
     echo '<div class="row justify-content-center">Cart is empty!</div>';
   }
   }//ending if logged in
   else{ echo 'not logged in'; }
-  if(isset($_POST[$name]) && isset($_SESSION['user_id'])){
+  if(isset($_POST[$name]) && isset($_SESSION['user_id'])){//TODO change postname because that is whatever the last item was in the loop
   //remove item from cart
   $n = $_POST[$name];
   $x = "SELECT cart_item.cart_id, cart_item.item_id 

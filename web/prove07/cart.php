@@ -47,6 +47,7 @@
   }
   }//ending if logged in
   else{ echo 'not logged in'; }
+  var_dump($_POST);
   if(isset($_POST[$name]) && isset($_SESSION['user_id'])){//TODO change postname because that is whatever the last item was in the loop
   //remove item from cart
   $n = $_POST[$name];
@@ -73,6 +74,7 @@
   <script>
   function clicked(value){//this works, maybe change a hidden items value and read it from the PHP?
     alert(value);
+    // document.getElementByID()
   }
   </script>
 </body>

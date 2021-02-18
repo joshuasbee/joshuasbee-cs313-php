@@ -78,7 +78,6 @@
   $del2 = "DELETE FROM cart_item
            WHERE item_id = $iid and cart_id = $cid";
   $d = $GLOBALS['db']->prepare($del2)->execute();
-  echo '<script>alert("item removed successfully</script>';
   header("Location: ./cart.php");
   exit();
   }

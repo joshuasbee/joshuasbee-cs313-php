@@ -64,7 +64,7 @@
           WHERE item_id = (
             SELECT item_id
               FROM items
-              WHERE item_name = '$n');";
+              WHERE item_name = '$n')";
   $stmt = $GLOBALS['db']->query($x)->fetch();
   $cid = $stmt['cart_id'];
   $iid = $stmt['item_id'];

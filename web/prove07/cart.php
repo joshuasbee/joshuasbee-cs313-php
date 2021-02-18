@@ -71,7 +71,7 @@
   echo '<a href="index.php"><- Return to store</a></div>';
   ?>
   <script>
-  function clicked(var value){//this works, maybe change a hidden items value and read it from the PHP?
+  function clicked(value){//this works, maybe change a hidden items value and read it from the PHP?
     alert(value);
   }
   </script>

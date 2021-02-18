@@ -46,7 +46,7 @@
   }
   }//ending if logged in
   else{ echo 'not logged in'; }
-  var_dump($_POST);
+  // var_dump($_POST);
   $rem = '';
   if(isset($_POST['anduril'])){ $rem = 'anduril'; }
   if(isset($_POST['glamdring'])){ $rem = 'glamdring'; }
@@ -68,7 +68,7 @@
   $stmt = $GLOBALS['db']->query($x)->fetch();
   $cid = $stmt['cart_id'];
   $iid = $stmt['item_id'];
-  echo 'cartID: ' . $cid . '<br>ItemID: ' . $iid;
+  // echo 'cartID: ' . $cid . '<br>ItemID: ' . $iid;
   //delete using cid and iid
   $del = "DELETE FROM user_to_cart
           WHERE user_id = $uid AND cart_id = $cid";
@@ -77,8 +77,9 @@
   $del2 = "DELETE FROM cart_item
            WHERE item_id = $iid and cart_id = $cid";
   $d = $GLOBALS['db']->prepare($del2)->execute();
-  //alert 'item removed successfully'
   echo '<script>alert("item removed successfully</script>';
+  header("Location: ./cart.php");
+  exit();
   }
   echo '<div class="row justify-content-center">';
   echo '<a href="index.php"><- Return to store</a></div>';

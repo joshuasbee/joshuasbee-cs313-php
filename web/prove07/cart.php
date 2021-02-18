@@ -35,11 +35,12 @@
     $nameUC = ucwords($name_);
     echo $nameUC;
     
-    echo "<button id='$name' value='$name' name='$name' class='rounded btn-success' onclick='clicked()'>remove from cart</button>";
-   
+    echo "<button id='$name' value='$name' name='$name' class='rounded btn-success' onclick='clicked(this.value)'>remove from cart</button>";
+    
     echo '</div>';
     $count++;
   }
+  echo "<input value='$name' type='hidden'>";
   echo '</form>';
   if ($count == 0){//make a counter in the loop, if it is zero, run this
     echo '<div class="row justify-content-center">Cart is empty!</div>';
@@ -70,8 +71,8 @@
   echo '<a href="index.php"><- Return to store</a></div>';
   ?>
   <script>
-  function clicked(){
-    alert();
+  function clicked(var value){//this works, maybe change a hidden items value and read it from the PHP?
+    alert(value);
   }
   </script>
 </body>

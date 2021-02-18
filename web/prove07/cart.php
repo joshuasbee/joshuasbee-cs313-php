@@ -48,9 +48,18 @@
   }//ending if logged in
   else{ echo 'not logged in'; }
   var_dump($_POST);
-  if(isset($_POST[$name]) && isset($_SESSION['user_id'])){//TODO change postname because that is whatever the last item was in the loop
+  $rem = '';
+  if(isset($_POST['glamdring'])){
+    $rem = 'glamdring';
+  }
+  if(isset($_POST['sting'])){
+    $rem = 'sting';
+  }
+
+
+  if(isset($rem) && isset($_SESSION['user_id'])){//TODO change postname because that is whatever the last item was in the loop
   //remove item from cart
-  $n = $_POST[$name];
+  $n = $_rem;
   $x = "SELECT cart_item.cart_id, cart_item.item_id 
           FROM cart_item
           INNER JOIN user_to_cart ON cart_item.cart_id = user_to_cart.cart_id

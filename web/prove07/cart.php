@@ -54,7 +54,7 @@
   if(isset($_POST['lego_gandalf'])){ $rem = 'lego_gandalf'; }
   if(isset($_POST['orc_armor'])){ $rem = 'orc_armor'; }
 
-  if(isset($rem) && isset($_SESSION['user_id']) && $count > 0){
+  if(strlen($rem) > 2 && isset($_SESSION['user_id']) && $count > 0){
   //remove item from cart
   $n = $rem;
   $uid = $_SESSION['user_id'];

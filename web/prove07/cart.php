@@ -42,6 +42,30 @@
   else{ echo 'not logged in'; }
   if(isset($_POST[$name]) && isset($_SESSION['user_id'])){
   //remove item from cart
+      // $psql = "INSERT INTO cart_item (item_id) VALUES ('$iid')";
+      // $stmt = $GLOBALS['db']->prepare($psql)->execute();
+  //then get the cart id of most recent cart addition, which is line above
+      // $cart_id = "SELECT cart_id FROM cart_item WHERE cart_id = (SELECT MAX(cart_id) from cart_item)";
+      // $stmt = $GLOBALS['db']->query($cart_id)->fetch();
+      // $cid = $stmt['cart_id'];
+      $n = $_POST[$name];
+      $x = "SELECT cart_item.cart_id, cart_item.item_id 
+              FROM cart_item
+              INNER JOIN user_to_cart ON cart_item.cart_id = user_to_cart.cart_id
+              WHERE item_id = (
+                SELECT item_id
+                  FROM items
+                  WHERE item_name = '$n');";
+      $stmt = $GLOBALS['db']->query($x)->fetch();
+      $cid = $stmt['cart_id'];
+      $iid = $stmt['item_id'];
+      echo 'cartID: ' . $cid . '<br>ItemID: ' . $iid;
+  //add it to user_to_cart_id
+      // $uid = $_SESSION['user_id'];
+      // $psql = "INSERT INTO user_to_cart (cart_id, user_id) VALUES ('$cid', '$uid')";
+      // $stmt = $GLOBALS['db']->prepare($psql)->execute();
+    
+
   }
   echo '<div class="row justify-content-center">';
   echo '<a href="index.php"><- Return to store</a></div>';

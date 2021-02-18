@@ -10,6 +10,12 @@ INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('sting', 30, '.
 -- INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('orc armor', 20, '../imgs/orc-armor.png', 599);
 INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('lego_gandalf', 512, '../imgs/lego-gandalf.png', 5);
 INSERT INTO items(item_name, quantity, image_dir, price) VALUES ('orc_armor', 20, '../imgs/orc-armor.png', 599);
+
+INSERT INTO cart_item (item_id) VALUES (1);
+INSERT INTO user_to_cart (cart_id, user_id) VALUES (1, 1);
+
+-- ALTER TABLE user_to_cart ADD FOREIGN KEY (cart_id) REFERENCES cart_item(cart_id) ON DELETE CASCADE;
+
 --have to create carts after items are created
 -- INSERT INTO cart_item(item_id) VALUES (3);
 -- INSERT INTO user_to_cart(cart_id, user_id) VALUES (1, 1);

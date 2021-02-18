@@ -30,7 +30,6 @@ CREATE TABLE items(
 
 CREATE TABLE cart_item(
   cart_id   SERIAL      NOT NULL PRIMARY KEY,
-  -- quantity  INTEGER     NOT NULL, -- Maybe add back later, but complicated for now
   item_id   INTEGER     NOT NULL REFERENCES  items(item_id)
 );
 

@@ -66,8 +66,8 @@
               FROM items
               WHERE item_name = '$n')";
   $stmt = $GLOBALS['db']->query($x)->fetch();
-  $cid = $stmt['cart_id'];
-  $iid = $stmt['item_id'];
+  $cid = $stmt['cart_item.cart_id'];
+  $iid = $stmt['cart_item.item_id'];
   // echo 'cartID: ' . $cid . '<br>ItemID: ' . $iid;
   //delete using cid and iid
   $del = "DELETE FROM user_to_cart

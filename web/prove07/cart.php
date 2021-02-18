@@ -40,7 +40,6 @@
     echo '</div>';
     $count++;
   }
-  echo "<input value='$name' type='hidden'>";
   echo '</form>';
   if ($count == 0){//make a counter in the loop, if it is zero, run this
     echo '<div class="row justify-content-center">Cart is empty!</div>';
@@ -49,17 +48,16 @@
   else{ echo 'not logged in'; }
   var_dump($_POST);
   $rem = '';
-  if(isset($_POST['glamdring'])){
-    $rem = 'glamdring';
-  }
-  if(isset($_POST['sting'])){
-    $rem = 'sting';
-  }
-
+  if(isset($_POST['anduril'])){ $rem = 'anduril'; }
+  if(isset($_POST['glamdring'])){ $rem = 'glamdring'; }
+  if(isset($_POST['sting'])){ $rem = 'sting'; }
+  if(isset($_POST['lego_gandalf'])){ $rem = 'lego_gandalf'; }
+  if(isset($_POST['orc_armor'])){ $rem = 'orc_armor'; }
 
   if(isset($rem) && isset($_SESSION['user_id'])){//TODO change postname because that is whatever the last item was in the loop
   //remove item from cart
   $n = $rem;
+  $uid = $_SESSION['user_id'];
   $x = "SELECT cart_item.cart_id, cart_item.item_id 
           FROM cart_item
           INNER JOIN user_to_cart ON cart_item.cart_id = user_to_cart.cart_id
@@ -72,10 +70,15 @@
   $iid = $stmt['item_id'];
   echo 'cartID: ' . $cid . '<br>ItemID: ' . $iid;
   //delete using cid and iid
+  $del = "DELETE FROM user_to_cart
+          WHERE user_id = $uid AND cart_id = $cid";
+  $d = $GLOBALS['db']->prepare($del)->execute();
 
-
+  $del2 = "DELETE FROM cart_item
+           WHERE item_id = $iid and cart_id = $cid";
+  $d = $GLOBALS['db']->prepare($del2)->execute();
   //alert 'item removed successfully'
-    
+  echo '<script>alert("item removed successfully</script>';
   }
   echo '<div class="row justify-content-center">';
   echo '<a href="index.php"><- Return to store</a></div>';

@@ -62,7 +62,7 @@
     $stmt = $GLOBALS['db']->query($item_id)->fetch();
     $iid = $stmt['item_id'];
     
-    //add item to cart_item 
+    //add item to cart_item
     $psql = "INSERT INTO cart_item (item_id) VALUES ('$iid')";
     $stmt = $GLOBALS['db']->prepare($psql)->execute();
     //then get the cart id of most recent cart addition, which is line above

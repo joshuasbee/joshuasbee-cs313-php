@@ -41,6 +41,7 @@
   }//ending if logged in
   else{ echo 'not logged in'; }
   if(isset($_POST[$name]) && isset($_SESSION['user_id'])){
+    echo 'Removing....<br>';
   //remove item from cart
       // $psql = "INSERT INTO cart_item (item_id) VALUES ('$iid')";
       // $stmt = $GLOBALS['db']->prepare($psql)->execute();

@@ -35,7 +35,7 @@
     $nameUC = ucwords($name_);
     echo $nameUC;
     
-    echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>remove from cart</button>";
+    echo "<button id='$name' value='$name' name='$name' class='rounded btn-success' onclick='clicked()'>remove from cart</button>";
    
     echo '</div>';
     $count++;
@@ -69,5 +69,10 @@
   echo '<div class="row justify-content-center">';
   echo '<a href="index.php"><- Return to store</a></div>';
   ?>
+  <script>
+  function clicked(){
+    alert();
+  }
+  </script>
 </body>
 </html>

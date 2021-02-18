@@ -68,7 +68,8 @@
   $stmt = $GLOBALS['db']->query($x)->fetch();
   $cid = $stmt['cart_item.cart_id'];
   $iid = $stmt['cart_item.item_id'];
-  // echo 'cartID: ' . $cid . '<br>ItemID: ' . $iid;
+  var_dump($stmt);
+  echo 'cartID: ' . $cid . '<br>ItemID: ' . $iid;
   //delete using cid and iid
   $del = "DELETE FROM user_to_cart
           WHERE user_id = $uid AND cart_id = $cid";

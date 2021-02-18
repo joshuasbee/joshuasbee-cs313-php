@@ -55,7 +55,14 @@
     echo '</div>';//closing div tag for last justify-content-center
     echo "<br></div></form>";//close container div and form
   }
-  if (isset($_POST[$name]) && isset($_SESSION['user_id'])){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
+  $add = '';
+  if(isset($_POST['anduril'])){ $add = 'anduril'; }
+  if(isset($_POST['glamdring'])){ $add = 'glamdring'; }
+  if(isset($_POST['sting'])){ $add = 'sting'; }
+  if(isset($_POST['lego_gandalf'])){ $add = 'lego_gandalf'; }
+  if(isset($_POST['orc_armor'])){ $add = 'orc_armor'; }
+
+  if (isset($_POST[$name]) && isset($_SESSION['user_id']) && strlen($add) > 2){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
     $item = $_POST[$name];
 
     $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";

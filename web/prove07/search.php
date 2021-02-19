@@ -51,10 +51,10 @@
     echo "</div><div class='row justify-content-center'>";
     if ($stock > 0){
       echo "<br><button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
-    }
-    echo '</div>';//closing div tag for last justify-content-center
-    echo "<br></div></form>";//close container div and form
+    }  
   }
+   echo '</div>';//closing div tag for last justify-content-center
+  echo "<br></div></form>";//close container div and form
   $add = '';
   if(isset($_POST['anduril'])){ $add = 'anduril'; }
   if(isset($_POST['glamdring'])){ $add = 'glamdring'; }

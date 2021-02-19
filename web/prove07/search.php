@@ -62,7 +62,7 @@
   if(isset($_POST['sting'])){ $add = 'sting'; }
   if(isset($_POST['lego_gandalf'])){ $add = 'lego_gandalf'; }
   if(isset($_POST['orc_armor'])){ $add = 'orc_armor'; }
-
+    var_dump($_POST);
   if (isset($_POST[$name]) && isset($_SESSION['user_id']) && strlen($add) > 2){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
     $item = $_POST[$name];
 

@@ -68,12 +68,12 @@
   if (isset($_SESSION['user_id']) && strlen($add) > 2 && $count > 0){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
     $item = $_POST[$name];
 
-    $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";
-    $stmt = $GLOBALS['db']->query($item_id)->fetch();
-    $iid = $stmt['item_id'];
+    // $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";
+    // $stmt = $GLOBALS['db']->query($item_id)->fetch();
+    // $iid = $stmt['item_id'];
     
     //add item to cart_item
-    $psql = "INSERT INTO cart_item (item_id) VALUES ('$iid')";
+    $psql = "INSERT INTO cart_item (item_id) VALUES ('$add')";
     $stmt = $GLOBALS['db']->prepare($psql)->execute();
     //then get the cart id of most recent cart addition, which is line above
     $cart_id = "SELECT cart_id FROM cart_item WHERE cart_id = (SELECT MAX(cart_id) from cart_item)";

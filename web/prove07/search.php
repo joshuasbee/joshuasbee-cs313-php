@@ -29,6 +29,7 @@
 
   $stmt = $db->prepare("SELECT * FROM items WHERE item_name LIKE '%$query%'");
   $stmt->execute();
+  $count = 0;
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
   {
     $name = $row['item_name'];
@@ -50,9 +51,10 @@
     else { echo "<p class='text-danger'>Out of stock</p>"; }
     echo "</div><div class='row justify-content-center'>";
     if ($stock > 0){
-      echo "<br><button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
+      echo "<button id='$name' value='$name' name='$name' class='rounded btn-success'>Add to cart</button>";
     }  
     echo '</div>';//closing div tag for last justify-content-center
+    $count++;
   }
    
   echo "<br></div></form>";//close container div and form
@@ -63,7 +65,7 @@
   if(isset($_POST['lego_gandalf'])){ $add = 'lego_gandalf'; }
   if(isset($_POST['orc_armor'])){ $add = 'orc_armor'; }
     var_dump($_POST);
-  if (isset($_POST[$name]) && isset($_SESSION['user_id']) && strlen($add) > 2){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
+  if (isset($_SESSION['user_id']) && strlen($add) > 2 && $count > 0){//if the button was clicked and they are logged in, $name holds the name of the item as it is in the database
     $item = $_POST[$name];
 
     $item_id = "SELECT item_id FROM items WHERE item_name = '$item'";
